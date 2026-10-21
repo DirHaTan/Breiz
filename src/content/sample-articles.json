@@ -1,0 +1,174 @@
+[
+  {
+    "id": "lechienn-nevez",
+    "section": "keleier",
+    "author": "Breiz",
+    "date": "2026-10-20",
+    "br": {
+      "slug": "ul-lechienn-nevez-evit-ar-brezoneg",
+      "title": "Ul lec'hienn nevez evit ar brezoneg",
+      "excerpt": "Ur gelaouenn nevez a zo bet krouet war ar genroued: Breiz.",
+      "body": [
+        "Ur gelaouenn nevez a zo bet krouet war ar genroued: Breiz.",
+        "Keleier, lennegez ha troidigeziou a vo embannet enni bep sizun, e brezoneg hag e galleg.",
+        "Pennad skouer eo hemañ."
+      ]
+    },
+    "fr": {
+      "slug": "un-nouveau-site-pour-la-langue-bretonne",
+      "title": "Un nouveau site pour la langue bretonne",
+      "excerpt": "Un nouveau journal a été créé sur internet : Breiz.",
+      "body": [
+        "Un nouveau journal a été créé sur internet : Breiz.",
+        "Des actualités, de la littérature et des traductions y seront publiées chaque semaine, en breton et en français.",
+        "Ceci est un article d'exemple."
+      ]
+    }
+  },
+  {
+    "id": "gouel-kemper",
+    "section": "breiz",
+    "author": "Breiz",
+    "date": "2026-10-19",
+    "br": {
+      "slug": "gouel-ar-brezoneg-e-kemper",
+      "title": "Gouel ar brezoneg e Kemper",
+      "excerpt": "Kalz a dud a oa en em gavet e Kemper evit ar gouel.",
+      "body": [
+        "Kalz a dud a oa en em gavet e Kemper evit ar gouel.",
+        "Sonerien ha kanerien a zo bet klevet e-pad an deiz.",
+        "Pennad skouer eo hemañ."
+      ]
+    },
+    "fr": {
+      "slug": "fete-de-la-langue-bretonne-a-quimper",
+      "title": "Fête de la langue bretonne à Quimper",
+      "excerpt": "Beaucoup de monde s'était rassemblé à Quimper pour la fête.",
+      "body": [
+        "Beaucoup de monde s'était rassemblé à Quimper pour la fête.",
+        "Sonneurs et chanteurs se sont fait entendre toute la journée.",
+        "Ceci est un article d'exemple."
+      ]
+    }
+  },
+  {
+    "id": "yezou-parlamant",
+    "section": "frans",
+    "author": "Breiz",
+    "date": "2026-10-18",
+    "br": {
+      "slug": "ar-yezou-rannvroel-er-parlamant",
+      "title": "Ar yezou rannvroel er Parlamant",
+      "excerpt": "Kaozeet eo bet adarre eus ar yezou rannvroel er Parlamant.",
+      "body": [
+        "Kaozeet eo bet adarre eus ar yezou rannvroel er Parlamant.",
+        "Pennad skouer eo hemañ."
+      ]
+    },
+    "fr": {
+      "slug": "les-langues-regionales-au-parlement",
+      "title": "Les langues régionales au Parlement",
+      "excerpt": "Il a de nouveau été question des langues régionales au Parlement.",
+      "body": [
+        "Il a de nouveau été question des langues régionales au Parlement.",
+        "Ceci est un article d'exemple."
+      ]
+    }
+  },
+  {
+    "id": "yezou-bihan",
+    "section": "bed",
+    "author": "Breiz",
+    "date": "2026-10-17",
+    "br": {
+      "slug": "ar-yezou-bihan-dre-ar-bed",
+      "title": "Ar yezou bihan dre ar bed",
+      "excerpt": "Miliadou a yezou a vez komzet dre ar bed.",
+      "body": [
+        "Miliadou a yezou a vez komzet dre ar bed.",
+        "Pennad skouer eo hemañ."
+      ]
+    },
+    "fr": {
+      "slug": "les-petites-langues-a-travers-le-monde",
+      "title": "Les petites langues à travers le monde",
+      "excerpt": "Des milliers de langues sont parlées à travers le monde.",
+      "body": [
+        "Des milliers de langues sont parlées à travers le monde.",
+        "Ceci est un article d'exemple."
+      ]
+    }
+  },
+  {
+    "id": "levr-bugale",
+    "section": "lennegez",
+    "author": "Breiz",
+    "date": "2026-10-16",
+    "br": {
+      "slug": "ul-levr-nevez-evit-ar-vugale",
+      "title": "Ul levr nevez evit ar vugale",
+      "excerpt": "Ul levr nevez e brezoneg a zo bet embannet evit ar vugale.",
+      "body": [
+        "Ul levr nevez e brezoneg a zo bet embannet evit ar vugale.",
+        "Pennad skouer eo hemañ."
+      ]
+    },
+    "fr": {
+      "slug": "un-nouveau-livre-pour-les-enfants",
+      "title": "Un nouveau livre pour les enfants",
+      "excerpt": "Un nouveau livre en breton a été publié pour les enfants.",
+      "body": [
+        "Un nouveau livre en breton a été publié pour les enfants.",
+        "Ceci est un article d'exemple."
+      ]
+    }
+  },
+  {
+    "id": "troi-barzoniez",
+    "section": "troidigez",
+    "author": "Breiz",
+    "date": "2026-10-15",
+    "br": {
+      "slug": "troi-ar-varzoniez",
+      "title": "Troi ar varzoniez",
+      "excerpt": "Troi ur barzoneg a zo diaes.",
+      "body": [
+        "Troi ur barzoneg a zo diaes.",
+        "Pennad skouer eo hemañ."
+      ]
+    },
+    "fr": {
+      "slug": "traduire-la-poesie",
+      "title": "Traduire la poésie",
+      "excerpt": "Traduire un poème est difficile.",
+      "body": [
+        "Traduire un poème est difficile.",
+        "Ceci est un article d'exemple."
+      ]
+    }
+  },
+  {
+    "id": "skoliou-divyezek",
+    "section": "kevredigez",
+    "author": "Breiz",
+    "date": "2026-10-14",
+    "br": {
+      "slug": "ar-skoliou-divyezek",
+      "title": "Ar skoliou divyezek",
+      "excerpt": "Muioc'h-mui a vugale a ya d'ar skoliou divyezek.",
+      "body": [
+        "Muioc'h-mui a vugale a ya d'ar skoliou divyezek.",
+        "Pennad skouer eo hemañ."
+      ]
+    },
+    "fr": {
+      "slug": "les-ecoles-bilingues",
+      "title": "Les écoles bilingues",
+      "excerpt": "De plus en plus d'enfants vont dans les écoles bilingues.",
+      "body": [
+        "De plus en plus d'enfants vont dans les écoles bilingues.",
+        "Ceci est un article d'exemple."
+      ]
+    }
+  }
+]

@@ -1,0 +1,57 @@
+{
+  "site": {
+    "name": "Breiz",
+    "tagline": "Actualités et littérature en breton"
+  },
+  "nav": {
+    "home": "Accueil",
+    "sections": "Rubriques",
+    "subscribe": "S'abonner",
+    "signIn": "Se connecter",
+    "languageSwitch": "Brezoneg"
+  },
+  "home": {
+    "latest": "Les plus récents",
+    "lead": "À la une"
+  },
+  "article": {
+    "by": "Par",
+    "readMore": "Lire la suite",
+    "translationAvailable": "Lire cet article en breton",
+    "sampleNotice": "Ceci est un article d'exemple. Il sera remplacé par de vrais articles."
+  },
+  "paywall": {
+    "title": "Lisez l'article en entier",
+    "text": "Pour lire tous les articles de Breiz, abonnez-vous.",
+    "price": "5 € par semaine",
+    "button": "S'abonner",
+    "already": "Déjà abonné ?"
+  },
+  "comments": {
+    "title": "Commentaires des lecteurs",
+    "signInToComment": "Connectez-vous pour écrire un commentaire.",
+    "comingSoon": "Les commentaires ouvriront bientôt."
+  },
+  "subscribe": {
+    "title": "S'abonner à Breiz",
+    "intro": "Avec un abonnement, vous pouvez lire tous les articles de Breiz, en breton et en français.",
+    "price": "5 €",
+    "period": "par semaine",
+    "features": [
+      "Tous les articles, sans limite",
+      "En breton et en français",
+      "Commenter sous les articles",
+      "Résiliable à tout moment"
+    ],
+    "button": "S'abonner",
+    "comingSoon": "Le paiement ouvrira bientôt."
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "back": "Retour à l'accueil"
+  },
+  "footer": {
+    "about": "Breiz, un journal en breton et en français.",
+    "rights": "Tous droits réservés."
+  }
+}
