@@ -7,7 +7,7 @@ const brMonths = [
 ];
 
 export function formatDate(date: string, lang: Locale): string {
-  const [y, m, d] = date.split("-").map(Number);
+  const [y, m, d] = date.slice(0, 10).split("-").map(Number);
   if (lang === "br") return `${d} a viz ${brMonths[m - 1]} ${y}`;
   return new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(
     Date.UTC(y, m - 1, d),
@@ -15,5 +15,5 @@ export function formatDate(date: string, lang: Locale): string {
 }
 
 export function FormattedDate({ date, lang }: { date: string; lang: Locale }) {
-  return <time dateTime={date}>{formatDate(date, lang)}</time>;
+  return <time dateTime={date.slice(0, 10)}>{formatDate(date, lang)}</time>;
 }

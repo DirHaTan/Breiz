@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Article images are served by Sanity's image service.
+  images: { remotePatterns: [{ protocol: "https", hostname: "cdn.sanity.io" }] },
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {

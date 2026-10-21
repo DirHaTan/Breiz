@@ -21,6 +21,6 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Skip Next.js internals, API routes, and files such as icon.svg.
-  matcher: ["/((?!_next|api|.*\\..*).*)"],
+  // Skip Next.js internals, API routes, the editor (/studio), and files such as icon.svg.
+  matcher: ["/((?!_next|api|studio|.*\\..*).*)"],
 };
