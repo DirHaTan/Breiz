@@ -11,7 +11,7 @@ A news and publishing website in Breton (skolveurieg orthography) and French.
 1. ✅ **Skeleton:** pages, sections, two languages, logo, "no zh" guard, sample articles.
 2. ✅ **Sanity:** write real articles in an online editor at `/studio`.
 3. ✅ **Accounts and comments** (Supabase): sign in by email link, comment, report, moderate.
-4. ⬜ **Subscriptions** at €5/week (Stripe).
+4. ⬜ **Subscriptions** at €5/month or €50/year (Stripe).
 5. ⬜ **Final polish:** legal pages, social-media previews, publishing guide.
 
 ## Where things are

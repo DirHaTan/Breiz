@@ -24,7 +24,7 @@
   "paywall": {
     "title": "Lisez l'article en entier",
     "text": "Pour lire tous les articles de Breiz, abonnez-vous.",
-    "price": "5 € par semaine",
+    "price": "5 € par mois ou 50 € par an",
     "button": "S'abonner",
     "already": "Déjà abonné ?"
   },
@@ -52,8 +52,16 @@
   "subscribe": {
     "title": "S'abonner à Breiz",
     "intro": "Avec un abonnement, vous pouvez lire tous les articles de Breiz, en breton et en français.",
-    "price": "5 €",
-    "period": "par semaine",
+    "monthly": {
+      "price": "5 €",
+      "period": "par mois",
+      "note": ""
+    },
+    "yearly": {
+      "price": "50 €",
+      "period": "par an",
+      "note": "Deux mois offerts"
+    },
     "features": [
       "Tous les articles, sans limite",
       "En breton et en français",

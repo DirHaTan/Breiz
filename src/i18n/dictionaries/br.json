@@ -24,7 +24,7 @@
   "paywall": {
     "title": "Lennit ar pennad a-bez",
     "text": "Evit lenn holl bennadou Breiz, koumanantit.",
-    "price": "5 € ar sizun",
+    "price": "5 € ar miz pe 50 € ar bloaz",
     "button": "Koumanantiñ",
     "already": "Koumanantet oc'h dija?"
   },
@@ -52,12 +52,20 @@
   "subscribe": {
     "title": "Koumanantiñ da Breiz",
     "intro": "Gant ur c'houmanant e c'hellit lenn holl bennadou Breiz, e brezoneg hag e galleg.",
-    "price": "5 €",
-    "period": "ar sizun",
+    "monthly": {
+      "price": "5 €",
+      "period": "ar miz",
+      "note": ""
+    },
+    "yearly": {
+      "price": "50 €",
+      "period": "ar bloaz",
+      "note": "Daou viz digoust"
+    },
     "features": [
       "An holl bennadou, hep bevenn",
       "E brezoneg hag e galleg",
-      "Skriva soñjou dindan ar pennadou",
+      "Skrivañ soñjou dindan ar pennadou",
       "Gallout paouez pa garit"
     ],
     "button": "Koumanantiñ",
