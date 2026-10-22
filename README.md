@@ -176,10 +176,12 @@ anyone, which would expose the full text of paid articles. Breiz avoids this:
   anonymous visitors read documents whose address contains a dot. Only you
   (logged in) and the website (with its secret token) can.
 - The website reads only these private copies. Free readers see the title,
-  the summary and the first paragraph; the rest stays on the server.
+  the summary and the beginning of the text: the first paragraph, but never
+  more than 40% of the article, so a short article is never shown in full.
+  The rest stays on the server.
 - **Tennañ** takes an article off the site. Deleting an article in the
   editor also takes it off the site.
-- At the top of each article, a label says **Enlinenn** (online). If it says
+- At the bottom of each article, a label says **Enlinenn** (online). If it says
   **Enlinenn – kemmou nevez**, you've made changes that readers can't see
   yet: click **Embann** again.
 - In the editor's menu, **Pennadou enlinenn** lists the articles that are online.

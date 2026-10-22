@@ -10,7 +10,10 @@ export const client = createClient({
   dataset,
   apiVersion,
   useCdn: false,
-  perspective: "published",
+  // "raw" lets the site see drafts too. It needs that to check that an
+  // online article still exists in the editor (where articles are drafts).
+  // Only the queries in src/lib/articles.ts decide what is shown.
+  perspective: "raw",
   token: process.env.SANITY_API_READ_TOKEN,
 });
 

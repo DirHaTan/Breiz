@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { PortableText } from "@portabletext/react";
 import { notFound } from "next/navigation";
 import { isLocale, localePath, otherLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -12,6 +11,7 @@ import { Paywall } from "@/components/Paywall";
 import { Comments } from "@/components/Comments";
 import { FormattedDate } from "@/components/FormattedDate";
 import { imageSrc } from "@/lib/images";
+import { freePreview } from "@/lib/preview";
 import { getSection } from "@/lib/sections";
 
 export async function generateStaticParams() {
@@ -61,9 +61,9 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/[sectio
   const { lang, section, article, translation } = data;
   const dict = getDictionary(lang);
 
-  // Every article is for subscribers: non-subscribers only see the first paragraph.
+  // Every article is for subscribers: non-subscribers only see the beginning.
   // (Step 4 will show the full text to subscribers.)
-  const firstParagraph = article.body.find((block) => block._type === "block");
+  const preview = freePreview(article.body);
   const image = article.image && imageSrc(article.image, 1344);
 
   return (
@@ -100,7 +100,7 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/[sectio
           </figure>
         )}
         <div className="mt-6 font-serif text-lg leading-relaxed">
-          {firstParagraph && <PortableText value={[firstParagraph]} />}
+          {preview && <p>{preview}</p>}
         </div>
         <Paywall lang={lang} dict={dict} />
         <Comments lang={lang} dict={dict} articleId={article.id} articleHref={articlePath(article)} />

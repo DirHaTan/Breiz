@@ -9,8 +9,9 @@ import {
 } from "sanity";
 import { apiVersion } from "./env";
 import { LIVE_TYPE, liveId } from "./live";
+import { articleFields, contentHash } from "./contentHash";
 
-type LiveCopy = { sourceRev?: string } | null;
+type LiveCopy = { sourceHash?: string } | null;
 
 // Watches the private online copy of an article ("pennad.<id>").
 // undefined = still loading, null = not online.
@@ -19,23 +20,21 @@ function useLiveCopy(articleId: string): LiveCopy | undefined {
   const [copy, setCopy] = useState<LiveCopy | undefined>(undefined);
   useEffect(() => {
     const id = liveId(articleId);
-    const load = () => client.fetch<LiveCopy>(`*[_id == $id][0]{ sourceRev }`, { id }).then(setCopy);
-    load();
-    const subscription = client.listen(`*[_id == $id]`, { id }, { includeResult: false }).subscribe(() => load());
+    client.fetch<LiveCopy>(`*[_id == $id][0]{ sourceHash }`, { id }).then(setCopy);
+    // Use the document sent with each change, rather than asking again:
+    // a query sent right after a change can still see the old version.
+    const subscription = client.listen(`*[_id == $id]`, { id }, { includeResult: true }).subscribe((event) => {
+      if (event.type !== "mutation") return;
+      const result = event.result as { sourceHash?: string } | undefined;
+      setCopy(event.transition === "disappear" || !result ? null : { sourceHash: result.sourceHash });
+    });
     return () => subscription.unsubscribe();
   }, [client, articleId]);
   return copy;
 }
 
-// The article's own fields, without Sanity's bookkeeping (ID, revision, dates).
-function articleFields(doc: SanityDocument): Record<string, unknown> {
-  const fields: Record<string, unknown> = { ...doc };
-  for (const key of ["_id", "_rev", "_createdAt", "_updatedAt", "_system"]) delete fields[key];
-  return fields;
-}
-
 function isUpToDate(copy: LiveCopy | undefined, source: SanityDocument | null) {
-  return Boolean(copy && source && copy.sourceRev === source._rev);
+  return Boolean(copy?.sourceHash && source && copy.sourceHash === contentHash(source));
 }
 
 // "Embann" (publish): saves a private copy of the article, which the website shows.
@@ -65,7 +64,7 @@ export const EmbannAction: DocumentActionComponent = (props: DocumentActionProps
         _type: LIVE_TYPE,
         sourceId: props.id,
         draftId: `drafts.${props.id}`,
-        sourceRev: source._rev,
+        sourceHash: contentHash(source),
         liveAt: new Date().toISOString(),
       });
       // An article published the old way is public: keep it as a private
@@ -109,7 +108,8 @@ export const TennanAction: DocumentActionComponent = (props: DocumentActionProps
 };
 TennanAction.action = "unpublish";
 
-// The label at the top of the article: is it on the website?
+// The label at the bottom of the article: is it on the website?
+// Uses exactly the same check as the Embann button, so they always agree.
 export const OnlineBadge: DocumentBadgeComponent = (props) => {
   const copy = useLiveCopy(props.id);
   if (!copy) return null;

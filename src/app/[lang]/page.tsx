@@ -32,7 +32,9 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
             <ArticleCard article={lead} size="lead" />
           </section>
         )}
-        <h2 className="mt-8 mb-4 text-xs font-bold uppercase tracking-widest">{dict.home.latest}</h2>
+        {rest.length > 0 && (
+          <h2 className="mt-8 mb-4 text-xs font-bold uppercase tracking-widest">{dict.home.latest}</h2>
+        )}
         <div className="grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
           {rest.map((article) => (
             <ArticleCard key={article.id} article={article} />
