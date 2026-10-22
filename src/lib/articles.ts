@@ -25,6 +25,8 @@ export type Article = {
   section: SectionId;
   author: string;
   date: string;
+  // "Pennad digoust": shown in full to everyone, without the paywall.
+  free?: boolean;
   image?: ArticleImage | null;
   br?: ArticleText | null;
   fr?: ArticleText | null;
@@ -37,6 +39,7 @@ export type LocalizedArticle = ArticleText & {
   section: SectionId;
   author: string;
   date: string;
+  free: boolean;
   image?: ArticleImage | null;
 };
 
@@ -49,6 +52,7 @@ const articlesQuery = defineQuery(`
     section,
     "author": coalesce(author->name, "Breiz"),
     "date": publishedAt,
+    "free": coalesce(free, false),
     "image": mainImage,
     "br": br { title, "slug": slug.current, excerpt, "body": coalesce(body, []) },
     "fr": select(
@@ -102,6 +106,7 @@ function localize(article: Article, lang: Locale): LocalizedArticle | undefined 
     section: article.section,
     author: article.author,
     date: article.date,
+    free: article.free ?? false,
     image: article.image,
   };
 }
@@ -128,7 +133,7 @@ export async function getTranslation(id: string, lang: Locale) {
   return article && localize(article, lang);
 }
 
-export function articlePath(article: LocalizedArticle): string {
+export function articlePath(article: Pick<LocalizedArticle, "section" | "lang" | "slug">): string {
   const section = getSection(article.section)!;
   return localePath(article.lang, `/${section[article.lang].slug}/${article.slug}`);
 }

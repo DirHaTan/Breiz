@@ -12,6 +12,7 @@ import { Comments } from "@/components/Comments";
 import { FormattedDate } from "@/components/FormattedDate";
 import { imageSrc } from "@/lib/images";
 import { freePreview } from "@/lib/preview";
+import { ArticleBody } from "@/components/ArticleBody";
 import { getSection } from "@/lib/sections";
 
 export async function generateStaticParams() {
@@ -45,7 +46,14 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/[section]/
   return {
     title: article.title,
     description: article.excerpt,
-    openGraph: { type: "article", title: article.title, description: article.excerpt, publishedTime: article.date },
+    openGraph: {
+      type: "article",
+      title: article.title,
+      description: article.excerpt,
+      publishedTime: article.date,
+      // The picture Facebook and others show when the article is shared.
+      images: article.image ? [{ url: imageSrc(article.image, 1200), width: 1200, height: 675 }] : undefined,
+    },
     alternates: {
       canonical: articlePath(article),
       languages: translation
@@ -61,9 +69,11 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/[sectio
   const { lang, section, article, translation } = data;
   const dict = getDictionary(lang);
 
-  // Every article is for subscribers: non-subscribers only see the beginning.
+  // Articles are for subscribers: non-subscribers only see the beginning.
+  // A "Pennad digoust" (free article) is shown in full to everyone.
   // (Step 4 will show the full text to subscribers.)
-  const preview = freePreview(article.body);
+  const showFullText = article.free;
+  const preview = showFullText ? "" : freePreview(article.body);
   const image = article.image && imageSrc(article.image, 1344);
 
   return (
@@ -99,10 +109,16 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/[sectio
             <Image src={image} alt={article.image?.alt ?? ""} width={1344} height={756} className="w-full" priority />
           </figure>
         )}
-        <div className="mt-6 font-serif text-lg leading-relaxed">
-          {preview && <p>{preview}</p>}
-        </div>
-        <Paywall lang={lang} dict={dict} />
+        {showFullText ? (
+          <div className="mt-6">
+            <ArticleBody body={article.body} />
+          </div>
+        ) : (
+          <>
+            <div className="mt-6 font-serif text-lg leading-relaxed">{preview && <p>{preview}</p>}</div>
+            <Paywall lang={lang} dict={dict} />
+          </>
+        )}
         <Comments lang={lang} dict={dict} articleId={article.id} articleHref={articlePath(article)} />
       </main>
     </>

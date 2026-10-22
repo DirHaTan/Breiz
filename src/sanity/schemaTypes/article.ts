@@ -79,6 +79,14 @@ export const article = defineType({
       options: { list: sections.map((s) => ({ title: `${s.br.name} – ${s.fr.name}`, value: s.id })), layout: "radio" },
       validation: (r) => r.required(),
     }),
+    defineField({
+      name: "free",
+      title: "Pennad digoust",
+      description:
+        "Diskouezet a-bez d'an holl, hep koumanant. · Article gratuit : affiché en entier à tous, sans abonnement.",
+      type: "boolean",
+      initialValue: false,
+    }),
     defineField({ name: "author", title: "Author / Skrivagner", type: "reference", to: [{ type: "author" }] }),
     defineField({
       name: "publishedAt",
