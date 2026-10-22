@@ -8,7 +8,8 @@
     "sections": "Rubriques",
     "subscribe": "S'abonner",
     "signIn": "Se connecter",
-    "languageSwitch": "Brezoneg"
+    "languageSwitch": "Brezoneg",
+    "account": "Mon compte"
   },
   "home": {
     "latest": "Les plus récents",
@@ -30,7 +31,23 @@
   "comments": {
     "title": "Commentaires des lecteurs",
     "signInToComment": "Connectez-vous pour écrire un commentaire.",
-    "comingSoon": "Les commentaires ouvriront bientôt."
+    "comingSoon": "Les commentaires ouvriront bientôt.",
+    "signInLink": "Se connecter",
+    "none": "Aucun commentaire pour l'instant.",
+    "placeholder": "Écrivez votre commentaire…",
+    "nameLabel": "Votre nom",
+    "post": "Publier",
+    "delete": "Supprimer",
+    "confirmDelete": "Supprimer ce commentaire ?",
+    "report": "Signaler",
+    "reported": "Signalé. Merci.",
+    "hide": "Masquer",
+    "unhide": "Réafficher",
+    "hiddenLabel": "Masqué",
+    "empty": "Écrivez quelque chose.",
+    "tooLong": "Commentaire trop long (2000 caractères maximum).",
+    "tooMany": "Trop de commentaires en peu de temps. Patientez un peu.",
+    "error": "Une erreur est survenue. Réessayez."
   },
   "subscribe": {
     "title": "S'abonner à Breiz",
@@ -53,5 +70,33 @@
   "footer": {
     "about": "Breiz, un journal en breton et en français.",
     "rights": "Tous droits réservés."
+  },
+  "account": {
+    "title": "Mon compte",
+    "signInTitle": "Se connecter",
+    "signInIntro": "Saisissez votre adresse e-mail. Nous vous enverrons un lien de connexion, sans mot de passe.",
+    "emailLabel": "Adresse e-mail",
+    "sendLink": "Envoyer le lien",
+    "linkSent": "Lien envoyé ! Regardez dans vos e-mails (et dans vos spams).",
+    "invalidEmail": "Adresse e-mail invalide.",
+    "linkError": "Ce lien est invalide ou a expiré. Demandez-en un nouveau.",
+    "signedInAs": "Connecté en tant que",
+    "displayName": "Votre nom (affiché avec vos commentaires)",
+    "save": "Enregistrer",
+    "saved": "Enregistré.",
+    "nameInvalid": "Le nom doit faire entre 2 et 40 caractères.",
+    "signOut": "Se déconnecter",
+    "moderation": "Modération des commentaires",
+    "notConfigured": "Les comptes ne sont pas encore ouverts.",
+    "genericError": "Une erreur est survenue. Réessayez.",
+    "tooManyEmails": "Trop d'e-mails envoyés. Patientez un peu avant de réessayer."
+  },
+  "moderation": {
+    "title": "Modération des commentaires",
+    "reported": "Commentaires signalés",
+    "hidden": "Commentaires masqués",
+    "nothing": "Rien à modérer.",
+    "reports": "signalement(s)",
+    "forbidden": "Réservé aux modérateurs."
   }
 }

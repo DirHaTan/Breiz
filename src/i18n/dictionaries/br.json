@@ -8,7 +8,8 @@
     "sections": "Rannou",
     "subscribe": "Koumanantiñ",
     "signIn": "Kevreañ",
-    "languageSwitch": "Français"
+    "languageSwitch": "Français",
+    "account": "Ma c'hont"
   },
   "home": {
     "latest": "Ar re nevesañ",
@@ -30,7 +31,23 @@
   "comments": {
     "title": "Soñjou al lennerien",
     "signInToComment": "Kevreit evit skrivañ ur soñj.",
-    "comingSoon": "Ar soñjou a vo digoret a-benn nebeut."
+    "comingSoon": "Ar soñjou a vo digoret a-benn nebeut.",
+    "signInLink": "Kevreañ",
+    "none": "N'eus soñj ebet c'hoaz.",
+    "placeholder": "Skrivit ho soñj…",
+    "nameLabel": "Hoc'h anv",
+    "post": "Embann",
+    "delete": "Dilemel",
+    "confirmDelete": "Dilemel ar soñj-mañ?",
+    "report": "Diskleriañ",
+    "reported": "Diskleriet. Trugarez.",
+    "hide": "Kuzat",
+    "unhide": "Diskouez",
+    "hiddenLabel": "Kuzet",
+    "empty": "Skrivit un dra bennak.",
+    "tooLong": "Re hir eo ar soñj (2000 arouezenn d'ar muiañ).",
+    "tooMany": "Re a soñjou e berr amzer. Gortozit un tamm.",
+    "error": "Ur fazi a zo bet. Klaskit en-dro."
   },
   "subscribe": {
     "title": "Koumanantiñ da Breiz",
@@ -53,5 +70,33 @@
   "footer": {
     "about": "Breiz, ur gelaouenn e brezoneg hag e galleg.",
     "rights": "An holl wiriou miret."
+  },
+  "account": {
+    "title": "Ma c'hont",
+    "signInTitle": "Kevreañ",
+    "signInIntro": "Skrivit ho chomlec'h postel. Kaset e vo deoc'h ul liamm evit kevreañ, hep ger-tremen.",
+    "emailLabel": "Chomlec'h postel",
+    "sendLink": "Kas al liamm",
+    "linkSent": "Kaset eo bet al liamm! Sellit ouz ho postelou (hag en ho spam ivez).",
+    "invalidEmail": "N'eo ket mat ar chomlec'h postel.",
+    "linkError": "N'eo ket mat al liamm, pe re goz eo. Goulennit unan nevez.",
+    "signedInAs": "Kevreet oc'h evel",
+    "displayName": "Hoc'h anv (diskouezet gant ho soñjou)",
+    "save": "Enrollañ",
+    "saved": "Enrollet.",
+    "nameInvalid": "Etre 2 ha 40 arouezenn e rank bezañ an anv.",
+    "signOut": "Digevreañ",
+    "moderation": "Merañ ar soñjou",
+    "notConfigured": "N'eo ket digor ar c'hontou c'hoaz.",
+    "genericError": "Ur fazi a zo bet. Klaskit en-dro.",
+    "tooManyEmails": "Re a bostelou kaset. Gortozit un tamm a-raok klask en-dro."
+  },
+  "moderation": {
+    "title": "Merañ ar soñjou",
+    "reported": "Soñjou diskleriet",
+    "hidden": "Soñjou kuzet",
+    "nothing": "Netra da verañ.",
+    "reports": "diskleriadenn",
+    "forbidden": "Evit ar verourien hepken."
   }
 }
