@@ -27,3 +27,17 @@ export const htmlLang: Record<Locale, string> = { br: "br", fr: "fr" };
 export function subscribePath(lang: Locale): string {
   return localePath(lang, lang === "br" ? "/koumanant" : "/abonnement");
 }
+
+// The account page (sign in, name, sign out).
+export function accountPath(lang: Locale): string {
+  return localePath(lang, lang === "br" ? "/kont" : "/compte");
+}
+
+export function moderationPath(lang: Locale): string {
+  return localePath(lang, "/moderation");
+}
+
+// Only allow going back to a page of this site after signing in.
+export function safeNextPath(value: unknown): string | undefined {
+  return typeof value === "string" && value.startsWith("/") && !value.startsWith("//") ? value : undefined;
+}

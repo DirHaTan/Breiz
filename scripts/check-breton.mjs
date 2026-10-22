@@ -11,12 +11,12 @@ const root = new URL("..", import.meta.url).pathname;
 const zh = /\p{L}*zh\p{L}*/giu;
 const problems = [];
 
-// 1. Breton interface text, sample Breton articles, and every source file.
+// Breton interface text, sample Breton articles, the sign-in email, and every source file.
 function walk(dir) {
   for (const name of readdirSync(dir)) {
     const path = join(dir, name);
     if (statSync(path).isDirectory()) walk(path);
-    else if (/\.(tsx?|json|md|mdx)$/.test(name) && !name.endsWith("fr.json")) checkFile(path);
+    else if (/\.(tsx?|json|md|mdx|html)$/.test(name) && !name.endsWith("fr.json")) checkFile(path);
   }
 }
 
@@ -55,6 +55,7 @@ function isInsideFrench(path, lineIndex) {
 }
 
 walk(join(root, "src"));
+walk(join(root, "supabase"));
 
 if (problems.length) {
   console.error('\n✗ "zh" spelling found. Breiz uses skolveurieg (e.g. "Breiz", not "Breizh"):\n');

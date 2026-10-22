@@ -40,9 +40,12 @@ export type LocalizedArticle = ArticleText & {
   image?: ArticleImage | null;
 };
 
+// Only the private online copies made by the editor's "Embann" button
+// (see src/sanity/live.ts), and only while the article still exists in the editor.
 const articlesQuery = defineQuery(`
-  *[_type == "article" && defined(section) && defined(br.slug.current)] | order(publishedAt desc) {
-    "id": _id,
+  *[_type == "liveArticle" && _id in path("pennad.*") && defined(section) && defined(br.slug.current)
+    && count(*[_id in [^.sourceId, ^.draftId]]) > 0] | order(publishedAt desc) {
+    "id": sourceId,
     section,
     "author": coalesce(author->name, "Breiz"),
     "date": publishedAt,

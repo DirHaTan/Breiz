@@ -1,8 +1,11 @@
+import { Suspense } from "react";
 import Link from "next/link";
-import { localePath, otherLocale, subscribePath, type Locale } from "@/i18n/config";
+import { accountPath, localePath, otherLocale, subscribePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { sections } from "@/lib/sections";
 import { Logo } from "@/components/Logo";
+import { getCurrentUser } from "@/lib/auth";
+import { isSupabaseConfigured } from "@/supabase/env";
 
 type Props = {
   lang: Locale;
@@ -21,7 +24,11 @@ export function Header({ lang, dict, alternateHref, activeSection }: Props) {
           {dict.nav.languageSwitch}
         </Link>
         <div className="flex items-center gap-4">
-          <span className="text-muted">{dict.nav.signIn}</span>
+          {isSupabaseConfigured && (
+            <Suspense fallback={<AccountLink lang={lang} label={dict.nav.signIn} />}>
+              <CurrentAccountLink lang={lang} dict={dict} />
+            </Suspense>
+          )}
           <Link
             href={subscribePath(lang)}
             className="bg-ink px-3 py-1.5 font-semibold text-paper hover:opacity-80"
@@ -53,4 +60,18 @@ export function Header({ lang, dict, alternateHref, activeSection }: Props) {
       </nav>
     </header>
   );
+}
+
+function AccountLink({ lang, label }: { lang: Locale; label: string }) {
+  return (
+    <Link href={accountPath(lang)} className="underline-offset-4 hover:underline">
+      {label}
+    </Link>
+  );
+}
+
+// "Sign in", or the reader's name once they're signed in.
+async function CurrentAccountLink({ lang, dict }: { lang: Locale; dict: Dictionary }) {
+  const user = await getCurrentUser();
+  return <AccountLink lang={lang} label={user ? (user.displayName ?? dict.nav.account) : dict.nav.signIn} />;
 }

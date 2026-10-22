@@ -103,7 +103,7 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/[sectio
           {firstParagraph && <PortableText value={[firstParagraph]} />}
         </div>
         <Paywall lang={lang} dict={dict} />
-        <Comments dict={dict} />
+        <Comments lang={lang} dict={dict} articleId={article.id} articleHref={articlePath(article)} />
       </main>
     </>
   );
