@@ -5,6 +5,7 @@ import { getSection } from "@/lib/sections";
 import { localePath } from "@/i18n/config";
 import { FormattedDate } from "@/components/FormattedDate";
 import { imageSrc } from "@/lib/images";
+import { getDictionary } from "@/i18n/dictionaries";
 
 export function ArticleCard({ article, size = "normal" }: { article: LocalizedArticle; size?: "normal" | "lead" }) {
   const section = getSection(article.section)!;
@@ -37,6 +38,7 @@ export function ArticleCard({ article, size = "normal" }: { article: LocalizedAr
       </h2>
       <p className={`mt-2 text-muted ${lead ? "text-lg" : ""}`}>{article.excerpt}</p>
       <p className="mt-2 text-xs text-muted">
+        {getDictionary(article.lang).article.by} <span className="font-semibold text-ink">{article.author}</span> ·{" "}
         <FormattedDate date={article.date} lang={article.lang} />
       </p>
     </article>
