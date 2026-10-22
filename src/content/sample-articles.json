@@ -10,7 +10,7 @@
       "excerpt": "Ur gelaouenn nevez a zo bet krouet war ar genroued: Breiz.",
       "body": [
         "Ur gelaouenn nevez a zo bet krouet war ar genroued: Breiz.",
-        "Keleier, lennegez ha troidigeziou a vo embannet enni bep sizun, e brezoneg hag e galleg.",
+        "Keleier ha lennegez a vo embannet enni bep sizun, e brezoneg hag e galleg.",
         "Pennad skouer eo hemañ."
       ]
     },
@@ -20,7 +20,7 @@
       "excerpt": "Un nouveau journal a été créé sur internet : Breiz.",
       "body": [
         "Un nouveau journal a été créé sur internet : Breiz.",
-        "Des actualités, de la littérature et des traductions y seront publiées chaque semaine, en breton et en français.",
+        "Des actualités et de la littérature y seront publiées chaque semaine, en breton et en français.",
         "Ceci est un article d'exemple."
       ]
     }
@@ -119,30 +119,6 @@
       "excerpt": "Un nouveau livre en breton a été publié pour les enfants.",
       "body": [
         "Un nouveau livre en breton a été publié pour les enfants.",
-        "Ceci est un article d'exemple."
-      ]
-    }
-  },
-  {
-    "id": "troi-barzoniez",
-    "section": "troidigez",
-    "author": "Breiz",
-    "date": "2026-10-15",
-    "br": {
-      "slug": "troi-ar-varzoniez",
-      "title": "Troi ar varzoniez",
-      "excerpt": "Troi ur barzoneg a zo diaes.",
-      "body": [
-        "Troi ur barzoneg a zo diaes.",
-        "Pennad skouer eo hemañ."
-      ]
-    },
-    "fr": {
-      "slug": "traduire-la-poesie",
-      "title": "Traduire la poésie",
-      "excerpt": "Traduire un poème est difficile.",
-      "body": [
-        "Traduire un poème est difficile.",
         "Ceci est un article d'exemple."
       ]
     }

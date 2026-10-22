@@ -4,7 +4,7 @@ A news and publishing website in Breton (skolveurieg orthography) and French.
 
 - Breton is the default language: `/`, `/keleier`, `/breiz`, …
 - French lives under `/fr`: `/fr/actualites`, `/fr/bretagne`, …
-- Sections: Keleier, Breiz, Frans, Bed, Lennegez, Troidigez, Kevredigez.
+- Sections: Keleier, Breiz, Frans, Bed, Lennegez, Kevredigez.
 
 ## Progress
 
