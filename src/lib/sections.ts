@@ -7,7 +7,6 @@ export const sections = [
   { id: "frans", br: { name: "Frans", slug: "frans" }, fr: { name: "France", slug: "france" } },
   { id: "bed", br: { name: "Bed", slug: "bed" }, fr: { name: "Monde", slug: "monde" } },
   { id: "lennegez", br: { name: "Lennegez", slug: "lennegez" }, fr: { name: "Littérature", slug: "litterature" } },
-  { id: "troidigez", br: { name: "Troidigez", slug: "troidigez" }, fr: { name: "Traduction", slug: "traduction" } },
   { id: "kevredigez", br: { name: "Kevredigez", slug: "kevredigez" }, fr: { name: "Société", slug: "societe" } },
 ] as const;
 
