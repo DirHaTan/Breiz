@@ -21,7 +21,10 @@ function walk(dir) {
 }
 
 function checkFile(path) {
-  readFileSync(path, "utf8")
+  const content = readFileSync(path, "utf8");
+  // A file that implements the rule itself can opt out with this marker.
+  if (content.includes("check-breton: ignore-file")) return;
+  content
     .split("\n")
     .forEach((line, i) => {
       // In the articles file, French text sits next to Breton; skip the French lines.

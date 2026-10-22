@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import { PortableText } from "@portabletext/react";
 import { notFound } from "next/navigation";
 import { isLocale, localePath, otherLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -9,10 +11,14 @@ import { Header } from "@/components/Header";
 import { Paywall } from "@/components/Paywall";
 import { Comments } from "@/components/Comments";
 import { FormattedDate } from "@/components/FormattedDate";
+import { imageSrc } from "@/lib/images";
 import { getSection } from "@/lib/sections";
 
 export async function generateStaticParams() {
   const articles = await getAllArticles();
+  // Next.js needs at least one address to check the page at build time,
+  // even before the first article is published.
+  if (articles.length === 0) return [{ lang: "br", section: "keleier", slug: "pennad" }];
   return articles.flatMap((a) =>
     (["br", "fr"] as Locale[]).flatMap((lang) => {
       const text = a[lang];
@@ -57,7 +63,8 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/[sectio
 
   // Every article is for subscribers: non-subscribers only see the first paragraph.
   // (Step 4 will show the full text to subscribers.)
-  const [firstParagraph] = article.body;
+  const firstParagraph = article.body.find((block) => block._type === "block");
+  const image = article.image && imageSrc(article.image, 1344);
 
   return (
     <>
@@ -87,8 +94,13 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/[sectio
             </>
           )}
         </p>
+        {image && (
+          <figure className="mt-6">
+            <Image src={image} alt={article.image?.alt ?? ""} width={1344} height={756} className="w-full" priority />
+          </figure>
+        )}
         <div className="mt-6 font-serif text-lg leading-relaxed">
-          <p>{firstParagraph}</p>
+          {firstParagraph && <PortableText value={[firstParagraph]} />}
         </div>
         <Paywall lang={lang} dict={dict} />
         <Comments dict={dict} />
