@@ -71,10 +71,13 @@ Once Sanity is connected, it shows only the articles you write there.
 2. Open [sanity.io/manage](https://www.sanity.io/manage) and create a new project called **Breiz**, with a dataset called **production**.
 3. On the project page, copy the **Project ID** (a short code like `a1b2c3d4`).
 
-**2. Make the articles private**
+**2. Keep the articles private**
 
-Articles are for subscribers, so nobody should be able to read them straight from Sanity.
-- In the project, open **Datasets**, find **production**, and set its visibility to **Private**.
+On Sanity's Free plan, anything published with Sanity's usual **Publish**
+button can be read by anyone. That's why the editor has **Embann** instead
+(see "How paid articles stay private" below). If your dataset can be set to
+**Private** (Datasets → production), do it; it's an extra lock, but the site
+doesn't depend on it.
 
 **3. Let the website talk to Sanity**
 - **API → CORS origins → Add CORS origin:** enter `https://breiz.vercel.app` and tick **Allow credentials**. Save.
@@ -97,7 +100,7 @@ Then go to **Deployments**, click **⋯** next to the latest one, and choose **R
 1. Open https://breiz.vercel.app/studio and log in with your Sanity account.
 2. Create an **Author** (your name).
 3. Create an **Article**: choose the section, fill in the **Brezoneg** part (title, click **Generate** for the address, summary, text) and, if you have it, the **Français** part.
-4. Click **Publish**. The article appears on the site within a minute or two.
+4. Click **Embann**. The article appears on the site within a minute or two.
 
 ## Connecting Supabase (reader accounts and comments)
 
@@ -162,3 +165,28 @@ and hidden comments.
 **Good to know**
 - Supabase's built-in email service is only for testing: it sends very few emails per hour, and may only deliver to members of your Supabase team. Before opening the site to readers, connect a real email service (Step 5 covers this).
 - On the free plan, a Supabase project with no activity for a week is paused. Open the Supabase dashboard to wake it up.
+
+## How paid articles stay private
+
+Sanity's Free plan makes every normally *published* document readable by
+anyone, which would expose the full text of paid articles. Breiz avoids this:
+
+- The editor's **Publish** button is replaced by **Embann**. It saves a copy
+  of the article under a private address (`pennad.<id>`). Sanity never lets
+  anonymous visitors read documents whose address contains a dot. Only you
+  (logged in) and the website (with its secret token) can.
+- The website reads only these private copies. Free readers see the title,
+  the summary and the first paragraph; the rest stays on the server.
+- **Tennañ** takes an article off the site. Deleting an article in the
+  editor also takes it off the site.
+- At the top of each article, a label says **Enlinenn** (online). If it says
+  **Enlinenn – kemmou nevez**, you've made changes that readers can't see
+  yet: click **Embann** again.
+- In the editor's menu, **Pennadou enlinenn** lists the articles that are online.
+- Scheduling and Content Releases are switched off, because they would publish
+  articles publicly.
+
+**Limit:** pictures uploaded to Sanity can always be opened by anyone who has
+their link, on every plan. Don't put anything secret in a picture.
+
+The code is in `src/sanity/live.ts` and `src/sanity/liveArticleActions.tsx`.
