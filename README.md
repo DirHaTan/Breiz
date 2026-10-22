@@ -188,6 +188,12 @@ anyone, which would expose the full text of paid articles. Breiz avoids this:
 - Scheduling and Content Releases are switched off, because they would publish
   articles publicly.
 
+**Free articles:** tick **Pennad digoust** in the article form to show an
+article in full to everyone, without the paywall box (for example a welcome
+article to share on Facebook). It's still published with **Embann** and stays
+private in Sanity like the others; readers still need to sign in to comment.
+After ticking or unticking it, click **Embann** again.
+
 **Limit:** pictures uploaded to Sanity can always be opened by anyone who has
 their link, on every plan. Don't put anything secret in a picture.
 
