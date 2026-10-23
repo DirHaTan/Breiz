@@ -14,7 +14,7 @@ const keptActions = new Set(["delete", "duplicate", "restore", "discardChanges"]
 
 export default defineConfig({
   basePath: "/studio",
-  title: "Breiz",
+  title: "Keleier Breiz hag ar Bed",
   projectId,
   dataset,
   apiVersion,
@@ -23,7 +23,7 @@ export default defineConfig({
     structureTool({
       structure: (S) =>
         S.list()
-          .title("Breiz")
+          .title("Keleier Breiz hag ar Bed")
           .items([
             S.listItem()
               .title("Pennadou enlinenn · Online articles")

@@ -1,7 +1,6 @@
 {
   "site": {
-    "name": "Breiz",
-    "tagline": "Actualités et littérature en breton"
+    "name": "Keleier Breiz hag ar Bed"
   },
   "nav": {
     "home": "Accueil",
@@ -23,7 +22,7 @@
   },
   "paywall": {
     "title": "Lisez l'article en entier",
-    "text": "Pour lire tous les articles de Breiz, abonnez-vous.",
+    "text": "Pour lire tous les articles de Keleier Breiz hag ar Bed, abonnez-vous.",
     "price": "5 € par mois ou 50 € par an",
     "button": "S'abonner",
     "already": "Déjà abonné ?"
@@ -50,8 +49,8 @@
     "error": "Une erreur est survenue. Réessayez."
   },
   "subscribe": {
-    "title": "S'abonner à Breiz",
-    "intro": "Avec un abonnement, vous pouvez lire tous les articles de Breiz, en breton et en français.",
+    "title": "S'abonner",
+    "intro": "Avec un abonnement, vous pouvez lire tous les articles de Keleier Breiz hag ar Bed, en breton et en français.",
     "monthly": {
       "price": "5 €",
       "period": "par mois",
@@ -76,7 +75,7 @@
     "back": "Retour à l'accueil"
   },
   "footer": {
-    "about": "Breiz, un journal en breton et en français.",
+    "about": "Keleier Breiz hag ar Bed, un journal en breton et en français.",
     "rights": "Tous droits réservés."
   },
   "account": {
@@ -106,5 +105,10 @@
     "nothing": "Rien à modérer.",
     "reports": "signalement(s)",
     "forbidden": "Réservé aux modérateurs."
+  },
+  "section": {
+    "empty": "Aucun article pour l'instant.",
+    "departments": "Départements",
+    "allBreiz": "Toute la Bretagne"
   }
 }

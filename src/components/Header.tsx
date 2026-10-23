@@ -38,10 +38,9 @@ export function Header({ lang, dict, alternateHref, activeSection }: Props) {
         </div>
       </div>
       <div className="mx-auto max-w-6xl px-4 py-6 text-center">
-        <Link href={localePath(lang)} aria-label={dict.nav.home}>
-          <Logo className="text-5xl sm:text-6xl" />
+        <Link href={localePath(lang)} aria-label={`${dict.site.name} – ${dict.nav.home}`}>
+          <Logo className="text-2xl sm:text-3xl lg:text-4xl" />
         </Link>
-        <p className="mt-2 font-serif text-sm italic text-muted">{dict.site.tagline}</p>
       </div>
       <nav aria-label={dict.nav.sections} className="border-t border-ink">
         <ul className="mx-auto flex max-w-6xl gap-x-6 overflow-x-auto px-4 py-3 text-sm font-semibold uppercase tracking-wide whitespace-nowrap sm:justify-center">

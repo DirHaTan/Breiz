@@ -1,7 +1,6 @@
 {
   "site": {
-    "name": "Breiz",
-    "tagline": "Keleier ha lennegez e brezoneg"
+    "name": "Keleier Breiz hag ar Bed"
   },
   "nav": {
     "home": "Degemer",
@@ -23,7 +22,7 @@
   },
   "paywall": {
     "title": "Lennit ar pennad a-bez",
-    "text": "Evit lenn holl bennadou Breiz, koumanantit.",
+    "text": "Evit lenn holl bennadou Keleier Breiz hag ar Bed, koumanantit.",
     "price": "5 € ar miz pe 50 € ar bloaz",
     "button": "Koumanantiñ",
     "already": "Koumanantet oc'h dija?"
@@ -50,8 +49,8 @@
     "error": "Ur fazi a zo bet. Klaskit en-dro."
   },
   "subscribe": {
-    "title": "Koumanantiñ da Breiz",
-    "intro": "Gant ur c'houmanant e c'hellit lenn holl bennadou Breiz, e brezoneg hag e galleg.",
+    "title": "Koumanantiñ",
+    "intro": "Gant ur c'houmanant e c'hellit lenn holl bennadou Keleier Breiz hag ar Bed, e brezoneg hag e galleg.",
     "monthly": {
       "price": "5 €",
       "period": "ar miz",
@@ -76,7 +75,7 @@
     "back": "Distrei d'an degemer"
   },
   "footer": {
-    "about": "Breiz, ur gelaouenn e brezoneg hag e galleg.",
+    "about": "Keleier Breiz hag ar Bed, ur gelaouenn e brezoneg hag e galleg.",
     "rights": "An holl wiriou miret."
   },
   "account": {
@@ -106,5 +105,10 @@
     "nothing": "Netra da verañ.",
     "reports": "diskleriadenn",
     "forbidden": "Evit ar verourien hepken."
+  },
+  "section": {
+    "empty": "N'eus pennad ebet c'hoaz.",
+    "departments": "Departamantou",
+    "allBreiz": "Breiz a-bez"
   }
 }

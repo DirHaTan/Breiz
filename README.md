@@ -1,10 +1,13 @@
-# Breiz
+# Keleier Breiz hag ar Bed
 
 A news and publishing website in Breton (skolveurieg orthography) and French.
 
-- Breton is the default language: `/`, `/keleier`, `/breiz`, …
+- Breton is the default language: `/`, `/nevezentiou`, `/breiz`, …
 - French lives under `/fr`: `/fr/actualites`, `/fr/bretagne`, …
-- Sections: Keleier, Breiz, Frans, Bed, Lennegez, Kevredigez.
+- Sections: Nevezentiou, Breiz, Frans, Bed, Lennegez, Kevredigez, Sport.
+- Inside Breiz, articles can be sorted by department (Aodou-an-Arvor, Penn-ar-Bed,
+  Il-ha-Gwilen, Mor-Bihan, Liger-Atlantel): `/breiz/departamant/penn-ar-bed`.
+- The web address (breiz.vercel.app) and the GitHub repository keep the name "Breiz".
 
 ## Progress
 
@@ -21,6 +24,7 @@ A news and publishing website in Breton (skolveurieg orthography) and French.
 | Interface text in Breton (menus, buttons…) | `src/i18n/dictionaries/br.json` |
 | Interface text in French | `src/i18n/dictionaries/fr.json` |
 | Section names and addresses | `src/lib/sections.ts` |
+| Departments of the Breiz section | `src/lib/departments.ts` |
 | Sample articles (shown until Sanity is connected) | `src/content/sample-articles.json` |
 | Article form in the editor | `src/sanity/schemaTypes/article.ts` |
 | Logo | `src/components/Logo.tsx`, `src/app/icon.svg` |
@@ -31,7 +35,7 @@ A news and publishing website in Breton (skolveurieg orthography) and French.
 
 ## The "no zh" guard
 
-Breiz never uses the zh spelling. In the editor, an article whose Breton
+Keleier Breiz hag ar Bed never uses the zh spelling. In the editor, an article whose Breton
 text contains a "zh" word can't be published: the field turns red and says
 which word is wrong. Before each build,
 `scripts/check-breton.mjs` checks the site's text. If it finds a word
@@ -128,7 +132,7 @@ Open **Authentication → URL Configuration**:
 **4. Put the sign-in email in Breton and French**
 
 Open **Authentication → Emails** (it may be called **Email Templates**). For both **Magic Link** and **Confirm signup**:
-- **Subject:** `Kevreañ da Breiz · Connexion à Breiz`
+- **Subject:** `Kevreañ · Connexion`
 - **Body:** paste everything from `supabase/email-template.html`, then **Save**.
 
 **5. Give the keys to Vercel**
@@ -169,7 +173,7 @@ and hidden comments.
 ## How paid articles stay private
 
 Sanity's Free plan makes every normally *published* document readable by
-anyone, which would expose the full text of paid articles. Breiz avoids this:
+anyone, which would expose the full text of paid articles. Keleier Breiz hag ar Bed avoids this:
 
 - The editor's **Publish** button is replaced by **Embann**. It saves a copy
   of the article under a private address (`pennad.<id>`). Sanity never lets
@@ -187,6 +191,11 @@ anyone, which would expose the full text of paid articles. Breiz avoids this:
 - In the editor's menu, **Pennadou enlinenn** lists the articles that are online.
 - Scheduling and Content Releases are switched off, because they would publish
   articles publicly.
+
+**Departments:** for an article in the **Breiz** section, the form also shows
+**Departamant**. It's optional. On the Breiz page, a row of links shows
+**Breiz a-bez** (all articles) and each department that has at least one
+online article.
 
 **Free articles:** tick **Pennad digoust** in the article form to show an
 article in full to everyone, without the paywall box (for example a welcome

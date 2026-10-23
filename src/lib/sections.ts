@@ -1,13 +1,14 @@
 import type { Locale } from "@/i18n/config";
 
-// The seven sections of the site, with their name and web address in each language.
+// The sections of the site, with their name and web address in each language.
 export const sections = [
-  { id: "keleier", br: { name: "Keleier", slug: "keleier" }, fr: { name: "Actualités", slug: "actualites" } },
+  { id: "nevezentiou", br: { name: "Nevezentiou", slug: "nevezentiou" }, fr: { name: "Actualités", slug: "actualites" } },
   { id: "breiz", br: { name: "Breiz", slug: "breiz" }, fr: { name: "Bretagne", slug: "bretagne" } },
   { id: "frans", br: { name: "Frans", slug: "frans" }, fr: { name: "France", slug: "france" } },
   { id: "bed", br: { name: "Bed", slug: "bed" }, fr: { name: "Monde", slug: "monde" } },
   { id: "lennegez", br: { name: "Lennegez", slug: "lennegez" }, fr: { name: "Littérature", slug: "litterature" } },
   { id: "kevredigez", br: { name: "Kevredigez", slug: "kevredigez" }, fr: { name: "Société", slug: "societe" } },
+  { id: "sport", br: { name: "Sport", slug: "sport" }, fr: { name: "Sport", slug: "sport" } },
 ] as const;
 
 export type Section = (typeof sections)[number];

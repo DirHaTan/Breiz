@@ -1,5 +1,6 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
 import { sections } from "@/lib/sections";
+import { DEPARTMENT_SECTION, departments } from "@/lib/departments";
 import { findForbiddenWords, portableTextToString, forbiddenMessage } from "@/sanity/breton";
 
 // Rejects Breton text that isn't in skolveurieg (see src/sanity/breton.ts).
@@ -78,6 +79,16 @@ export const article = defineType({
       type: "string",
       options: { list: sections.map((s) => ({ title: `${s.br.name} – ${s.fr.name}`, value: s.id })), layout: "radio" },
       validation: (r) => r.required(),
+    }),
+    defineField({
+      name: "department",
+      title: "Departamant",
+      description:
+        "Evit ar pennadou er rann Breiz hepken. · Uniquement pour les articles de la rubrique Breiz.",
+      type: "string",
+      options: { list: departments.map((d) => ({ title: `${d.br.name} – ${d.fr.name}`, value: d.id })), layout: "radio" },
+      // Only shown for articles in the Breiz section.
+      hidden: ({ document }) => document?.section !== DEPARTMENT_SECTION,
     }),
     defineField({
       name: "free",

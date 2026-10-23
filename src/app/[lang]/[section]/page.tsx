@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { isLocale, localePath, locales, otherLocale } from "@/i18n/config";
-import { getDictionary } from "@/i18n/dictionaries";
+import { isLocale, localePath, locales } from "@/i18n/config";
 import { getSectionBySlug, sections } from "@/lib/sections";
-import { getArticlesBySection } from "@/lib/articles";
-import { Header } from "@/components/Header";
-import { ArticleCard } from "@/components/ArticleCard";
+import { SectionListing } from "@/components/SectionListing";
 
 export function generateStaticParams() {
   return locales.flatMap((lang) => sections.map((s) => ({ lang, section: s[lang].slug })));
@@ -33,26 +30,5 @@ export default async function SectionPage({ params }: PageProps<"/[lang]/[sectio
   if (!isLocale(lang)) notFound();
   const section = getSectionBySlug(lang, slug);
   if (!section) notFound();
-  const dict = getDictionary(lang);
-  const articles = await getArticlesBySection(lang, section.id);
-  const other = otherLocale(lang);
-
-  return (
-    <>
-      <Header
-        lang={lang}
-        dict={dict}
-        activeSection={section.id}
-        alternateHref={localePath(other, `/${section[other].slug}`)}
-      />
-      <main className="mx-auto max-w-6xl px-4 py-8">
-        <h1 className="font-serif text-4xl font-black">{section[lang].name}</h1>
-        <div className="mt-6 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
-          {articles.map((article) => (
-            <ArticleCard key={article.id} article={article} />
-          ))}
-        </div>
-      </main>
-    </>
-  );
+  return <SectionListing lang={lang} section={section} />;
 }
