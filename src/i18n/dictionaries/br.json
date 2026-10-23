@@ -50,7 +50,7 @@
   },
   "subscribe": {
     "title": "Koumanantiñ",
-    "intro": "Gant ur c'houmanant e c'hellit lenn holl bennadou Keleier Breiz hag ar Bed, e brezoneg hag e galleg.",
+    "intro": "Gant ur c'houmanant e c'hellit lenn holl bennadou Keleier Breiz hag ar Bed.",
     "monthly": {
       "price": "5 €",
       "period": "ar miz",
@@ -63,7 +63,7 @@
     },
     "features": [
       "An holl bennadou, hep bevenn",
-      "E brezoneg hag e galleg",
+      "E brezoneg",
       "Skrivañ soñjou dindan ar pennadou",
       "Gallout paouez pa garit"
     ],
@@ -75,7 +75,7 @@
     "back": "Distrei d'an degemer"
   },
   "footer": {
-    "about": "Keleier Breiz hag ar Bed, ur gelaouenn e brezoneg hag e galleg.",
+    "about": "Keleier Breiz hag ar Bed, ur gelaouenn e brezoneg.",
     "rights": "An holl wiriou miret."
   },
   "account": {
