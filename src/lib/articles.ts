@@ -5,6 +5,7 @@ import type { SanityImageSource } from "@sanity/image-url";
 import type { Locale } from "@/i18n/config";
 import { localePath } from "@/i18n/config";
 import { getSection, type SectionId } from "@/lib/sections";
+import type { DepartmentId } from "@/lib/departments";
 import { isSanityConfigured } from "@/sanity/env";
 import sampleArticles from "@/content/sample-articles.json";
 
@@ -25,6 +26,8 @@ export type Article = {
   section: SectionId;
   author: string;
   date: string;
+  // Only for articles in the Breiz section.
+  department?: DepartmentId | null;
   // "Pennad digoust": shown in full to everyone, without the paywall.
   free?: boolean;
   image?: ArticleImage | null;
@@ -39,6 +42,7 @@ export type LocalizedArticle = ArticleText & {
   section: SectionId;
   author: string;
   date: string;
+  department: DepartmentId | null;
   free: boolean;
   image?: ArticleImage | null;
 };
@@ -50,8 +54,9 @@ const articlesQuery = defineQuery(`
     && count(*[_id in [^.sourceId, ^.draftId]]) > 0] | order(publishedAt desc) {
     "id": sourceId,
     section,
-    "author": coalesce(author->name, "Breiz"),
+    "author": coalesce(author->name, "Keleier Breiz hag ar Bed"),
     "date": publishedAt,
+    "department": select(section == "breiz" => department, null),
     "free": coalesce(free, false),
     "image": mainImage,
     "br": br { title, "slug": slug.current, excerpt, "body": coalesce(body, []) },
@@ -106,6 +111,7 @@ function localize(article: Article, lang: Locale): LocalizedArticle | undefined 
     section: article.section,
     author: article.author,
     date: article.date,
+    department: article.department ?? null,
     free: article.free ?? false,
     image: article.image,
   };

@@ -1,4 +1,4 @@
-// The Breiz logo: an ermine spot (the black-and-white symbol of Brittany)
+// The site logo: an ermine spot (the black-and-white symbol of Brittany)
 // next to the name. It uses the current text colour, so it works on
 // both light and dark backgrounds.
 export function ErmineMark({ className }: { className?: string }) {
@@ -12,11 +12,14 @@ export function ErmineMark({ className }: { className?: string }) {
   );
 }
 
+// "Keleier Breiz hag ar Bed": on one line on wide screens, two lines on phones.
 export function Logo({ className }: { className?: string }) {
   return (
     <span className={`inline-flex items-center gap-3 ${className ?? ""}`}>
-      <ErmineMark className="h-[0.95em] w-auto" />
-      <span className="font-serif font-black uppercase tracking-[0.12em] leading-none">Breiz</span>
+      <ErmineMark className="h-[1.6em] w-auto shrink-0 sm:h-[1em]" />
+      <span className="text-left font-serif font-black uppercase leading-[1.05] tracking-[0.08em]">
+        <span className="block sm:inline">Keleier Breiz</span> <span className="block sm:inline">hag ar Bed</span>
+      </span>
     </span>
   );
 }

@@ -15,8 +15,9 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
   const dict = getDictionary(lang);
   return {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
-    title: { default: `Breiz – ${dict.site.tagline}`, template: "%s – Breiz" },
-    description: dict.site.tagline,
+    title: { default: dict.site.name, template: `%s – ${dict.site.name}` },
+    description: dict.footer.about,
+    openGraph: { siteName: dict.site.name, locale: lang === "br" ? "br_FR" : "fr_FR" },
   };
 }
 

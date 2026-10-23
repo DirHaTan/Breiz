@@ -17,7 +17,7 @@ export async function Footer({ dict }: { dict: Dictionary }) {
           {dict.footer.about}
         </p>
         <p className="opacity-70">
-          © {year} Breiz. {dict.footer.rights}
+          © {year} {dict.site.name}. {dict.footer.rights}
         </p>
       </div>
     </footer>

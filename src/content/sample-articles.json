@@ -1,15 +1,15 @@
 [
   {
     "id": "lechienn-nevez",
-    "section": "keleier",
-    "author": "Breiz",
+    "section": "nevezentiou",
+    "author": "Keleier Breiz hag ar Bed",
     "date": "2026-10-20",
     "br": {
       "slug": "ul-lechienn-nevez-evit-ar-brezoneg",
       "title": "Ul lec'hienn nevez evit ar brezoneg",
-      "excerpt": "Ur gelaouenn nevez a zo bet krouet war ar genroued: Breiz.",
+      "excerpt": "Ur gelaouenn nevez a zo bet krouet war ar genroued: Keleier Breiz hag ar Bed.",
       "body": [
-        "Ur gelaouenn nevez a zo bet krouet war ar genroued: Breiz.",
+        "Ur gelaouenn nevez a zo bet krouet war ar genroued: Keleier Breiz hag ar Bed.",
         "Keleier ha lennegez a vo embannet enni bep sizun, e brezoneg hag e galleg.",
         "Pennad skouer eo hemañ."
       ]
@@ -17,9 +17,9 @@
     "fr": {
       "slug": "un-nouveau-site-pour-la-langue-bretonne",
       "title": "Un nouveau site pour la langue bretonne",
-      "excerpt": "Un nouveau journal a été créé sur internet : Breiz.",
+      "excerpt": "Un nouveau journal a été créé sur internet : Keleier Breiz hag ar Bed.",
       "body": [
-        "Un nouveau journal a été créé sur internet : Breiz.",
+        "Un nouveau journal a été créé sur internet : Keleier Breiz hag ar Bed.",
         "Des actualités et de la littérature y seront publiées chaque semaine, en breton et en français.",
         "Ceci est un article d'exemple."
       ]
@@ -28,7 +28,7 @@
   {
     "id": "gouel-kemper",
     "section": "breiz",
-    "author": "Breiz",
+    "author": "Keleier Breiz hag ar Bed",
     "date": "2026-10-19",
     "br": {
       "slug": "gouel-ar-brezoneg-e-kemper",
@@ -54,7 +54,7 @@
   {
     "id": "yezou-parlamant",
     "section": "frans",
-    "author": "Breiz",
+    "author": "Keleier Breiz hag ar Bed",
     "date": "2026-10-18",
     "br": {
       "slug": "ar-yezou-rannvroel-er-parlamant",
@@ -78,7 +78,7 @@
   {
     "id": "yezou-bihan",
     "section": "bed",
-    "author": "Breiz",
+    "author": "Keleier Breiz hag ar Bed",
     "date": "2026-10-17",
     "br": {
       "slug": "ar-yezou-bihan-dre-ar-bed",
@@ -102,7 +102,7 @@
   {
     "id": "levr-bugale",
     "section": "lennegez",
-    "author": "Breiz",
+    "author": "Keleier Breiz hag ar Bed",
     "date": "2026-10-16",
     "br": {
       "slug": "ul-levr-nevez-evit-ar-vugale",
@@ -126,7 +126,7 @@
   {
     "id": "skoliou-divyezek",
     "section": "kevredigez",
-    "author": "Breiz",
+    "author": "Keleier Breiz hag ar Bed",
     "date": "2026-10-14",
     "br": {
       "slug": "ar-skoliou-divyezek",

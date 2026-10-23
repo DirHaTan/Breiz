@@ -48,6 +48,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/[section]/
     description: article.excerpt,
     openGraph: {
       type: "article",
+      siteName: getDictionary(article.lang).site.name,
       title: article.title,
       description: article.excerpt,
       publishedTime: article.date,
