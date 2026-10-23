@@ -50,7 +50,7 @@
   },
   "subscribe": {
     "title": "S'abonner",
-    "intro": "Avec un abonnement, vous pouvez lire tous les articles de Keleier Breiz hag ar Bed, en breton et en français.",
+    "intro": "Avec un abonnement, vous pouvez lire tous les articles de Keleier Breiz hag ar Bed.",
     "monthly": {
       "price": "5 €",
       "period": "par mois",
@@ -63,7 +63,7 @@
     },
     "features": [
       "Tous les articles, sans limite",
-      "En breton et en français",
+      "En breton",
       "Commenter sous les articles",
       "Résiliable à tout moment"
     ],
@@ -75,7 +75,7 @@
     "back": "Retour à l'accueil"
   },
   "footer": {
-    "about": "Keleier Breiz hag ar Bed, un journal en breton et en français.",
+    "about": "Keleier Breiz hag ar Bed, un journal en breton.",
     "rights": "Tous droits réservés."
   },
   "account": {

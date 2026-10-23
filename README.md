@@ -131,6 +131,10 @@ Open **Authentication → URL Configuration**:
 
 **4. Put the sign-in email in Breton and French**
 
+Supabase only lets you change the email once a custom email service (SMTP)
+is connected, so this step waits until Step 5. Until then readers get
+Supabase's standard English email, which works the same way.
+
 Open **Authentication → Emails** (it may be called **Email Templates**). For both **Magic Link** and **Confirm signup**:
 - **Subject:** `Kevreañ · Connexion`
 - **Body:** paste everything from `supabase/email-template.html`, then **Save**.
