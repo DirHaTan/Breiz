@@ -112,19 +112,19 @@
     "allBreiz": "Breiz a-bez"
   },
   "announce": {
-    "title": "Kas ur gemennadenn",
-    "intro": "Embann a reomp digoust kemennadennou evit sonadegou, festou-noz, atalieriou sevenadur breizek ha darvoudou all.",
+    "title": "Kas eur gemennadenn",
+    "intro": "Embann a reomp digoust kemennadennou evid sonadegou, festou-noz, atalieriou sevenadur breizek ha darvoudou all.",
     "whatTitle": "Petra kas deomp?",
     "items": [
       "An titl",
       "An deiziad (hag an eur)",
-      "Al lec'h",
-      "Un darempred: anv, pellgomz pe chomlec'h postel",
-      "Ur skrid berr",
-      "Ur skeudenn (mar karit)"
+      "Al leh",
+      "Eun darempred: anv, pellgomz pe chomlec'h postel",
+      "Eur skrid berr",
+      "Eur skeudenn (mar karit)"
     ],
     "sendTitle": "Kasit anezi dre bostel da:",
-    "note": "Gwiriet e vez ar c'hemennadennou gant skipailh ar gelaouenn a-raok bezañ embannet.",
-    "link": "Kas ur gemennadenn"
+    "note": "Gwiriet e vez ar c'hemennadennou gand skipailh ar gelaouenn a-raok beza embannet.",
+    "link": "Kas eur gemennadenn"
   }
 }

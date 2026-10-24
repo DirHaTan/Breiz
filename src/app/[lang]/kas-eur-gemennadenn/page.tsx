@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   alternates: { languages: { br: announcePath("br"), fr: announcePath("fr") } },
 };
 
-export default async function Page({ params }: PageProps<"/[lang]/kas-ur-gemennadenn">) {
+export default async function Page({ params }: PageProps<"/[lang]/kas-eur-gemennadenn">) {
   const { lang } = await params;
   if (lang !== "br") notFound();
   return <AnnouncePage lang="br" />;

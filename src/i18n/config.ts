@@ -44,5 +44,5 @@ export function safeNextPath(value: unknown): string | undefined {
 
 // The page explaining how to send a free announcement.
 export function announcePath(lang: Locale): string {
-  return localePath(lang, lang === "br" ? "/kas-ur-gemennadenn" : "/envoyer-une-annonce");
+  return localePath(lang, lang === "br" ? "/kas-eur-gemennadenn" : "/envoyer-une-annonce");
 }
