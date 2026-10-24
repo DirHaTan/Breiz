@@ -98,7 +98,10 @@ export async function getAllArticles(): Promise<Article[]> {
   cacheLife("minutes");
   if (!isSanityConfigured) return samples();
   const { client } = await import("@/sanity/client");
-  return client.fetch<Article[]>(articlesQuery);
+  const articles = await client.fetch<Article[]>(articlesQuery);
+  // Skip articles whose section the site doesn't know (e.g. a new section
+  // used in the editor before the site is updated), instead of breaking pages.
+  return articles.filter((a) => getSection(a.section));
 }
 
 function localize(article: Article, lang: Locale): LocalizedArticle | undefined {

@@ -10,6 +10,7 @@ export const sections = [
   { id: "kevredigez", br: { name: "Kevredigez", slug: "kevredigez" }, fr: { name: "Société", slug: "societe" } },
   { id: "sport", br: { name: "Sport", slug: "sport" }, fr: { name: "Sport", slug: "sport" } },
   { id: "istor", br: { name: "Istor", slug: "istor" }, fr: { name: "Histoire", slug: "histoire" } },
+  { id: "sevenadur", br: { name: "Sevenadur", slug: "sevenadur" }, fr: { name: "Culture", slug: "culture" } },
   {
     id: "embannit-ganeomp",
     br: { name: "Embannit ganeomp", slug: "embannit-ganeomp" },
