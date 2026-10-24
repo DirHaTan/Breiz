@@ -86,7 +86,7 @@ export const article = defineType({
       name: "department",
       title: "Departamant",
       description:
-        "Evit ar pennadou er rann Breiz hepken. · Uniquement pour les articles de la rubrique Breiz.",
+        "Evid ar pennadou er rann Breiz hepken. · Uniquement pour les articles de la rubrique Breiz.",
       type: "string",
       options: { list: departments.map((d) => ({ title: `${d.br.name} – ${d.fr.name}`, value: d.id })), layout: "radio" },
       // Only shown for articles in the Breiz section.

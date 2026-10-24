@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ErmineMark } from "@/components/Logo";
-import { announcePath, type Locale } from "@/i18n/config";
+import { announcePath, legalPath, type Locale } from "@/i18n/config";
+import { legalPages } from "@/content/legal";
 import type { Dictionary } from "@/i18n/dictionaries";
 
 // The year is worked out once and cached, so pages can be built ahead of time.
@@ -18,11 +19,23 @@ export async function Footer({ lang, dict }: { lang: Locale; dict: Dictionary })
           <ErmineMark className="h-5 w-auto" />
           {dict.footer.about}
         </p>
-        <p>
-          <Link href={announcePath(lang)} className="font-semibold underline underline-offset-4 hover:opacity-80">
-            {dict.announce.link}
-          </Link>
-        </p>
+        <ul className="flex flex-col gap-1 sm:items-center">
+          <li>
+            <Link href={announcePath(lang)} className="font-semibold underline underline-offset-4 hover:opacity-80">
+              {dict.announce.link}
+            </Link>
+          </li>
+          <li>
+            <Link href={legalPath("notices", lang)} className="underline underline-offset-4 hover:opacity-80">
+              {legalPages.notices[lang].title}
+            </Link>
+          </li>
+          <li>
+            <Link href={legalPath("privacy", lang)} className="underline underline-offset-4 hover:opacity-80">
+              {legalPages.privacy[lang].title}
+            </Link>
+          </li>
+        </ul>
         <p className="opacity-70">
           © {year} {dict.site.name}. {dict.footer.rights}
         </p>

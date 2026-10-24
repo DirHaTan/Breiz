@@ -9,6 +9,9 @@ A news and publishing website in Breton (skolveurieg orthography) and French.
   in the editor ticks **Pennad digoust** automatically (it can still be unticked).
 - Readers learn how to send an announcement at `/kas-eur-gemennadenn` (French: `/fr/envoyer-une-annonce`),
   linked from the footer. The email address is a placeholder in `src/lib/contact.ts`.
+- Legal pages (linked in the footer): `/notennou-lezennel` and `/prevezded` in Breton,
+  `/fr/mentions-legales` and `/fr/confidentialite` in French. Their text is in
+  `src/content/legal.ts`; anything in [BRACKETS] is a placeholder.
 - Inside Breiz, articles can be sorted by department (Aodou-an-Arvor, Penn-ar-Bed,
   Il-ha-Gwilen, Mor-Bihan, Liger-Atlantel): `/breiz/departamant/penn-ar-bed`.
 - The web address (breiz.vercel.app) and the GitHub repository keep the name "Breiz".
@@ -19,7 +22,7 @@ A news and publishing website in Breton (skolveurieg orthography) and French.
 2. ✅ **Sanity:** write real articles in an online editor at `/studio`.
 3. ✅ **Accounts and comments** (Supabase): sign in by email link, comment, report, moderate.
 4. ⬜ **Subscriptions** at €5/month or €50/year (Stripe).
-5. ⬜ **Final polish:** legal pages, social-media previews, publishing guide.
+5. ⬜ **Final polish:** legal pages (structure ready, text to come), social-media previews, publishing guide.
 
 ## Where things are
 
@@ -140,7 +143,7 @@ is connected, so this step waits until Step 5. Until then readers get
 Supabase's standard English email, which works the same way.
 
 Open **Authentication → Emails** (it may be called **Email Templates**). For both **Magic Link** and **Confirm signup**:
-- **Subject:** `Kevreañ · Connexion`
+- **Subject:** `Kevrea · Connexion`
 - **Body:** paste everything from `supabase/email-template.html`, then **Save**.
 
 **5. Give the keys to Vercel**
@@ -171,7 +174,7 @@ select id from auth.users where email = 'your-email@example.com';
 ```
 
 Moderators see **Kuzat** (hide) and **Dilemel** (delete) under every comment,
-and a **Merañ ar soñjou** link on their account page, which lists reported
+and a **Mera ar soñjou** link on their account page, which lists reported
 and hidden comments.
 
 **Good to know**
@@ -191,7 +194,7 @@ anyone, which would expose the full text of paid articles. Keleier Breiz hag ar 
   the summary and the beginning of the text: the first paragraph, but never
   more than 40% of the article, so a short article is never shown in full.
   The rest stays on the server.
-- **Tennañ** takes an article off the site. Deleting an article in the
+- **Tenna** takes an article off the site. Deleting an article in the
   editor also takes it off the site.
 - At the bottom of each article, a label says **Enlinenn** (online). If it says
   **Enlinenn – kemmou nevez**, you've made changes that readers can't see

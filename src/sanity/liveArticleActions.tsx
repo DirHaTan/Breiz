@@ -51,7 +51,7 @@ export const EmbannAction: DocumentActionComponent = (props: DocumentActionProps
   const upToDate = isUpToDate(copy, source) && !props.published;
 
   return {
-    label: busy ? "Oc'h embann…" : upToDate ? "Embannet ✓" : "Embann",
+    label: busy ? "Oh embann…" : upToDate ? "Embannet ✓" : "Embann",
     tone: "positive",
     disabled: !source || busy || isValidating || hasErrors || upToDate,
     title: hasErrors ? "Fix the errors in red first." : undefined,
@@ -90,13 +90,13 @@ export const TennanAction: DocumentActionComponent = (props: DocumentActionProps
   const [confirming, setConfirming] = useState(false);
   if (!copy) return null;
   return {
-    label: "Tennañ",
+    label: "Tenna",
     tone: "critical",
     onHandle: () => setConfirming(true),
     dialog: confirming && {
       type: "confirm",
       tone: "critical",
-      message: "Tennañ ar pennad-mañ eus al lec'hienn? (Retirer cet article du site ?)",
+      message: "Tenna ar pennad-mañ eus al lehienn? (Retirer cet article du site ?)",
       onCancel: () => setConfirming(false),
       onConfirm: async () => {
         await client.delete(liveId(props.id));
