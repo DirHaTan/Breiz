@@ -110,5 +110,21 @@
     "empty": "Aucun article pour l'instant.",
     "departments": "Départements",
     "allBreiz": "Toute la Bretagne"
+  },
+  "announce": {
+    "title": "Envoyer une annonce",
+    "intro": "Nous publions gratuitement les annonces de concerts, festou-noz, ateliers de culture bretonne et autres événements.",
+    "whatTitle": "Que nous envoyer ?",
+    "items": [
+      "Le titre",
+      "La date (et l'heure)",
+      "Le lieu",
+      "Un contact : nom, téléphone ou adresse e-mail",
+      "Un court texte",
+      "Une image (facultatif)"
+    ],
+    "sendTitle": "Envoyez-la par e-mail à :",
+    "note": "Les annonces sont vérifiées par l'équipe de rédaction avant publication.",
+    "link": "Envoyer une annonce"
   }
 }

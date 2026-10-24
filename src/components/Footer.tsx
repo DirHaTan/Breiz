@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { ErmineMark } from "@/components/Logo";
+import { announcePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 
 // The year is worked out once and cached, so pages can be built ahead of time.
@@ -7,7 +9,7 @@ async function currentYear() {
   return new Date().getFullYear();
 }
 
-export async function Footer({ dict }: { dict: Dictionary }) {
+export async function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   const year = await currentYear();
   return (
     <footer className="mt-16 bg-ink text-paper">
@@ -15,6 +17,11 @@ export async function Footer({ dict }: { dict: Dictionary }) {
         <p className="flex items-center gap-2">
           <ErmineMark className="h-5 w-auto" />
           {dict.footer.about}
+        </p>
+        <p>
+          <Link href={announcePath(lang)} className="font-semibold underline underline-offset-4 hover:opacity-80">
+            {dict.announce.link}
+          </Link>
         </p>
         <p className="opacity-70">
           © {year} {dict.site.name}. {dict.footer.rights}

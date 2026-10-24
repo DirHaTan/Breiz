@@ -29,7 +29,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
     <html lang={htmlLang[lang]} className="h-full antialiased">
       <body className="flex min-h-full flex-col">
         <div className="flex-1">{children}</div>
-        <Footer dict={dict} />
+        <Footer lang={lang} dict={dict} />
       </body>
     </html>
   );
