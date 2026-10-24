@@ -4,7 +4,7 @@ A news and publishing website in Breton (skolveurieg orthography) and French.
 
 - Breton is the default language: `/`, `/nevezentiou`, `/breiz`, …
 - French lives under `/fr`: `/fr/actualites`, `/fr/bretagne`, …
-- Sections: Nevezentiou, Breiz, Frans, Bed, Lennegez, Kevredigez, Sport.
+- Sections: Nevezentiou, Breiz, Frans, Bed, Lennegez, Kevredigez, Sport, Istor.
 - Inside Breiz, articles can be sorted by department (Aodou-an-Arvor, Penn-ar-Bed,
   Il-ha-Gwilen, Mor-Bihan, Liger-Atlantel): `/breiz/departamant/penn-ar-bed`.
 - The web address (breiz.vercel.app) and the GitHub repository keep the name "Breiz".
