@@ -9,6 +9,7 @@ export const sections = [
   { id: "lennegez", br: { name: "Lennegez", slug: "lennegez" }, fr: { name: "Littérature", slug: "litterature" } },
   { id: "kevredigez", br: { name: "Kevredigez", slug: "kevredigez" }, fr: { name: "Société", slug: "societe" } },
   { id: "sport", br: { name: "Sport", slug: "sport" }, fr: { name: "Sport", slug: "sport" } },
+  { id: "istor", br: { name: "Istor", slug: "istor" }, fr: { name: "Histoire", slug: "histoire" } },
 ] as const;
 
 export type Section = (typeof sections)[number];
