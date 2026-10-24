@@ -110,5 +110,21 @@
     "empty": "N'eus pennad ebet c'hoaz.",
     "departments": "Departamantou",
     "allBreiz": "Breiz a-bez"
+  },
+  "announce": {
+    "title": "Kas eur gemennadenn",
+    "intro": "Embann a reomp digoust kemennadennou evid sonadegou, festou-noz, atalieriou sevenadur breizek ha darvoudou all.",
+    "whatTitle": "Petra kas deomp?",
+    "items": [
+      "An titl",
+      "An deiziad (hag an eur)",
+      "Al leh",
+      "Eun darempred: anv, pellgomz pe chomlec'h postel",
+      "Eur skrid berr",
+      "Eur skeudenn (mar karit)"
+    ],
+    "sendTitle": "Kasit anezi dre bostel da:",
+    "note": "Gwiriet e vez ar c'hemennadennou gand skipailh ar gelaouenn a-raok beza embannet.",
+    "link": "Kas eur gemennadenn"
   }
 }

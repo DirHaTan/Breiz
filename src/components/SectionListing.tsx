@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { localePath, otherLocale, type Locale } from "@/i18n/config";
+import { announcePath, localePath, otherLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import type { Section } from "@/lib/sections";
+import { ANNOUNCEMENTS_SECTION, type Section } from "@/lib/sections";
 import { DEPARTMENT_SECTION, departmentPath, departments, type Department } from "@/lib/departments";
 import { getArticlesBySection } from "@/lib/articles";
 import { Header } from "@/components/Header";
@@ -33,6 +33,13 @@ export async function SectionListing({ lang, section, department }: Props) {
           {section[lang].name}
           {department && <span className="font-normal"> · {department[lang].name}</span>}
         </h1>
+        {section.id === ANNOUNCEMENTS_SECTION && (
+          <p className="mt-4 border-2 border-ink p-4">
+            <Link href={announcePath(lang)} className="font-semibold underline">
+              {dict.announce.link} →
+            </Link>
+          </p>
+        )}
         {section.id === DEPARTMENT_SECTION && (
           <nav aria-label={dict.section.departments} className="mt-4 border-y border-ink">
             <ul className="flex gap-x-6 overflow-x-auto py-2 text-sm font-semibold whitespace-nowrap">
