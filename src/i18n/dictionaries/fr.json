@@ -18,7 +18,8 @@
     "by": "Par",
     "readMore": "Lire la suite",
     "translationAvailable": "Lire cet article en breton",
-    "sampleNotice": "Ceci est un article d'exemple. Il sera remplacé par de vrais articles."
+    "sampleNotice": "Ceci est un article d'exemple. Il sera remplacé par de vrais articles.",
+    "photoCredit": "Photo : "
   },
   "paywall": {
     "title": "Lisez l'article en entier",
