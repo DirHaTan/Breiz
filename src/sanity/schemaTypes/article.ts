@@ -1,6 +1,7 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
 import { sections } from "@/lib/sections";
 import { DEPARTMENT_SECTION, departments } from "@/lib/departments";
+import { SectionInput } from "@/sanity/SectionInput";
 import { findForbiddenWords, portableTextToString, forbiddenMessage } from "@/sanity/breton";
 
 // Rejects Breton text that isn't in skolveurieg (see src/sanity/breton.ts).
@@ -78,6 +79,7 @@ export const article = defineType({
       title: "Section / Rann",
       type: "string",
       options: { list: sections.map((s) => ({ title: `${s.br.name} – ${s.fr.name}`, value: s.id })), layout: "radio" },
+      components: { input: SectionInput },
       validation: (r) => r.required(),
     }),
     defineField({
