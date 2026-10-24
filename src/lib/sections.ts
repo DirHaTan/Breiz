@@ -10,9 +10,18 @@ export const sections = [
   { id: "kevredigez", br: { name: "Kevredigez", slug: "kevredigez" }, fr: { name: "Société", slug: "societe" } },
   { id: "sport", br: { name: "Sport", slug: "sport" }, fr: { name: "Sport", slug: "sport" } },
   { id: "istor", br: { name: "Istor", slug: "istor" }, fr: { name: "Histoire", slug: "histoire" } },
+  {
+    id: "embannit-ganeomp",
+    br: { name: "Embannit ganeomp", slug: "embannit-ganeomp" },
+    fr: { name: "Annonces", slug: "annonces" },
+  },
 ] as const;
 
 export type Section = (typeof sections)[number];
+
+// Free community announcements (concerts, fest-noz, workshops…). Choosing this
+// section in the editor ticks "Pennad digoust" automatically.
+export const ANNOUNCEMENTS_SECTION = "embannit-ganeomp";
 export type SectionId = Section["id"];
 
 export function getSection(id: string): Section | undefined {
