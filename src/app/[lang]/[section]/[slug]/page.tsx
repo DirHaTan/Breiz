@@ -13,6 +13,7 @@ import { FormattedDate } from "@/components/FormattedDate";
 import { imageSrc } from "@/lib/images";
 import { freePreview } from "@/lib/preview";
 import { ArticleBody } from "@/components/ArticleBody";
+import { PhotoCredit } from "@/components/PhotoCredit";
 import { getSection } from "@/lib/sections";
 
 export async function generateStaticParams() {
@@ -108,6 +109,7 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/[sectio
         {image && (
           <figure className="mt-6">
             <Image src={image} alt={article.image?.alt ?? ""} width={1344} height={756} className="w-full" priority />
+            <PhotoCredit image={article.image} prefix={dict.article.photoCredit} />
           </figure>
         )}
         {showFullText ? (
