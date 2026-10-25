@@ -83,7 +83,7 @@ export const EmbannAction: DocumentActionComponent = (props: DocumentActionProps
 };
 EmbannAction.action = "publish";
 
-// "Tennañ" (unpublish): removes the private copy, so the article leaves the website.
+// "Tenna" (unpublish): removes the private copy, so the article leaves the website.
 export const TennanAction: DocumentActionComponent = (props: DocumentActionProps) => {
   const client = useClient({ apiVersion });
   const copy = useLiveCopy(props.id);

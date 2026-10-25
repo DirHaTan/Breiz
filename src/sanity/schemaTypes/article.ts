@@ -50,7 +50,7 @@ const text = (lang: "br" | "fr") => {
       }),
       defineField({
         name: "slug",
-        title: lang === "br" ? "Chomlec'h (URL)" : "Adresse (URL)",
+        title: lang === "br" ? "Chomleh (URL)" : "Adresse (URL)",
         description: "Click “Generate” to create it from the title.",
         type: "slug",
         options: { source: `${lang}.title`, maxLength: 96 },

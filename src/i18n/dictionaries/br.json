@@ -5,7 +5,7 @@
   "nav": {
     "home": "Degemer",
     "sections": "Rannou",
-    "subscribe": "Koumanantiñ",
+    "subscribe": "Koumananti",
     "signIn": "Kevrea",
     "languageSwitch": "Français",
     "account": "Ma c'hont"
@@ -25,7 +25,7 @@
     "title": "Lennit ar pennad a-bez",
     "text": "Evid lenn holl bennadou Keleier Breiz hag ar Bed, koumanantit.",
     "price": "5 € ar miz pe 50 € ar bloaz",
-    "button": "Koumanantiñ",
+    "button": "Koumananti",
     "already": "Koumanantet oh dija?"
   },
   "comments": {
@@ -50,7 +50,7 @@
     "error": "Eur fazi a zo bet. Klaskit en-dro."
   },
   "subscribe": {
-    "title": "Koumanantiñ",
+    "title": "Koumananti",
     "intro": "Gand eur c'houmanant e c'hellit lenn holl bennadou Keleier Breiz hag ar Bed.",
     "monthly": {
       "price": "5 €",
@@ -68,7 +68,7 @@
       "Skriva soñjou dindan ar pennadou",
       "Gallout paouez pa garit"
     ],
-    "button": "Koumanantiñ",
+    "button": "Koumananti",
     "comingSoon": "Ar paeamant a vo digoret a-benn nebeut."
   },
   "notFound": {
@@ -82,11 +82,11 @@
   "account": {
     "title": "Ma c'hont",
     "signInTitle": "Kevrea",
-    "signInIntro": "Skrivit ho chomlec'h postel. Kaset e vo deoc'h eul liamm evid kevrea, hep ger-tremen.",
-    "emailLabel": "Chomlec'h postel",
+    "signInIntro": "Skrivit ho chomleh postel. Kaset e vo deoc'h eul liamm evid kevrea, hep ger-tremen.",
+    "emailLabel": "Chomleh postel",
     "sendLink": "Kas al liamm",
     "linkSent": "Kaset eo bet al liamm! Sellit ouz ho postelou (hag en ho spam ivez).",
-    "invalidEmail": "N'eo ket mat ar chomlec'h postel.",
+    "invalidEmail": "N'eo ket mat ar chomleh postel.",
     "linkError": "N'eo ket mat al liamm, pe re goz eo. Goulennit unan nevez.",
     "signedInAs": "Kevreet oh evel",
     "displayName": "Hoh anv (diskouezet gand ho soñjou)",

@@ -14,7 +14,11 @@ A news and publishing website in Breton (skolveurieg orthography) and French.
   `src/content/legal.ts`; anything in [BRACKETS] is a placeholder.
 - Inside Breiz, articles can be sorted by department (Aodou-an-Arvor, Penn-ar-Bed,
   Il-ha-Gwilen, Mor-Bihan, Liger-Atlantel): `/breiz/departamant/penn-ar-bed`.
-- The web address (breiz.vercel.app) and the GitHub repository keep the name "Breiz".
+- The site lives at **https://www.keleierbreiz.fr** (keleierbreiz.fr redirects to www).
+  The address is set by `NEXT_PUBLIC_SITE_URL` (see `src/lib/site.ts`). The GitHub
+  repository keeps the name "Breiz".
+- Search engines: `/sitemap.xml` lists every public page and article; `/robots.txt`
+  keeps the editor and account pages out of search results.
 
 ## Progress
 
@@ -91,7 +95,7 @@ button can be read by anyone. That's why the editor has **Embann** instead
 doesn't depend on it.
 
 **3. Let the website talk to Sanity**
-- **API → CORS origins → Add CORS origin:** enter `https://breiz.vercel.app` and tick **Allow credentials**. Save.
+- **API → CORS origins → Add CORS origin:** enter `https://www.keleierbreiz.fr` and tick **Allow credentials**. Save.
 - **API → Tokens → Add API token:** name it `Breiz website` and choose the **Viewer** permission. Copy the token straight away; it's only shown once.
 
 **4. Give the keys to Vercel**
@@ -103,12 +107,12 @@ In Vercel, open the **breiz** project, then **Settings → Environment Variables
 | `NEXT_PUBLIC_SANITY_PROJECT_ID` | your Project ID |
 | `NEXT_PUBLIC_SANITY_DATASET` | `production` |
 | `SANITY_API_READ_TOKEN` | the token from step 3 |
-| `NEXT_PUBLIC_SITE_URL` | `https://breiz.vercel.app` |
+| `NEXT_PUBLIC_SITE_URL` | `https://www.keleierbreiz.fr` |
 
 Then go to **Deployments**, click **⋯** next to the latest one, and choose **Redeploy**.
 
 **5. Write your first article**
-1. Open https://breiz.vercel.app/studio and log in with your Sanity account.
+1. Open https://www.keleierbreiz.fr/studio and log in with your Sanity account.
 2. Create an **Author** (your name).
 3. Create an **Article**: choose the section, fill in the **Brezoneg** part (title, click **Generate** for the address, summary, text) and, if you have it, the **Français** part.
 4. Click **Embann**. The article appears on the site within a minute or two.
@@ -133,8 +137,8 @@ comments stay switched off.
 **3. Tell Supabase where the site is**
 
 Open **Authentication → URL Configuration**:
-- **Site URL:** `https://breiz.vercel.app`
-- **Redirect URLs → Add URL:** `https://breiz.vercel.app/**`
+- **Site URL:** `https://www.keleierbreiz.fr`
+- **Redirect URLs → Add URL:** `https://www.keleierbreiz.fr/**`
 
 **4. Put the sign-in email in Breton and French**
 
@@ -160,7 +164,7 @@ These two values are safe to show in the browser. The database rules in
 **secret** key (`sb_secret_…`) anywhere in this project.
 
 **6. Try it**
-1. Open https://breiz.vercel.app/kont, type your email, and click **Kas al liamm**.
+1. Open https://www.keleierbreiz.fr/kont, type your email, and click **Kas al liamm**.
 2. Click the button in the email. You're signed in and back on the site.
 3. Choose your name, then open an article and write a comment.
 

@@ -7,6 +7,7 @@ import { accountPath, localePath, safeNextPath } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getCurrentUser } from "@/lib/auth";
 import { createClient } from "@/supabase/server";
+import { SITE_URL } from "@/lib/site";
 import { upsertDisplayName } from "@/lib/profiles";
 import { failure, readLocale, success, type FormState } from "./shared";
 
@@ -24,7 +25,7 @@ export async function sendSignInLink(_prev: FormState, formData: FormData): Prom
   cookieStore.set("breiz_next", safeNextPath(formData.get("next")) ?? accountPath(lang), shortCookie);
   cookieStore.set("breiz_lang", lang, shortCookie);
 
-  const origin = process.env.NEXT_PUBLIC_SITE_URL ?? (await headers()).get("origin") ?? "";
+  const origin = process.env.NEXT_PUBLIC_SITE_URL ? SITE_URL : ((await headers()).get("origin") ?? SITE_URL);
   const supabase = await createClient();
   const { error } = await supabase.auth.signInWithOtp({
     email,

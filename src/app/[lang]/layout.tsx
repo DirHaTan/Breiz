@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { htmlLang, isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { Footer } from "@/components/Footer";
+import { SITE_URL } from "@/lib/site";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -14,10 +15,11 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
   if (!isLocale(lang)) return {};
   const dict = getDictionary(lang);
   return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+    metadataBase: new URL(SITE_URL),
     title: { default: dict.site.name, template: `%s – ${dict.site.name}` },
     description: dict.footer.about,
     openGraph: { siteName: dict.site.name, locale: lang === "br" ? "br_FR" : "fr_FR" },
+    twitter: { card: "summary_large_image" },
   };
 }
 
