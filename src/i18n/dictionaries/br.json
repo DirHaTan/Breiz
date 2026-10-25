@@ -66,10 +66,12 @@
       "An holl bennadou, hep bevenn",
       "E brezoneg",
       "Skriva soñjou dindan ar pennadou",
-      "Gallout paouez pa garit"
+      "Gellout paouez pa garit"
     ],
     "button": "Koumananti",
-    "comingSoon": "Ar paeamant a vo digoret a-benn nebeut."
+    "already": "Koumanantet oh dija.",
+    "termsIntro": "En eur goumananti, e asantit d'an",
+    "termsLink": "divizou gwerza"
   },
   "notFound": {
     "title": "N'eo ket bet kavet ar bajenn",
@@ -127,5 +129,26 @@
     "sendTitle": "Kasit anezi dre bostel da:",
     "note": "Gwiriet e vez ar c'hemennadennou gand skipailh ar gelaouenn a-raok beza embannet.",
     "link": "Kas eur gemennadenn"
+  },
+  "billing": {
+    "successTitle": "Trugarez!",
+    "successText": "Enrollet eo ho koumanant.",
+    "successWait": "Ma ne welit ket c'hoaz ar pennadou a-bez, gortozit eur pennadig.",
+    "cancelTitle": "Paeamant nullet",
+    "cancelText": "N'eo ket bet graet ar paeamant.",
+    "cancelRetry": "Gellout a rit klask en-dro pa garit.",
+    "subscription": "Ma c'houmanant",
+    "none": "N'oh ket koumanantet.",
+    "planLabel": "Doare",
+    "monthly": "Bep miz (5 €)",
+    "yearly": "Bep bloaz (50 €)",
+    "statusLabel": "Stad",
+    "statusActive": "Oberiant",
+    "statusPastDue": "Paeamant da reiza",
+    "statusIncomplete": "O c'hortoz ar paeamant",
+    "statusCanceled": "Echu",
+    "renews": "Adnevezet e vo d'an",
+    "ends": "Echu e vo d'an",
+    "manage": "Mera ma c'houmanant"
   }
 }

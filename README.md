@@ -25,7 +25,7 @@ A news and publishing website in Breton (skolveurieg orthography) and French.
 1. ✅ **Skeleton:** pages, sections, two languages, logo, "no zh" guard, sample articles.
 2. ✅ **Sanity:** write real articles in an online editor at `/studio`.
 3. ✅ **Accounts and comments** (Supabase): sign in by email link, comment, report, moderate.
-4. ⬜ **Subscriptions** at €5/month or €50/year (Stripe).
+4. 🟡 **Subscriptions** at €5/month or €50/year (Stripe, test mode): built, see "Subscriptions with Stripe" below.
 5. ⬜ **Final polish:** legal pages (structure ready, text to come), social-media previews, publishing guide.
 
 ## Where things are
@@ -160,8 +160,9 @@ In Supabase, open **Project Settings → API Keys** (or click **Connect** at the
 | `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | the Publishable key |
 
 These two values are safe to show in the browser. The database rules in
-`supabase/schema.sql` decide what each reader may do. Never put the
-**secret** key (`sb_secret_…`) anywhere in this project.
+`supabase/schema.sql` decide what each reader may do. The **secret** key is
+only ever stored in Vercel as `SUPABASE_SERVICE_ROLE_KEY` (see "Subscriptions
+with Stripe"); never put it in the code or a chat.
 
 **6. Try it**
 1. Open https://www.keleierbreiz.fr/kont, type your email, and click **Kas al liamm**.
@@ -222,3 +223,58 @@ After ticking or unticking it, click **Embann** again.
 their link, on every plan. Don't put anything secret in a picture.
 
 The code is in `src/sanity/live.ts` and `src/sanity/liveArticleActions.tsx`.
+
+## Subscriptions with Stripe (test mode)
+
+Readers sign in, choose €5/month or €50/year on **Koumananti** (`/koumanant`,
+`/fr/abonnement`), and pay on Stripe's secure page (in French: Stripe has no
+Breton). Stripe then tells the site (the "webhook"), which records the
+subscription in Supabase. Subscribers and editors see the full text of paid
+articles; everyone else sees the summary and the paywall. On **Ma c'hont**,
+subscribers see their plan and renewal date, and **Mera ma c'houmanant** opens
+Stripe's page to change card or cancel.
+
+| What | File |
+|---|---|
+| Database tables and rules (subscriptions, editors) | `supabase/migrations/002_subscriptions.sql` |
+| Checkout and Customer Portal | `src/app/actions/billing.ts` |
+| Webhook (`/api/stripe/webhook`) | `src/app/api/stripe/webhook/route.ts` |
+| Who sees the full text | `src/lib/access.ts` |
+| Sales terms (CGV) text | `src/content/legal.ts` |
+
+**1. Create the tables:** Supabase → SQL Editor → New query → paste all of
+`supabase/migrations/002_subscriptions.sql` → **Run**.
+
+**2. Make yourself an editor** (you always see the full text), with your own email:
+
+```sql
+insert into public.editors (user_id)
+select id from auth.users where email = 'your-email@example.com';
+```
+
+**3. Environment variables in Vercel** (Settings → Environment Variables),
+for Production and Preview. Paste the values yourself; tick **Sensitive** for
+the three secrets:
+
+| Name | Where to find it | Sensitive? |
+|---|---|---|
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase → Project Settings → API Keys → **secret** key | Yes |
+| `STRIPE_SECRET_KEY` | Stripe (test mode) → Developers → API keys → Secret key (`sk_test_…`) | Yes |
+| `STRIPE_WEBHOOK_SECRET` | Stripe → the webhook endpoint (step 4) → Signing secret (`whsec_…`) | Yes |
+| `STRIPE_PRICE_MONTHLY` | Stripe → Product catalog → Koumanant Keleier Breiz → €5/month price ID (`price_…`) | No |
+| `STRIPE_PRICE_YEARLY` | the €50/year price ID (`price_…`) | No |
+
+**4. Webhook in Stripe** (test mode): Developers → Webhooks → **Add endpoint**
+(or "Add destination"):
+- Endpoint URL: `https://www.keleierbreiz.fr/api/stripe/webhook`
+- Events: `checkout.session.completed`, `customer.subscription.created`,
+  `customer.subscription.updated`, `customer.subscription.deleted`,
+  `invoice.payment_failed`
+- Save, then reveal the **Signing secret** and paste it into Vercel as
+  `STRIPE_WEBHOOK_SECRET`.
+
+**5. Customer Portal in Stripe** (test mode): Settings → Billing → Customer
+portal → allow updating payment methods and cancelling → Save.
+
+**6. Redeploy** in Vercel, then test with the card `4242 4242 4242 4242`,
+any future date, any 3-digit code.

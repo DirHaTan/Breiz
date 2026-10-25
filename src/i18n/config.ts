@@ -47,9 +47,21 @@ export function announcePath(lang: Locale): string {
   return localePath(lang, lang === "br" ? "/kas-eur-gemennadenn" : "/envoyer-une-annonce");
 }
 
-// The legal pages: /notennou-lezennel and /prevezded in Breton,
-// /fr/mentions-legales and /fr/confidentialite in French.
-export function legalPath(kind: "notices" | "privacy", lang: Locale): string {
-  const slugs = { notices: { br: "notennou-lezennel", fr: "mentions-legales" }, privacy: { br: "prevezded", fr: "confidentialite" } };
+// The legal pages: /notennou-lezennel, /prevezded and /divizou-gwerza in Breton,
+// /fr/mentions-legales, /fr/confidentialite and /fr/cgv in French.
+export function legalPath(kind: "notices" | "privacy" | "terms", lang: Locale): string {
+  const slugs = {
+    notices: { br: "notennou-lezennel", fr: "mentions-legales" },
+    privacy: { br: "prevezded", fr: "confidentialite" },
+    terms: { br: "divizou-gwerza", fr: "cgv" },
+  };
   return localePath(lang, `/${slugs[kind][lang]}`);
+}
+
+// After Stripe Checkout: thank-you and cancelled pages.
+export function checkoutSuccessPath(lang: Locale): string {
+  return localePath(lang, lang === "br" ? "/koumanant/trugarez" : "/abonnement/merci");
+}
+export function checkoutCancelPath(lang: Locale): string {
+  return localePath(lang, lang === "br" ? "/koumanant/nullet" : "/abonnement/annule");
 }

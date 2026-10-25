@@ -8,6 +8,7 @@ import { signOut } from "@/app/actions/account";
 import { Header } from "@/components/Header";
 import { SignInForm } from "@/components/account/SignInForm";
 import { ProfileForm } from "@/components/account/ProfileForm";
+import { SubscriptionPanel } from "@/components/account/SubscriptionPanel";
 
 type SearchParams = Promise<{ next?: string | string[]; error?: string | string[] }>;
 
@@ -55,6 +56,7 @@ async function AccountContent({ lang, dict, searchParams }: { lang: Locale; dict
         {t.signedInAs} <strong>{user.email}</strong>
       </p>
       <ProfileForm lang={lang} displayName={user.displayName} labels={{ name: t.displayName, save: t.save }} />
+      <SubscriptionPanel lang={lang} dict={dict} userId={user.id} />
       {user.isModerator && (
         <p className="mt-8">
           <Link href={moderationPath(lang)} className="font-semibold underline">

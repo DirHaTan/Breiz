@@ -4,6 +4,7 @@ import { htmlLang, isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { Footer } from "@/components/Footer";
 import { SITE_URL } from "@/lib/site";
+import { Analytics } from "@vercel/analytics/next";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -32,6 +33,8 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
       <body className="flex min-h-full flex-col">
         <div className="flex-1">{children}</div>
         <Footer lang={lang} dict={dict} />
+        {/* Vercel Web Analytics: page views only, no cookies. */}
+        <Analytics />
       </body>
     </html>
   );

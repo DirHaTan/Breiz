@@ -69,7 +69,9 @@
       "Résiliable à tout moment"
     ],
     "button": "S'abonner",
-    "comingSoon": "Le paiement ouvrira bientôt."
+    "already": "Vous êtes déjà abonné.",
+    "termsIntro": "En vous abonnant, vous acceptez les",
+    "termsLink": "conditions générales de vente"
   },
   "notFound": {
     "title": "Page introuvable",
@@ -127,5 +129,26 @@
     "sendTitle": "Envoyez-la par e-mail à :",
     "note": "Les annonces sont vérifiées par l'équipe de rédaction avant publication.",
     "link": "Envoyer une annonce"
+  },
+  "billing": {
+    "successTitle": "Merci !",
+    "successText": "Votre abonnement est enregistré.",
+    "successWait": "Si vous ne voyez pas encore les articles en entier, patientez quelques instants.",
+    "cancelTitle": "Paiement annulé",
+    "cancelText": "Le paiement n'a pas été effectué.",
+    "cancelRetry": "Vous pouvez réessayer quand vous voulez.",
+    "subscription": "Mon abonnement",
+    "none": "Vous n'êtes pas abonné.",
+    "planLabel": "Formule",
+    "monthly": "Mensuelle (5 €)",
+    "yearly": "Annuelle (50 €)",
+    "statusLabel": "Statut",
+    "statusActive": "Actif",
+    "statusPastDue": "Paiement à régulariser",
+    "statusIncomplete": "En attente du paiement",
+    "statusCanceled": "Terminé",
+    "renews": "Renouvellement le",
+    "ends": "Prend fin le",
+    "manage": "Gérer mon abonnement"
   }
 }
