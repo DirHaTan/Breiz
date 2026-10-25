@@ -84,7 +84,7 @@
   "account": {
     "title": "Ma c'hont",
     "signInTitle": "Kevrea",
-    "signInIntro": "Skrivit ho chomleh postel. Kaset e vo deoc'h eul liamm evid kevrea, hep ger-tremen.",
+    "signInIntro": "Skrivit ho chomleh postel. Kaset e vo deoh eul liamm evid kevrea, hep ger-tremen.",
     "emailLabel": "Chomleh postel",
     "sendLink": "Kas al liamm",
     "linkSent": "Kaset eo bet al liamm! Sellit ouz ho postelou (hag en ho spam ivez).",
@@ -127,6 +127,7 @@
       "Eur skeudenn (mar karit)"
     ],
     "sendTitle": "Kasit anezi dre bostel da:",
+    "alsoArticles": "Ar chomleh-mañ a dalv ivez evid kas deomp pennadou da veza embannet.",
     "note": "Gwiriet e vez ar c'hemennadennou gand skipailh ar gelaouenn a-raok beza embannet.",
     "link": "Kas eur gemennadenn"
   },

@@ -127,6 +127,7 @@
       "Une image (facultatif)"
     ],
     "sendTitle": "Envoyez-la par e-mail à :",
+    "alsoArticles": "Cette adresse sert aussi à nous envoyer des articles à publier.",
     "note": "Les annonces sont vérifiées par l'équipe de rédaction avant publication.",
     "link": "Envoyer une annonce"
   },
