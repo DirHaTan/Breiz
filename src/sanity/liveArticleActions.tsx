@@ -96,7 +96,7 @@ export const TennanAction: DocumentActionComponent = (props: DocumentActionProps
     dialog: confirming && {
       type: "confirm",
       tone: "critical",
-      message: "Tenna ar pennad-mañ eus al lehienn? (Retirer cet article du site ?)",
+      message: "Tenna ar pennad-mañ euz al lehienn? (Retirer cet article du site ?)",
       onCancel: () => setConfirming(false),
       onConfirm: async () => {
         await client.delete(liveId(props.id));

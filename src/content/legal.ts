@@ -51,7 +51,7 @@ export const legalPages: Record<LegalKind, Record<Locale, LegalPageText>> = {
       sections: [
         { heading: "Piou a zo atebeg?", lines: ["[NOM DU DIRECTEUR DE LA PUBLICATION]", "[ADRESSE E-MAIL DE CONTACT]"] },
         { heading: "An titouriou dastumet", lines: ["[TEXTE À VENIR]"] },
-        { heading: "Perak e vezont dastumet?", lines: ["[TEXTE À VENIR]"] },
+        { heading: "Perag e vezont dastumet?", lines: ["[TEXTE À VENIR]"] },
         { heading: "Pegeit e vezont miret?", lines: ["[TEXTE À VENIR]"] },
         { heading: "Piou a c'hell o gwelet?", lines: ["[TEXTE À VENIR]"] },
         { heading: "Ho kwiriou", lines: ["[TEXTE À VENIR]"] },
