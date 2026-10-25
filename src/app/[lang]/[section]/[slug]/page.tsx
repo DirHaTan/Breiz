@@ -79,12 +79,27 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/[sectio
   // Articles are for subscribers. A "Pennad digoust" is shown in full to
   // everyone; otherwise the summary and paywall are shown, and the full text
   // only streams in for subscribers and editors (see PaidArticleText).
+  const preview = (
+    <div className="mt-6 font-serif text-lg leading-relaxed">
+      <p>{freePreview(article.body)}</p>
+    </div>
+  );
   const teaser = (
     <>
-      <div className="mt-6 font-serif text-lg leading-relaxed">
-        <p>{freePreview(article.body)}</p>
-      </div>
+      {preview}
       <Paywall lang={lang} dict={dict} articleHref={articlePath(article)} />
+    </>
+  );
+  // Shown while the reader's access is checked, so subscribers never see the
+  // paywall flash before their full text arrives.
+  const loading = (
+    <>
+      {preview}
+      <div aria-busy="true" className="mt-4 animate-pulse space-y-3">
+        <div className="h-4 w-full bg-ink/10" />
+        <div className="h-4 w-11/12 bg-ink/10" />
+        <div className="h-4 w-4/5 bg-ink/10" />
+      </div>
     </>
   );
   const image = article.image && imageSrc(article.image, 1344);
@@ -128,7 +143,7 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/[sectio
             <ArticleBody body={article.body} />
           </div>
         ) : isSupabaseConfigured ? (
-          <Suspense fallback={teaser}>
+          <Suspense fallback={loading}>
             <PaidArticleText body={article.body} teaser={teaser} />
           </Suspense>
         ) : (
