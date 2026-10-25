@@ -19,7 +19,7 @@ type ArticleText = {
   body: PortableTextBlock[];
 };
 
-export type ArticleImage = SanityImageSource & { alt?: string };
+export type ArticleImage = SanityImageSource & { alt?: string; credit?: string; creditUrl?: string };
 
 export type Article = {
   id: string;

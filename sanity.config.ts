@@ -9,7 +9,7 @@ import { LIVE_TYPE } from "@/sanity/live";
 import { EmbannAction, OnlineBadge, TennanAction } from "@/sanity/liveArticleActions";
 
 // Article actions kept from Sanity. Its Publish/Unpublish buttons would make
-// the text public, so they're replaced by Embann/Tennañ (see src/sanity/live.ts).
+// the text public, so they're replaced by Embann/Tenna (see src/sanity/live.ts).
 const keptActions = new Set(["delete", "duplicate", "restore", "discardChanges"]);
 
 export default defineConfig({

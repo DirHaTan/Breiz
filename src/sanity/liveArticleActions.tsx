@@ -51,7 +51,7 @@ export const EmbannAction: DocumentActionComponent = (props: DocumentActionProps
   const upToDate = isUpToDate(copy, source) && !props.published;
 
   return {
-    label: busy ? "Oc'h embann…" : upToDate ? "Embannet ✓" : "Embann",
+    label: busy ? "Oh embann…" : upToDate ? "Embannet ✓" : "Embann",
     tone: "positive",
     disabled: !source || busy || isValidating || hasErrors || upToDate,
     title: hasErrors ? "Fix the errors in red first." : undefined,
@@ -83,20 +83,20 @@ export const EmbannAction: DocumentActionComponent = (props: DocumentActionProps
 };
 EmbannAction.action = "publish";
 
-// "Tennañ" (unpublish): removes the private copy, so the article leaves the website.
+// "Tenna" (unpublish): removes the private copy, so the article leaves the website.
 export const TennanAction: DocumentActionComponent = (props: DocumentActionProps) => {
   const client = useClient({ apiVersion });
   const copy = useLiveCopy(props.id);
   const [confirming, setConfirming] = useState(false);
   if (!copy) return null;
   return {
-    label: "Tennañ",
+    label: "Tenna",
     tone: "critical",
     onHandle: () => setConfirming(true),
     dialog: confirming && {
       type: "confirm",
       tone: "critical",
-      message: "Tennañ ar pennad-mañ eus al lec'hienn? (Retirer cet article du site ?)",
+      message: "Tenna ar pennad-mañ euz al lehienn? (Retirer cet article du site ?)",
       onCancel: () => setConfirming(false),
       onConfirm: async () => {
         await client.delete(liveId(props.id));

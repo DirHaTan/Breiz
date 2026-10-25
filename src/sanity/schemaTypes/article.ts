@@ -50,7 +50,7 @@ const text = (lang: "br" | "fr") => {
       }),
       defineField({
         name: "slug",
-        title: lang === "br" ? "Chomlec'h (URL)" : "Adresse (URL)",
+        title: lang === "br" ? "Chomleh (URL)" : "Adresse (URL)",
         description: "Click “Generate” to create it from the title.",
         type: "slug",
         options: { source: `${lang}.title`, maxLength: 96 },
@@ -86,7 +86,7 @@ export const article = defineType({
       name: "department",
       title: "Departamant",
       description:
-        "Evit ar pennadou er rann Breiz hepken. · Uniquement pour les articles de la rubrique Breiz.",
+        "Evid ar pennadou er rann Breiz hepken. · Uniquement pour les articles de la rubrique Breiz.",
       type: "string",
       options: { list: departments.map((d) => ({ title: `${d.br.name} – ${d.fr.name}`, value: d.id })), layout: "radio" },
       // Only shown for articles in the Breiz section.
@@ -113,7 +113,24 @@ export const article = defineType({
       title: "Main image",
       type: "image",
       options: { hotspot: true },
-      fields: [defineField({ name: "alt", title: "Alternative text", type: "string" })],
+      fields: [
+        defineField({ name: "alt", title: "Alternative text", type: "string" }),
+        // Optional photo credit, shown under the main image on the article page.
+        defineField({
+          name: "credit",
+          title: "Crédit photo",
+          description: "Ex. : Jean Dupont, CC BY-SA 4.0, Wikimedia Commons",
+          type: "string",
+          validation: (r) => r.max(200),
+        }),
+        defineField({
+          name: "creditUrl",
+          title: "Lien de la source",
+          description: "Page Wikimedia Commons ou page de la licence",
+          type: "url",
+          validation: (r) => r.uri({ scheme: ["http", "https"] }),
+        }),
+      ],
     }),
     text("br"),
     text("fr"),

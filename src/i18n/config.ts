@@ -46,3 +46,10 @@ export function safeNextPath(value: unknown): string | undefined {
 export function announcePath(lang: Locale): string {
   return localePath(lang, lang === "br" ? "/kas-eur-gemennadenn" : "/envoyer-une-annonce");
 }
+
+// The legal pages: /notennou-lezennel and /prevezded in Breton,
+// /fr/mentions-legales and /fr/confidentialite in French.
+export function legalPath(kind: "notices" | "privacy", lang: Locale): string {
+  const slugs = { notices: { br: "notennou-lezennel", fr: "mentions-legales" }, privacy: { br: "prevezded", fr: "confidentialite" } };
+  return localePath(lang, `/${slugs[kind][lang]}`);
+}

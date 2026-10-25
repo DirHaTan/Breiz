@@ -7,7 +7,8 @@ export function articleFields(doc: SanityDocument): Record<string, unknown> {
   return fields;
 }
 
-// A short fingerprint of the article's content. Sanity's revision number can
+// A short fingerprint of the article's content: every field, including the
+// main image's alt text and photo credit (mainImage.credit, mainImage.creditUrl). Sanity's revision number can
 // change without any edit (e.g. when the old public version is removed), so
 // we compare content instead.
 export function contentHash(doc: SanityDocument): string {

@@ -5,8 +5,8 @@
   "nav": {
     "home": "Degemer",
     "sections": "Rannou",
-    "subscribe": "Koumanantiñ",
-    "signIn": "Kevreañ",
+    "subscribe": "Koumananti",
+    "signIn": "Kevrea",
     "languageSwitch": "Français",
     "account": "Ma c'hont"
   },
@@ -15,42 +15,43 @@
     "lead": "Pennad pennañ"
   },
   "article": {
-    "by": "Gant",
-    "readMore": "Lenn muioc'h",
+    "by": "Gand",
+    "readMore": "Lenn muioh",
     "translationAvailable": "Lenn ar pennad-mañ e galleg",
-    "sampleNotice": "Pennad skouer eo hemañ. Lakaet e vo pennadou gwir en e lec'h."
+    "sampleNotice": "Pennad skouer eo hemañ. Lakaet e vo pennadou gwir en e leh.",
+    "photoCredit": "Skeudenn: "
   },
   "paywall": {
     "title": "Lennit ar pennad a-bez",
-    "text": "Evit lenn holl bennadou Keleier Breiz hag ar Bed, koumanantit.",
+    "text": "Evid lenn holl bennadou Keleier Breiz hag ar Bed, koumanantit.",
     "price": "5 € ar miz pe 50 € ar bloaz",
-    "button": "Koumanantiñ",
-    "already": "Koumanantet oc'h dija?"
+    "button": "Koumananti",
+    "already": "Koumanantet oh dija?"
   },
   "comments": {
     "title": "Soñjou al lennerien",
-    "signInToComment": "Kevreit evit skrivañ ur soñj.",
+    "signInToComment": "Kevreit evid skriva eur soñj.",
     "comingSoon": "Ar soñjou a vo digoret a-benn nebeut.",
-    "signInLink": "Kevreañ",
+    "signInLink": "Kevrea",
     "none": "N'eus soñj ebet c'hoaz.",
     "placeholder": "Skrivit ho soñj…",
-    "nameLabel": "Hoc'h anv",
+    "nameLabel": "Hoh anv",
     "post": "Embann",
     "delete": "Dilemel",
     "confirmDelete": "Dilemel ar soñj-mañ?",
-    "report": "Diskleriañ",
+    "report": "Diskleria",
     "reported": "Diskleriet. Trugarez.",
     "hide": "Kuzat",
     "unhide": "Diskouez",
     "hiddenLabel": "Kuzet",
-    "empty": "Skrivit un dra bennak.",
+    "empty": "Skrivit eun dra bennak.",
     "tooLong": "Re hir eo ar soñj (2000 arouezenn d'ar muiañ).",
-    "tooMany": "Re a soñjou e berr amzer. Gortozit un tamm.",
-    "error": "Ur fazi a zo bet. Klaskit en-dro."
+    "tooMany": "Re a soñjou e berr amzer. Gortozit eun tamm.",
+    "error": "Eur fazi a zo bet. Klaskit en-dro."
   },
   "subscribe": {
-    "title": "Koumanantiñ",
-    "intro": "Gant ur c'houmanant e c'hellit lenn holl bennadou Keleier Breiz hag ar Bed.",
+    "title": "Koumananti",
+    "intro": "Gand eur c'houmanant e c'hellit lenn holl bennadou Keleier Breiz hag ar Bed.",
     "monthly": {
       "price": "5 €",
       "period": "ar miz",
@@ -64,10 +65,10 @@
     "features": [
       "An holl bennadou, hep bevenn",
       "E brezoneg",
-      "Skrivañ soñjou dindan ar pennadou",
+      "Skriva soñjou dindan ar pennadou",
       "Gallout paouez pa garit"
     ],
-    "button": "Koumanantiñ",
+    "button": "Koumananti",
     "comingSoon": "Ar paeamant a vo digoret a-benn nebeut."
   },
   "notFound": {
@@ -75,36 +76,36 @@
     "back": "Distrei d'an degemer"
   },
   "footer": {
-    "about": "Keleier Breiz hag ar Bed, ur gelaouenn e brezoneg.",
+    "about": "Keleier Breiz hag ar Bed, eur gelaouenn e brezoneg.",
     "rights": "An holl wiriou miret."
   },
   "account": {
     "title": "Ma c'hont",
-    "signInTitle": "Kevreañ",
-    "signInIntro": "Skrivit ho chomlec'h postel. Kaset e vo deoc'h ul liamm evit kevreañ, hep ger-tremen.",
-    "emailLabel": "Chomlec'h postel",
+    "signInTitle": "Kevrea",
+    "signInIntro": "Skrivit ho chomleh postel. Kaset e vo deoc'h eul liamm evid kevrea, hep ger-tremen.",
+    "emailLabel": "Chomleh postel",
     "sendLink": "Kas al liamm",
     "linkSent": "Kaset eo bet al liamm! Sellit ouz ho postelou (hag en ho spam ivez).",
-    "invalidEmail": "N'eo ket mat ar chomlec'h postel.",
+    "invalidEmail": "N'eo ket mat ar chomleh postel.",
     "linkError": "N'eo ket mat al liamm, pe re goz eo. Goulennit unan nevez.",
-    "signedInAs": "Kevreet oc'h evel",
-    "displayName": "Hoc'h anv (diskouezet gant ho soñjou)",
-    "save": "Enrollañ",
+    "signedInAs": "Kevreet oh evel",
+    "displayName": "Hoh anv (diskouezet gand ho soñjou)",
+    "save": "Enrolla",
     "saved": "Enrollet.",
-    "nameInvalid": "Etre 2 ha 40 arouezenn e rank bezañ an anv.",
-    "signOut": "Digevreañ",
-    "moderation": "Merañ ar soñjou",
+    "nameInvalid": "Etre 2 ha 40 arouezenn e rank beza an anv.",
+    "signOut": "Digevrea",
+    "moderation": "Mera ar soñjou",
     "notConfigured": "N'eo ket digor ar c'hontou c'hoaz.",
-    "genericError": "Ur fazi a zo bet. Klaskit en-dro.",
-    "tooManyEmails": "Re a bostelou kaset. Gortozit un tamm a-raok klask en-dro."
+    "genericError": "Eur fazi a zo bet. Klaskit en-dro.",
+    "tooManyEmails": "Re a bostelou kaset. Gortozit eun tamm a-raok klask en-dro."
   },
   "moderation": {
-    "title": "Merañ ar soñjou",
+    "title": "Mera ar soñjou",
     "reported": "Soñjou diskleriet",
     "hidden": "Soñjou kuzet",
-    "nothing": "Netra da verañ.",
+    "nothing": "Netra da vera.",
     "reports": "diskleriadenn",
-    "forbidden": "Evit ar verourien hepken."
+    "forbidden": "Evid ar verourien hepken."
   },
   "section": {
     "empty": "N'eus pennad ebet c'hoaz.",
@@ -119,7 +120,7 @@
       "An titl",
       "An deiziad (hag an eur)",
       "Al leh",
-      "Eun darempred: anv, pellgomz pe chomlec'h postel",
+      "Eun darempred: anv, pellgomz pe chomleh postel",
       "Eur skrid berr",
       "Eur skeudenn (mar karit)"
     ],
