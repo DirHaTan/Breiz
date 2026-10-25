@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   alternates: { languages: { br: subscribePath("br"), fr: subscribePath("fr") } },
 };
 
-export default async function Page({ params }: PageProps<"/[lang]/abonnement">) {
+export default async function Page({ params, searchParams }: PageProps<"/[lang]/abonnement">) {
   const { lang } = await params;
   if (lang !== "fr") notFound();
-  return <SubscribePage lang="fr" />;
+  return <SubscribePage lang="fr" searchParams={searchParams} />;
 }

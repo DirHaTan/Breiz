@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { subscribePath, type Locale } from "@/i18n/config";
+import { accountPath, subscribePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 
 // Shown under the start of every article to readers who aren't subscribed.
-export function Paywall({ lang, dict }: { lang: Locale; dict: Dictionary }) {
+export function Paywall({ lang, dict, articleHref }: { lang: Locale; dict: Dictionary; articleHref: string }) {
   return (
     <aside className="relative mt-2 border-2 border-ink p-6 text-center">
       <div className="pointer-events-none absolute inset-x-0 -top-14 h-14 bg-gradient-to-b from-transparent to-paper" />
@@ -16,7 +16,11 @@ export function Paywall({ lang, dict }: { lang: Locale; dict: Dictionary }) {
       >
         {dict.paywall.button}
       </Link>
-      <p className="mt-3 text-sm text-muted">{dict.paywall.already}</p>
+      <p className="mt-3 text-sm">
+        <Link href={`${accountPath(lang)}?next=${encodeURIComponent(articleHref)}`} className="text-muted underline">
+          {dict.paywall.already}
+        </Link>
+      </p>
     </aside>
   );
 }

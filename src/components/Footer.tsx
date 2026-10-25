@@ -35,6 +35,11 @@ export async function Footer({ lang, dict }: { lang: Locale; dict: Dictionary })
               {legalPages.privacy[lang].title}
             </Link>
           </li>
+          <li>
+            <Link href={legalPath("terms", lang)} className="underline underline-offset-4 hover:opacity-80">
+              {legalPages.terms[lang].title}
+            </Link>
+          </li>
         </ul>
         <p className="opacity-70">
           © {year} {dict.site.name}. {dict.footer.rights}

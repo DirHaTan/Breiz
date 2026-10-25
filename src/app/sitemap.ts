@@ -20,7 +20,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         entries.push({ url: url(departmentPath(lang, d)) });
       }
     }
-    for (const path of [subscribePath(lang), announcePath(lang), legalPath("notices", lang), legalPath("privacy", lang)]) {
+    for (const path of [subscribePath(lang), announcePath(lang), legalPath("notices", lang), legalPath("privacy", lang), legalPath("terms", lang)]) {
       entries.push({ url: url(path), changeFrequency: "monthly", priority: 0.3 });
     }
     for (const a of articles) entries.push({ url: url(articlePath(a)), lastModified: a.date, priority: 0.8 });

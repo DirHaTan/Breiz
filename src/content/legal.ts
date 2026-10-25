@@ -5,7 +5,7 @@ import type { Locale } from "@/i18n/config";
 
 type LegalSection = { heading: string; lines: string[] };
 type LegalPageText = { slug: string; title: string; sections: LegalSection[] };
-export type LegalKind = "notices" | "privacy";
+export type LegalKind = "notices" | "privacy" | "terms";
 
 const HOST = [
   "Vercel Inc.",
@@ -41,6 +41,38 @@ export const legalPages: Record<LegalKind, Record<Locale, LegalPageText>> = {
         { heading: "Hébergeur", lines: HOST },
         { heading: "Propriété intellectuelle", lines: ["[TEXTE À VENIR]"] },
         { heading: "Contact", lines: ["[ADRESSE E-MAIL DE CONTACT]"] },
+      ],
+    },
+  },
+  terms: {
+    br: {
+      slug: "divizou-gwerza",
+      title: "Divizou gwerza",
+      sections: [
+        { heading: "Gwerzer", lines: ["[NOM OU RAISON SOCIALE DU VENDEUR]", "[ADRESSE POSTALE]", "[ADRESSE E-MAIL DE CONTACT]", "[NUMÉRO SIRET si applicable]"] },
+        { heading: "Pal", lines: ["[TEXTE À VENIR]"] },
+        { heading: "Priz", lines: ["[TEXTE À VENIR]"] },
+        { heading: "Paea", lines: ["[TEXTE À VENIR]"] },
+        { heading: "Padelez hag adneveza", lines: ["[TEXTE À VENIR]"] },
+        { heading: "Paouez ar c'houmanant", lines: ["[TEXTE À VENIR]"] },
+        { heading: "Gwir da zilezel", lines: ["[TEXTE À VENIR]"] },
+        { heading: "Darempred", lines: ["[ADRESSE E-MAIL DE CONTACT]"] },
+        { heading: "Lezenn", lines: ["[TEXTE À VENIR]"] },
+      ],
+    },
+    fr: {
+      slug: "cgv",
+      title: "Conditions générales de vente",
+      sections: [
+        { heading: "Vendeur", lines: ["[NOM OU RAISON SOCIALE DU VENDEUR]", "[ADRESSE POSTALE]", "[ADRESSE E-MAIL DE CONTACT]", "[NUMÉRO SIRET si applicable]"] },
+        { heading: "Objet", lines: ["[TEXTE À VENIR]"] },
+        { heading: "Prix", lines: ["[TEXTE À VENIR]"] },
+        { heading: "Paiement", lines: ["[TEXTE À VENIR]"] },
+        { heading: "Durée et renouvellement", lines: ["[TEXTE À VENIR]"] },
+        { heading: "Résiliation", lines: ["[TEXTE À VENIR]"] },
+        { heading: "Droit de rétractation", lines: ["[TEXTE À VENIR]"] },
+        { heading: "Service client", lines: ["[ADRESSE E-MAIL DE CONTACT]"] },
+        { heading: "Litiges et droit applicable", lines: ["[TEXTE À VENIR]"] },
       ],
     },
   },

@@ -9,6 +9,10 @@ import { articlePath, getAllArticles, getArticle, getTranslation } from "@/lib/a
 import { Header } from "@/components/Header";
 import { Paywall } from "@/components/Paywall";
 import { Comments } from "@/components/Comments";
+import { Suspense } from "react";
+import type { PortableTextBlock } from "@portabletext/react";
+import { canReadPaidArticles } from "@/lib/access";
+import { isSupabaseConfigured } from "@/supabase/env";
 import { FormattedDate } from "@/components/FormattedDate";
 import { imageSrc } from "@/lib/images";
 import { freePreview } from "@/lib/preview";
@@ -72,11 +76,17 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/[sectio
   const { lang, section, article, translation } = data;
   const dict = getDictionary(lang);
 
-  // Articles are for subscribers: non-subscribers only see the beginning.
-  // A "Pennad digoust" (free article) is shown in full to everyone.
-  // (Step 4 will show the full text to subscribers.)
-  const showFullText = article.free;
-  const preview = showFullText ? "" : freePreview(article.body);
+  // Articles are for subscribers. A "Pennad digoust" is shown in full to
+  // everyone; otherwise the summary and paywall are shown, and the full text
+  // only streams in for subscribers and editors (see PaidArticleText).
+  const teaser = (
+    <>
+      <div className="mt-6 font-serif text-lg leading-relaxed">
+        <p>{freePreview(article.body)}</p>
+      </div>
+      <Paywall lang={lang} dict={dict} articleHref={articlePath(article)} />
+    </>
+  );
   const image = article.image && imageSrc(article.image, 1344);
 
   return (
@@ -113,18 +123,29 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/[sectio
             <PhotoCredit image={article.image} prefix={dict.article.photoCredit} />
           </figure>
         )}
-        {showFullText ? (
+        {article.free ? (
           <div className="mt-6">
             <ArticleBody body={article.body} />
           </div>
+        ) : isSupabaseConfigured ? (
+          <Suspense fallback={teaser}>
+            <PaidArticleText body={article.body} teaser={teaser} />
+          </Suspense>
         ) : (
-          <>
-            <div className="mt-6 font-serif text-lg leading-relaxed">{preview && <p>{preview}</p>}</div>
-            <Paywall lang={lang} dict={dict} />
-          </>
+          teaser
         )}
         <Comments lang={lang} dict={dict} articleId={article.id} articleHref={articlePath(article)} />
       </main>
     </>
+  );
+}
+
+// The full text for subscribers and editors; everyone else keeps the teaser.
+async function PaidArticleText({ body, teaser }: { body: PortableTextBlock[]; teaser: React.ReactNode }) {
+  if (!(await canReadPaidArticles())) return teaser;
+  return (
+    <div className="mt-6">
+      <ArticleBody body={body} />
+    </div>
   );
 }

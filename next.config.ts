@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
     return [
       { source: "/mentions-legales", destination: "/fr/mentions-legales", permanent: true },
       { source: "/confidentialite", destination: "/fr/confidentialite", permanent: true },
+      { source: "/cgv", destination: "/fr/cgv", permanent: true },
     ];
   },
   cacheComponents: true,
