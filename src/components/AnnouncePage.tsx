@@ -41,6 +41,7 @@ export function AnnouncePage({ lang }: { lang: Locale }) {
             {ANNOUNCEMENTS_EMAIL}
           </a>
         </p>
+        <p className="mt-2">{t.alsoArticles}</p>
         <p className="mt-8 border-2 border-ink p-4 text-sm">{t.note}</p>
       </main>
     </>

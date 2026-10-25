@@ -1,3 +1,3 @@
-// Where readers send announcements for the "Embannit ganeomp" section.
-// PLACEHOLDER: replace with the real address when it's ready.
-export const ANNOUNCEMENTS_EMAIL = "kemennadennou@example.com";
+// Where readers send announcements and articles for the "Embannit ganeomp"
+// section.
+export const ANNOUNCEMENTS_EMAIL = "kemennadennou@keleierbreiz.fr";
