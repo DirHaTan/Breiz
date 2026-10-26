@@ -19,7 +19,7 @@ export function Header({ lang, dict, alternateHref, activeSection }: Props) {
   const other = otherLocale(lang);
   return (
     <header className="border-b-4 border-double border-ink">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 pt-4 text-sm">
+      <div className="mx-auto flex max-w-[90rem] items-center justify-between gap-4 px-4 lg:px-6 xl:px-8 pt-4 text-sm">
         <Link href={alternateHref ?? localePath(other)} hrefLang={other} className="underline-offset-4 hover:underline">
           {dict.nav.languageSwitch}
         </Link>
@@ -37,13 +37,13 @@ export function Header({ lang, dict, alternateHref, activeSection }: Props) {
           </Link>
         </div>
       </div>
-      <div className="mx-auto max-w-6xl px-4 py-6 text-center">
+      <div className="mx-auto max-w-[90rem] px-4 lg:px-6 xl:px-8 py-6 text-center">
         <Link href={localePath(lang)} aria-label={`${dict.site.name} – ${dict.nav.home}`}>
           <Logo className="text-2xl sm:text-3xl lg:text-4xl" />
         </Link>
       </div>
       <nav aria-label={dict.nav.sections} className="border-t border-ink">
-        <ul className="mx-auto flex max-w-6xl gap-x-6 overflow-x-auto px-4 py-3 text-sm font-semibold uppercase tracking-wide whitespace-nowrap sm:justify-center">
+        <ul className="mx-auto flex max-w-[90rem] gap-x-6 overflow-x-auto px-4 lg:px-6 xl:px-8 py-3 text-sm font-semibold uppercase tracking-wide whitespace-nowrap sm:justify-center">
           {sections.map((s) => (
             <li key={s.id}>
               <Link

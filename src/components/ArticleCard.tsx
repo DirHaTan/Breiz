@@ -7,7 +7,10 @@ import { FormattedDate } from "@/components/FormattedDate";
 import { imageSrc } from "@/lib/images";
 import { getDictionary } from "@/i18n/dictionaries";
 
-export function ArticleCard({ article, size = "normal" }: { article: LocalizedArticle; size?: "normal" | "lead" }) {
+type Size = "normal" | "lead" | "compact";
+
+export function ArticleCard({ article, size = "normal" }: { article: LocalizedArticle; size?: Size }) {
+  if (size === "compact") return <CompactArticleCard article={article} />;
   const section = getSection(article.section)!;
   const lead = size === "lead";
   const image = article.image && imageSrc(article.image, lead ? 1200 : 640);
@@ -20,18 +23,14 @@ export function ArticleCard({ article, size = "normal" }: { article: LocalizedAr
             alt=""
             width={lead ? 1200 : 640}
             height={lead ? 675 : 360}
-            className="mb-3 w-full"
+            // The lead image stays 16:9 but never taller than 420px.
+            className={lead ? "mb-3 aspect-video max-h-[420px] w-full object-cover" : "mb-3 w-full"}
             priority={lead}
           />
         </Link>
       )}
-      <Link
-        href={localePath(article.lang, `/${section[article.lang].slug}`)}
-        className="text-xs font-bold uppercase tracking-widest hover:underline"
-      >
-        {section[article.lang].name}
-      </Link>
-      <h2 className={`mt-1 font-serif font-bold leading-tight ${lead ? "text-4xl sm:text-5xl" : "text-xl"}`}>
+      <SectionLabel article={article} section={section} />
+      <h2 className={`mt-1 font-serif font-bold leading-tight ${lead ? "text-3xl lg:text-4xl" : "text-xl"}`}>
         <Link href={articlePath(article)} className="hover:underline">
           {article.title}
         </Link>
@@ -42,5 +41,48 @@ export function ArticleCard({ article, size = "normal" }: { article: LocalizedAr
         <FormattedDate date={article.date} lang={article.lang} />
       </p>
     </article>
+  );
+}
+
+// A small row for the homepage sidebar: thumbnail, section, title and date.
+function CompactArticleCard({ article }: { article: LocalizedArticle }) {
+  const section = getSection(article.section)!;
+  const image = article.image && imageSrc(article.image, 240);
+  return (
+    <article className="flex gap-3">
+      {image && (
+        <Link href={articlePath(article)} tabIndex={-1} aria-hidden="true" className="shrink-0">
+          <Image src={image} alt="" width={240} height={135} className="aspect-video w-24 object-cover" />
+        </Link>
+      )}
+      <div className="min-w-0">
+        <SectionLabel article={article} section={section} />
+        <h3 className="mt-0.5 font-serif font-bold leading-snug">
+          <Link href={articlePath(article)} className="hover:underline">
+            {article.title}
+          </Link>
+        </h3>
+        <p className="mt-1 text-xs text-muted">
+          <FormattedDate date={article.date} lang={article.lang} />
+        </p>
+      </div>
+    </article>
+  );
+}
+
+function SectionLabel({
+  article,
+  section,
+}: {
+  article: LocalizedArticle;
+  section: NonNullable<ReturnType<typeof getSection>>;
+}) {
+  return (
+    <Link
+      href={localePath(article.lang, `/${section[article.lang].slug}`)}
+      className="text-xs font-bold uppercase tracking-widest hover:underline"
+    >
+      {section[article.lang].name}
+    </Link>
   );
 }

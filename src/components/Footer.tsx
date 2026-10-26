@@ -14,7 +14,7 @@ export async function Footer({ lang, dict }: { lang: Locale; dict: Dictionary })
   const year = await currentYear();
   return (
     <footer className="mt-16 bg-ink text-paper">
-      <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-sm sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto flex max-w-[90rem] flex-col gap-2 px-4 lg:px-6 xl:px-8 py-8 text-sm sm:flex-row sm:items-center sm:justify-between">
         <p className="flex items-center gap-2">
           <ErmineMark className="h-5 w-auto" />
           {dict.footer.about}

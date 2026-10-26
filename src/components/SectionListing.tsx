@@ -28,7 +28,7 @@ export async function SectionListing({ lang, section, department }: Props) {
         activeSection={section.id}
         alternateHref={department ? departmentPath(other, department) : localePath(other, `/${section[other].slug}`)}
       />
-      <main className="mx-auto max-w-6xl px-4 py-8">
+      <main className="mx-auto max-w-[90rem] px-4 py-8 lg:px-6 xl:px-8">
         <h1 className="font-serif text-4xl font-black">
           {section[lang].name}
           {department && <span className="font-normal"> · {department[lang].name}</span>}
@@ -69,7 +69,7 @@ export async function SectionListing({ lang, section, department }: Props) {
         {articles.length === 0 ? (
           <p className="mt-6 text-muted">{dict.section.empty}</p>
         ) : (
-          <div className="mt-6 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-6 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {articles.map((article) => (
               <ArticleCard key={article.id} article={article} />
             ))}
