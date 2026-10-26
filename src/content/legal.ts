@@ -67,7 +67,7 @@ export const legalPages: Record<LegalKind, Record<Locale, LegalPageText>> = {
         {
           heading: "Pal",
           lines: [
-            `An diviziou-mañ a ren ar c'houmanant niverel da Geleier Breiz hag ar Bed, a ro an tu da lenn an holl bennadou embannet war ${SITE}.`,
+            `An divizou-mañ a ren ar c'houmanant niverel da « Keleier Breiz hag ar Bed », a ro an tu da lenn an holl bennadou embannet war ${SITE}.`,
           ],
         },
         {
@@ -103,7 +103,7 @@ export const legalPages: Record<LegalKind, Record<Locale, LegalPageText>> = {
         {
           heading: "Lezenn",
           lines: [
-            `Lezenn Frans a dalv evid an diviziou-mañ. Ma vez eun tabut, skrivit da gentañ da ${CONTACT}: klasket e vo eun diskoulm a-unvan a-raok netra all.`,
+            `Lezenn Frans a dalv evid an divizou-mañ. Ma vez eun tabut, skrivit da gentañ da ${CONTACT}: klasket e vo eun diskoulm a-unvan a-raok netra all.`,
           ],
         },
       ],
@@ -186,8 +186,8 @@ export const legalPages: Record<LegalKind, Record<Locale, LegalPageText>> = {
             "- Supabase (diaz-roadennou ha kevrea)",
             "- Stripe ha Link (paea)",
             "- Resend (kas ar posteliou kevrea, servijerien en Iwerzon)",
-            "- Vercel (herberia al lehienn ha stadegou dizanv, hep toupin)",
-            "Lod anezo a zo er-maez euz an Unaniez Europa; gwarezet eo an treuzkasou gand diviziou kevratel.",
+            "- Vercel (herberhia al lehienn ha stadegou dizanv, hep toupin)",
+            "Lod anezo a zo er-maez euz an Unaniez Europa; gwarezet eo an treuzkasou gand divizou kevratel.",
           ],
         },
         {
