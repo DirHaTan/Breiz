@@ -21,14 +21,14 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
   const dict = getDictionary(lang);
-  const [lead, ...others] = await getLatestArticles(lang, 16);
+  const [lead, ...others] = await getLatestArticles(lang, 19);
   const latest = others.slice(0, 6);
   const rest = others.slice(6);
 
   return (
     <>
       <Header lang={lang} dict={dict} alternateHref={localePath(otherLocale(lang))} />
-      <main className="mx-auto max-w-7xl px-4 py-8">
+      <main className="mx-auto max-w-[90rem] px-4 py-8 lg:px-6 xl:px-8">
         {/* Lead article (2/3) beside the latest list (1/3) on wide screens;
             stacked in one column on phones and tablets. */}
         <div className="grid gap-8 border-b border-ink pb-8 lg:grid-cols-3">
@@ -53,7 +53,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
           )}
         </div>
         {rest.length > 0 && (
-          <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {rest.map((article) => (
               <ArticleCard key={article.id} article={article} />
             ))}
