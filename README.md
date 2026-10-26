@@ -4,7 +4,7 @@ A news and publishing website in Breton (skolveurieg orthography) and French.
 
 - Breton is the default language: `/`, `/nevezentiou`, `/breiz`, …
 - French lives under `/fr`: `/fr/actualites`, `/fr/bretagne`, …
-- Sections: Nevezentiou, Breiz, Frans, Bed, Lennegez, Kevredigez, Sport, Istor, Sevenadur, Embannit ganeomp.
+- Sections: Nevezentiou, Breiz, Deskadurez, Frans, Bed, Lennegez, Kevredigez, Sport, Istor, Sevenadur, Embannit ganeomp.
 - Embannit ganeomp (French: Annonces) is for free community announcements: choosing it
   in the editor ticks **Pennad digoust** automatically (it can still be unticked).
 - Readers learn how to send an announcement at `/kas-eur-gemennadenn` (French: `/fr/envoyer-une-annonce`),

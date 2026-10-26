@@ -4,6 +4,7 @@ import type { Locale } from "@/i18n/config";
 export const sections = [
   { id: "nevezentiou", br: { name: "Nevezentiou", slug: "nevezentiou" }, fr: { name: "Actualités", slug: "actualites" } },
   { id: "breiz", br: { name: "Breiz", slug: "breiz" }, fr: { name: "Bretagne", slug: "bretagne" } },
+  { id: "deskadurez", br: { name: "Deskadurez", slug: "deskadurez" }, fr: { name: "Éducation", slug: "education" } },
   { id: "frans", br: { name: "Frans", slug: "frans" }, fr: { name: "France", slug: "france" } },
   { id: "bed", br: { name: "Bed", slug: "bed" }, fr: { name: "Monde", slug: "monde" } },
   { id: "lennegez", br: { name: "Lennegez", slug: "lennegez" }, fr: { name: "Littérature", slug: "litterature" } },
