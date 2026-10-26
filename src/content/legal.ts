@@ -49,8 +49,13 @@ export const legalPages: Record<LegalKind, Record<Locale, LegalPageText>> = {
           heading: "Hébergeur",
           lines: ["Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis — https://vercel.com"],
         },
-        { heading: "Propriété intellectuelle", lines: ["[TEXTE À VENIR]"] },
-        { heading: "Contact", lines: ["darempred@keleierbreiz.fr"] },
+        {
+          heading: "Propriété intellectuelle",
+          lines: [
+            "Les textes publiés sur ce site sont la propriété de leurs auteurs. Toute reproduction, même partielle, est interdite sans autorisation écrite. Les photographies sont publiées avec l'accord de leurs auteurs ou sous licence libre ; leur crédit est indiqué sous chaque image.",
+          ],
+        },
+        { heading: "Signalement", lines: [`Pour signaler un contenu, écrivez à ${CONTACT}.`] },
       ],
     },
   },
@@ -107,15 +112,55 @@ export const legalPages: Record<LegalKind, Record<Locale, LegalPageText>> = {
       slug: "cgv",
       title: "Conditions générales de vente",
       sections: [
-        { heading: "Vendeur", lines: ["[NOM OU RAISON SOCIALE DU VENDEUR]", "[ADRESSE POSTALE]", "darempred@keleierbreiz.fr", "[NUMÉRO SIRET si applicable]"] },
-        { heading: "Objet", lines: ["[TEXTE À VENIR]"] },
-        { heading: "Prix", lines: ["[TEXTE À VENIR]"] },
-        { heading: "Paiement", lines: ["[TEXTE À VENIR]"] },
-        { heading: "Durée et renouvellement", lines: ["[TEXTE À VENIR]"] },
-        { heading: "Résiliation", lines: ["[TEXTE À VENIR]"] },
-        { heading: "Droit de rétractation", lines: ["[TEXTE À VENIR]"] },
-        { heading: "Service client", lines: ["darempred@keleierbreiz.fr"] },
-        { heading: "Litiges et droit applicable", lines: ["[TEXTE À VENIR]"] },
+        {
+          heading: "Objet",
+          lines: [
+            `Les présentes conditions régissent l'abonnement numérique à Keleier Breiz hag ar Bed, qui donne accès à tous les articles publiés sur ${SITE}.`,
+          ],
+        },
+        {
+          heading: "Vendeur",
+          lines: [
+            `Le paiement est traité par Stripe ; la vente est réalisée via Link (Stripe), qui collecte la TVA applicable. Le contenu est fourni par l'éditeur du site, Hocine Nedjar (voir les mentions légales). Contact : ${CONTACT}`,
+          ],
+        },
+        {
+          heading: "Prix",
+          lines: [
+            "- Formule mensuelle : 5 € TTC par mois.",
+            "- Formule annuelle : 50 € TTC par an.",
+            "Les prix incluent la TVA applicable à la presse en ligne.",
+          ],
+        },
+        {
+          heading: "Paiement",
+          lines: [
+            "Par carte bancaire ou par les moyens proposés sur la page de paiement sécurisée de Stripe. Le paiement est prélevé au début de chaque période.",
+          ],
+        },
+        {
+          heading: "Durée et renouvellement",
+          lines: ["L'abonnement se renouvelle automatiquement à la fin de chaque période (mois ou année), jusqu'à résiliation."],
+        },
+        {
+          heading: "Résiliation",
+          lines: [
+            "Vous pouvez résilier à tout moment depuis « Ma c'hont » → « Mera ma c'houmanant ». La résiliation prend effet à la fin de la période déjà payée ; vous gardez l'accès jusque-là.",
+          ],
+        },
+        {
+          heading: "Droit de rétractation et remboursement",
+          lines: [
+            `Vous disposez de 14 jours après votre premier paiement pour demander le remboursement de votre abonnement, sans avoir à vous justifier, en écrivant à ${CONTACT}.`,
+          ],
+        },
+        { heading: "Service client", lines: [CONTACT] },
+        {
+          heading: "Litiges et droit applicable",
+          lines: [
+            `Les présentes conditions sont soumises au droit français. En cas de litige, écrivez d'abord à ${CONTACT} : une solution amiable sera recherchée avant toute action.`,
+          ],
+        },
       ],
     },
   },
@@ -165,14 +210,48 @@ export const legalPages: Record<LegalKind, Record<Locale, LegalPageText>> = {
       slug: "confidentialite",
       title: "Politique de confidentialité",
       sections: [
-        { heading: "Responsable du traitement", lines: ["[NOM DU DIRECTEUR DE LA PUBLICATION]", "darempred@keleierbreiz.fr"] },
-        { heading: "Données collectées", lines: ["[TEXTE À VENIR]"] },
-        { heading: "Finalités", lines: ["[TEXTE À VENIR]"] },
-        { heading: "Durée de conservation", lines: ["[TEXTE À VENIR]"] },
-        { heading: "Destinataires et sous-traitants", lines: ["[TEXTE À VENIR]"] },
-        { heading: "Vos droits", lines: ["[TEXTE À VENIR]"] },
-        { heading: "Cookies", lines: ["[TEXTE À VENIR]"] },
-        { heading: "Contact", lines: ["darempred@keleierbreiz.fr"] },
+        { heading: "Responsable du traitement", lines: [`Hocine Nedjar — ${CONTACT}`] },
+        {
+          heading: "Données collectées",
+          lines: [
+            "- Votre adresse e-mail, pour vous connecter (lien de connexion envoyé par e-mail, sans mot de passe).",
+            "- Le nom que vous choisissez d'afficher, et vos commentaires.",
+            "- L'état de votre abonnement (formule, date de renouvellement).",
+            "Nous ne recevons jamais vos coordonnées bancaires : le paiement est traité directement par Stripe.",
+          ],
+        },
+        {
+          heading: "Pourquoi",
+          lines: [
+            "Pour gérer votre compte, votre abonnement et vos commentaires. Base légale : l'exécution du contrat (abonnement) et votre consentement (commentaires).",
+          ],
+        },
+        {
+          heading: "Prestataires",
+          lines: [
+            "- Supabase (base de données et connexion)",
+            "- Stripe et Link (paiement)",
+            "- Resend (envoi des e-mails de connexion, serveurs en Irlande)",
+            "- Vercel (hébergement du site et statistiques de visite anonymes, sans cookie)",
+            "Certains prestataires sont situés hors de l'Union européenne ; les transferts sont encadrés par des clauses contractuelles types.",
+          ],
+        },
+        {
+          heading: "Durée de conservation",
+          lines: ["Tant que votre compte existe. Les données de facturation sont conservées par Stripe selon ses obligations légales."],
+        },
+        {
+          heading: "Cookies",
+          lines: [
+            "Le site n'utilise qu'un cookie technique, nécessaire pour rester connecté. Aucun cookie publicitaire ni de mesure d'audience.",
+          ],
+        },
+        {
+          heading: "Vos droits",
+          lines: [
+            `Vous pouvez accéder à vos données, les corriger, les supprimer ou vous opposer à leur traitement en écrivant à ${CONTACT}. Vous pouvez aussi saisir la CNIL ([www.cnil.fr](https://www.cnil.fr)).`,
+          ],
+        },
       ],
     },
   },
