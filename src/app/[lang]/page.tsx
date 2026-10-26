@@ -21,25 +21,44 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
   const dict = getDictionary(lang);
-  const [lead, ...rest] = await getLatestArticles(lang, 13);
+  const [lead, ...others] = await getLatestArticles(lang, 16);
+  const latest = others.slice(0, 6);
+  const rest = others.slice(6);
 
   return (
     <>
       <Header lang={lang} dict={dict} alternateHref={localePath(otherLocale(lang))} />
-      <main className="mx-auto max-w-6xl px-4 py-8">
-        {lead && (
-          <section aria-label={dict.home.lead} className="border-b border-ink pb-8">
-            <ArticleCard article={lead} size="lead" />
-          </section>
-        )}
-        {rest.length > 0 && (
-          <h2 className="mt-8 mb-4 text-xs font-bold uppercase tracking-widest">{dict.home.latest}</h2>
-        )}
-        <div className="grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
-          {rest.map((article) => (
-            <ArticleCard key={article.id} article={article} />
-          ))}
+      <main className="mx-auto max-w-7xl px-4 py-8">
+        {/* Lead article (2/3) beside the latest list (1/3) on wide screens;
+            stacked in one column on phones and tablets. */}
+        <div className="grid gap-8 border-b border-ink pb-8 lg:grid-cols-3">
+          {lead && (
+            <section aria-label={dict.home.lead} className="lg:col-span-2">
+              <ArticleCard article={lead} size="lead" />
+            </section>
+          )}
+          {latest.length > 0 && (
+            <section aria-labelledby="latest-heading" className="lg:border-l lg:border-ink lg:pl-8">
+              <h2 id="latest-heading" className="border-b-2 border-ink pb-2 text-xs font-bold uppercase tracking-widest">
+                {dict.home.latest}
+              </h2>
+              <ul className="divide-y divide-ink/20">
+                {latest.map((article) => (
+                  <li key={article.id} className="py-3">
+                    <ArticleCard article={article} size="compact" />
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
         </div>
+        {rest.length > 0 && (
+          <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
+            {rest.map((article) => (
+              <ArticleCard key={article.id} article={article} />
+            ))}
+          </div>
+        )}
       </main>
     </>
   );
