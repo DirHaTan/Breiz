@@ -21,6 +21,13 @@
     "sampleNotice": "Ceci est un article d'exemple. Il sera remplacé par de vrais articles.",
     "photoCredit": "Photo : "
   },
+  "share": {
+    "heading": "Partager cet article",
+    "copy": "Copier le lien",
+    "copied": "Lien copié !",
+    "native": "Partager",
+    "email": "E-mail"
+  },
   "paywall": {
     "title": "Lisez l'article en entier",
     "text": "Pour lire tous les articles de Keleier Breiz hag ar Bed, abonnez-vous.",

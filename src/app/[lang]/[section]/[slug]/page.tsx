@@ -19,6 +19,8 @@ import { freePreview } from "@/lib/preview";
 import { ArticleBody } from "@/components/ArticleBody";
 import { PhotoCredit } from "@/components/PhotoCredit";
 import { getSection } from "@/lib/sections";
+import { ShareLinks } from "@/components/ShareLinks";
+import { SITE_URL } from "@/lib/site";
 
 export async function generateStaticParams() {
   const articles = await getAllArticles();
@@ -48,19 +50,27 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/[section]/
   const data = await load(params);
   if (!data) return {};
   const { article, translation } = data;
+  // The picture Facebook, X and others show when the article is shared. There
+  // is no default site picture, so an article without one shares without.
+  const images = article.image
+    ? [{ url: imageSrc(article.image, 1200), width: 1200, height: 675, alt: article.image.alt ?? article.title }]
+    : undefined;
   return {
     title: article.title,
     description: article.excerpt,
+    // These replace the layout's openGraph and twitter settings, so they repeat
+    // the site name, language and card type.
     openGraph: {
       type: "article",
-      url: articlePath(article),
+      url: `${SITE_URL}${articlePath(article)}`,
       siteName: getDictionary(article.lang).site.name,
+      locale: article.lang === "br" ? "br_FR" : "fr_FR",
       title: article.title,
       description: article.excerpt,
       publishedTime: article.date,
-      // The picture Facebook and others show when the article is shared.
-      images: article.image ? [{ url: imageSrc(article.image, 1200), width: 1200, height: 675 }] : undefined,
+      images,
     },
+    twitter: { card: "summary_large_image", title: article.title, description: article.excerpt, images },
     alternates: {
       canonical: articlePath(article),
       languages: translation
@@ -103,6 +113,7 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/[sectio
     </>
   );
   const image = article.image && imageSrc(article.image, 1344);
+  const share = <ShareLinks url={`${SITE_URL}${articlePath(article)}`} title={article.title} labels={dict.share} />;
 
   return (
     <>
@@ -132,6 +143,7 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/[sectio
             </>
           )}
         </p>
+        {share}
         {image && (
           <figure className="mt-6">
             <Image src={image} alt={article.image?.alt ?? ""} width={1344} height={756} className="w-full" priority />
@@ -149,6 +161,7 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/[sectio
         ) : (
           teaser
         )}
+        <div className="mt-8 border-t border-ink pt-2">{share}</div>
         <Comments lang={lang} dict={dict} articleId={article.id} articleHref={articlePath(article)} />
       </main>
     </>

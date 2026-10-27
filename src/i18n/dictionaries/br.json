@@ -21,6 +21,13 @@
     "sampleNotice": "Pennad skouer eo hemañ. Lakaet e vo pennadou gwir en e leh.",
     "photoCredit": "Skeudenn: "
   },
+  "share": {
+    "heading": "Ranna ar pennad-mañ",
+    "copy": "Kopia al liamm",
+    "copied": "Liamm kopiet!",
+    "native": "Ranna",
+    "email": "Postel"
+  },
   "paywall": {
     "title": "Lennit ar pennad a-bez",
     "text": "Evid lenn holl bennadou Keleier Breiz hag ar Bed, koumanantit.",
