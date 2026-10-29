@@ -51,7 +51,7 @@ export const TranslateToFrenchAction: DocumentActionComponent = (props: Document
   return {
     label: busy ? "O treiñ…" : "Treiñ e galleg · Traduire en français",
     disabled: busy || !br?.body,
-    title: "Treïñ an testenn vrezhonek e galleg gant Groq · Traduire le texte breton en français avec Groq",
+    title: "Treïñ an testenn vrezonek e galleg gant Groq · Traduire le texte breton en français avec Groq",
     onHandle: async () => {
       if (!br) return;
       setBusy(true);
