@@ -15,33 +15,55 @@ Rules you must always follow:
 - Stay faithful to the original meaning and tone. Do not invent facts.
 `.trim();
 
+const MODELS = [
+  "openai/gpt-oss-120b",
+  "openai/gpt-oss-20b",
+  "qwen/qwen3.6-27b",
+];
+
 export async function getGroqChatCompletion(promptText: string, systemPrompt?: string) {
   if (!process.env.GROQ_API_KEY) {
     throw new Error("GROQ_API_KEY is not set");
   }
 
-  try {
-    const chatCompletion = await groq.chat.completions.create({
-      messages: [
-        {
-          role: "system",
-          content: systemPrompt || DEFAULT_SYSTEM,
-        },
-        {
-          role: "user",
-          content: promptText,
-        },
-      ],
-      model: "llama-3.1-8b-instant",
-      temperature: 0.5,
-      max_tokens: 2048,
-    });
+  const messages = [
+    {
+      role: "system" as const,
+      content: systemPrompt || DEFAULT_SYSTEM,
+    },
+    {
+      role: "user" as const,
+      content: promptText,
+    },
+  ];
 
-    return chatCompletion.choices[0]?.message?.content || "";
-  } catch (error) {
-    console.error("Error connecting to Groq:", error);
-    throw error;
+  let lastError: unknown;
+
+  for (const model of MODELS) {
+    try {
+      const chatCompletion = await groq.chat.completions.create({
+        messages,
+        model,
+        temperature: 0.5,
+        max_tokens: 2048,
+      });
+
+      const content = chatCompletion.choices[0]?.message?.content;
+      if (content) return content;
+    } catch (error) {
+      lastError = error;
+      const msg = error instanceof Error ? error.message : String(error);
+      // Retry only on model-not-found / invalid request style errors.
+      if (!/404|model_not_found|invalid_request|not found|does not exist/i.test(msg)) {
+        console.error(`Groq error with model ${model}:`, error);
+        throw error;
+      }
+      console.warn(`Model ${model} unavailable, trying next fallback…`);
+    }
   }
+
+  console.error("All Groq models failed:", lastError);
+  throw lastError instanceof Error ? lastError : new Error("All Groq models failed");
 }
 
 export async function summarizeContent(text: string, language: "br" | "fr" | "en" = "br") {
