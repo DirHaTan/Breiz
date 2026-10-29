@@ -20,7 +20,7 @@ import { ArticleBody } from "@/components/ArticleBody";
 import { PhotoCredit } from "@/components/PhotoCredit";
 import { getSection } from "@/lib/sections";
 import { ShareLinks } from "@/components/ShareLinks";
-import { SITE_URL } from "@/lib/site";
+import { DEFAULT_SHARE_IMAGE, SITE_URL } from "@/lib/site";
 
 export async function generateStaticParams() {
   const articles = await getAllArticles();
@@ -50,11 +50,11 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/[section]/
   const data = await load(params);
   if (!data) return {};
   const { article, translation } = data;
-  // The picture Facebook, X and others show when the article is shared. There
-  // is no default site picture, so an article without one shares without.
+  // The picture Facebook, X and others show when the article is shared. An
+  // article without its own picture uses the site's default picture.
   const images = article.image
     ? [{ url: imageSrc(article.image, 1200), width: 1200, height: 675, alt: article.image.alt ?? article.title }]
-    : undefined;
+    : [DEFAULT_SHARE_IMAGE];
   return {
     title: article.title,
     description: article.excerpt,

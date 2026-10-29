@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { htmlLang, isLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { Footer } from "@/components/Footer";
-import { SITE_URL } from "@/lib/site";
+import { DEFAULT_SHARE_IMAGE, SITE_URL } from "@/lib/site";
 import { Analytics } from "@vercel/analytics/next";
 import "../globals.css";
 
@@ -19,8 +19,8 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
     metadataBase: new URL(SITE_URL),
     title: { default: dict.site.name, template: `%s – ${dict.site.name}` },
     description: dict.footer.about,
-    openGraph: { siteName: dict.site.name, locale: lang === "br" ? "br_FR" : "fr_FR" },
-    twitter: { card: "summary_large_image" },
+    openGraph: { siteName: dict.site.name, locale: lang === "br" ? "br_FR" : "fr_FR", images: [DEFAULT_SHARE_IMAGE] },
+    twitter: { card: "summary_large_image", images: [DEFAULT_SHARE_IMAGE] },
   };
 }
 
