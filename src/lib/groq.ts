@@ -14,7 +14,7 @@ export async function getGroqChatCompletion(promptText: string, systemPrompt?: s
       messages: [
         {
           role: "system",
-          content: systemPrompt || "You are a helpful AI assistant supporting a trilingual news and cultural publication in Breton (Skolveurieg orthography), French, and English. Never use the 'zh' digraph in Breton text; prefer Skolveurieg forms.",
+          content: systemPrompt || "You are a helpful AI assistant supporting a trilingual news and cultural publication in Breton (Skolveurieg orthography), French, and English. Never use the 'z-h' digraph in Breton text; prefer Skolveurieg forms.",
         },
         {
           role: "user",
@@ -40,6 +40,6 @@ export async function summarizeContent(text: string, language: "br" | "fr" | "en
 }
 
 export async function translateContent(text: string, from: string, to: string) {
-  const prompt = `Translate the following text from ${from} to ${to}. For Breton, strictly use Skolveurieg orthography (no 'zh'). Preserve meaning and tone.\n\n${text}`;
+  const prompt = `Translate the following text from ${from} to ${to}. For Breton, strictly use Skolveurieg orthography (no 'z-h'). Preserve meaning and tone.\n\n${text}`;
   return getGroqChatCompletion(prompt);
 }
