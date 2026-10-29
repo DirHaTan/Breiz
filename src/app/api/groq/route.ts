@@ -63,18 +63,12 @@ export async function POST(request: NextRequest) {
       const originalTitle = title.trim();
       const originalContent = content.trim();
 
-      // Breton fields = original input (assumed to be in Skolveurieg).
+      // Breton fields only = original input (assumed to be in Skolveurieg).
+      // French translation is disabled; fr fields are left empty.
       const brTitle = originalTitle;
       const brExcerpt = (await summarizeContent(originalContent, "br")).trim();
       const brBody = textToPortableText(originalContent);
       const brSlug = slugify(brTitle);
-
-      // French fields = Groq translation of the original.
-      const frTitle = (await translateContent(originalTitle, "Breton", "French")).trim();
-      const frBodyText = (await translateContent(originalContent, "Breton", "French")).trim();
-      const frExcerpt = (await summarizeContent(frBodyText || originalContent, "fr")).trim();
-      const frBody = textToPortableText(frBodyText || originalContent);
-      const frSlug = slugify(frTitle);
 
       const client = getWriteClient();
       const draftId = `drafts.article-${Date.now()}`;
@@ -91,12 +85,7 @@ export async function POST(request: NextRequest) {
           excerpt: brExcerpt,
           body: brBody,
         },
-        fr: {
-          title: frTitle,
-          slug: { _type: "slug", current: frSlug },
-          excerpt: frExcerpt,
-          body: frBody,
-        },
+        // fr intentionally omitted — no automatic French translation
       };
 
       const created = await client.create(document);
@@ -104,11 +93,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({
         ok: true,
         id: created._id,
-        message: "Draft created with Breton original and French translation. Review in Studio and click Embann.",
+        message: "Draft created with Breton original only. Review in Studio and click Embann.",
       });
     }
 
-    // Existing summarize / translate actions
+    // Existing summarize / translate actions (still available for manual use)
     if (!text || typeof text !== "string") {
       return NextResponse.json({ error: "Missing or invalid text" }, { status: 400 });
     }
