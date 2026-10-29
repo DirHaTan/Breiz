@@ -7,7 +7,6 @@ import { apiVersion, dataset, projectId } from "@/sanity/env";
 import { schemaTypes } from "@/sanity/schemaTypes";
 import { LIVE_TYPE } from "@/sanity/live";
 import { EmbannAction, OnlineBadge, TennanAction } from "@/sanity/liveArticleActions";
-import { SummarizeAction, TranslateToFrenchAction } from "@/sanity/groqActions";
 
 // Article actions kept from Sanity. Its Publish/Unpublish buttons would make
 // the text public, so they're replaced by Embann/Tenna (see src/sanity/live.ts).
@@ -47,8 +46,6 @@ export default defineConfig({
         ? [
             EmbannAction,
             TennanAction,
-            TranslateToFrenchAction,
-            SummarizeAction,
             ...prev.filter((a) => a.action && keptActions.has(a.action)),
           ]
         : prev,
