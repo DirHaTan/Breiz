@@ -39,6 +39,17 @@ function textToPortableText(text: string) {
   }));
 }
 
+// Simple slug generator (ASCII, lowercase, hyphens). Good enough for drafts.
+function slugify(text: string): string {
+  return text
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80) || "pennad";
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -49,9 +60,21 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ error: "Missing title or content" }, { status: 400 });
       }
 
-      // Process with Groq: produce a French version suitable for the site.
-      const frTitle = await translateContent(title, "Breton or source", "French");
-      const frBody = await translateContent(content, "Breton or source", "French");
+      const originalTitle = title.trim();
+      const originalContent = content.trim();
+
+      // Breton fields = original input (assumed to be in Skolveurieg).
+      const brTitle = originalTitle;
+      const brExcerpt = (await summarizeContent(originalContent, "br")).trim();
+      const brBody = textToPortableText(originalContent);
+      const brSlug = slugify(brTitle);
+
+      // French fields = Groq translation of the original.
+      const frTitle = (await translateContent(originalTitle, "Breton", "French")).trim();
+      const frBodyText = (await translateContent(originalContent, "Breton", "French")).trim();
+      const frExcerpt = (await summarizeContent(frBodyText || originalContent, "fr")).trim();
+      const frBody = textToPortableText(frBodyText || originalContent);
+      const frSlug = slugify(frTitle);
 
       const client = getWriteClient();
       const draftId = `drafts.article-${Date.now()}`;
@@ -63,14 +86,16 @@ export async function POST(request: NextRequest) {
         publishedAt: new Date().toISOString(),
         free: false,
         br: {
-          title: title.trim(),
-          excerpt: (await summarizeContent(content, "br")).trim(),
-          body: textToPortableText(content),
+          title: brTitle,
+          slug: { _type: "slug", current: brSlug },
+          excerpt: brExcerpt,
+          body: brBody,
         },
         fr: {
-          title: frTitle.trim(),
-          excerpt: (await summarizeContent(frBody || content, "fr")).trim(),
-          body: textToPortableText(frBody || content),
+          title: frTitle,
+          slug: { _type: "slug", current: frSlug },
+          excerpt: frExcerpt,
+          body: frBody,
         },
       };
 
@@ -79,7 +104,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({
         ok: true,
         id: created._id,
-        message: "Draft created in Sanity. Review and click Embann in Studio.",
+        message: "Draft created with Breton original and French translation. Review in Studio and click Embann.",
       });
     }
 
