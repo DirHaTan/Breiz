@@ -158,5 +158,24 @@
     "renews": "Adnevezet e vo d'an",
     "ends": "Echu e vo d'an",
     "manage": "Mera ma c'houmanant"
+  },
+  "donate": {
+    "title": "Skoazia Keleier Breiz hag ar Bed",
+    "link": "Skoazia",
+    "intro": "Keleier Breiz hag ar Bed a zo eur gelaouenn dieub, skrivet e brezoneg evid an holl. Gand ho skoazell e c'hellomp kenderhel da embann keleier, istor ha sevenadur e brezoneg.",
+    "whatTitle": "Da betra e talvez ho skoazell?",
+    "items": [
+      "Skriva ha troi pennadou nevez, e brezoneg hag e galleg",
+      "Paea an herberhia hag ar binviou",
+      "Lakaat al lehienn da greski ha da veza anavezet"
+    ],
+    "button": "Rei eur skoazell dre PayPal",
+    "how": "Dibabit ar sammad a fell deoh. Graet e vez ar paea war bajenn suraet PayPal: biskoaz ne resevom titouriou ho kartenn-vank.",
+    "soon": "Ar bouton skoazia a vo digor a-benn nebeut. Trugarez evid ho pasianted!",
+    "note": "Eur skoazell n'eo ket eur c'houmanant: ne ro ket an tu da lenn ar pennadou paeus. Evid lenn pep tra:",
+    "subscribeLink": "koumananti",
+    "tax": "N'eo ket Keleier Breiz hag ar Bed eur gevredigez: ne c'heller ket tenna ar skoazellou diwar an tailhou.",
+    "thanks": "Trugarez vras!",
+    "articleLine": "Plijet hoh eus gand ar pennad-mañ? Skoazit eur gelaouenn e brezoneg."
   }
 }

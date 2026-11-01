@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { isLocale, localePath, otherLocale, type Locale } from "@/i18n/config";
+import { isLocale, localePath, otherLocale, type Locale, donatePath } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getSectionBySlug } from "@/lib/sections";
 import { articlePath, getAllArticles, getArticle, getTranslation } from "@/lib/articles";
@@ -21,6 +21,7 @@ import { PhotoCredit } from "@/components/PhotoCredit";
 import { getSection } from "@/lib/sections";
 import { ShareLinks } from "@/components/ShareLinks";
 import { DEFAULT_SHARE_IMAGE, SITE_URL } from "@/lib/site";
+import { DONATE_URL } from "@/lib/donate";
 
 export async function generateStaticParams() {
   const articles = await getAllArticles();
@@ -162,6 +163,15 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/[sectio
           teaser
         )}
         <div className="mt-8 border-t border-ink pt-2">{share}</div>
+        {/* Shown once the PayPal link is set (see src/lib/donate.ts). */}
+        {DONATE_URL && (
+          <p className="mt-6 border-2 border-ink p-4 text-sm">
+            {dict.donate.articleLine}{" "}
+            <Link href={donatePath(lang)} className="font-semibold underline underline-offset-4">
+              {dict.donate.link}
+            </Link>
+          </p>
+        )}
         <Comments lang={lang} dict={dict} articleId={article.id} articleHref={articlePath(article)} />
       </main>
     </>

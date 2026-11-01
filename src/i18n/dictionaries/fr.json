@@ -158,5 +158,24 @@
     "renews": "Renouvellement le",
     "ends": "Prend fin le",
     "manage": "Gérer mon abonnement"
+  },
+  "donate": {
+    "title": "Soutenir Keleier Breiz hag ar Bed",
+    "link": "Nous soutenir",
+    "intro": "Keleier Breiz hag ar Bed est un journal indépendant, écrit en breton pour tous. Votre soutien nous permet de continuer à publier l'actualité, l'histoire et la culture en breton.",
+    "whatTitle": "À quoi sert votre don ?",
+    "items": [
+      "Écrire et traduire de nouveaux articles, en breton et en français",
+      "Payer l'hébergement et les outils",
+      "Faire grandir le site et le faire connaître"
+    ],
+    "button": "Faire un don avec PayPal",
+    "how": "Choisissez librement le montant. Le paiement se fait sur la page sécurisée de PayPal : nous ne recevons jamais vos coordonnées bancaires.",
+    "soon": "Le bouton de don sera ouvert très prochainement. Merci de votre patience !",
+    "note": "Un don n'est pas un abonnement : il ne donne pas accès aux articles payants. Pour tout lire :",
+    "subscribeLink": "s'abonner",
+    "tax": "Keleier Breiz hag ar Bed n'est pas une association : les dons ne donnent pas droit à une réduction d'impôt.",
+    "thanks": "Un grand merci !",
+    "articleLine": "Cet article vous a plu ? Soutenez un journal en breton."
   }
 }
