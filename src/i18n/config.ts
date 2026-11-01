@@ -42,6 +42,11 @@ export function safeNextPath(value: unknown): string | undefined {
   return typeof value === "string" && value.startsWith("/") && !value.startsWith("//") ? value : undefined;
 }
 
+// The donation page.
+export function donatePath(lang: Locale): string {
+  return localePath(lang, lang === "br" ? "/skoazia" : "/soutenir");
+}
+
 // The page explaining how to send a free announcement.
 export function announcePath(lang: Locale): string {
   return localePath(lang, lang === "br" ? "/kas-eur-gemennadenn" : "/envoyer-une-annonce");

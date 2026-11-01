@@ -185,6 +185,7 @@ export const legalPages: Record<LegalKind, Record<Locale, LegalPageText>> = {
           lines: [
             "- Supabase (diaz-roadennou ha kevrea)",
             "- Stripe ha Link (paea)",
+            "- PayPal (skoazellou: ma rit eur skoazell, PayPal a ra war-dro ar paea hag a gas deomp hoh anv hag ho chomleh postel)",
             "- Resend (kas ar posteliou kevrea, servijerien en Iwerzon)",
             "- Vercel (herberhia al lehienn ha stadegou dizanv, hep toupin)",
             "Lod anezo a zo er-maez euz an Unaniez Europa; gwarezet eo an treuzkasou gand divizou kevratel.",
@@ -231,6 +232,7 @@ export const legalPages: Record<LegalKind, Record<Locale, LegalPageText>> = {
           lines: [
             "- Supabase (base de données et connexion)",
             "- Stripe et Link (paiement)",
+            "- PayPal (dons : si vous faites un don, PayPal traite le paiement et nous transmet votre nom et votre adresse e-mail)",
             "- Resend (envoi des e-mails de connexion, serveurs en Irlande)",
             "- Vercel (hébergement du site et statistiques de visite anonymes, sans cookie)",
             "Certains prestataires sont situés hors de l'Union européenne ; les transferts sont encadrés par des clauses contractuelles types.",

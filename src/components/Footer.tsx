@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ErmineMark } from "@/components/Logo";
-import { announcePath, legalPath, type Locale } from "@/i18n/config";
+import { announcePath, donatePath, legalPath, type Locale } from "@/i18n/config";
 import { legalPages } from "@/content/legal";
 import type { Dictionary } from "@/i18n/dictionaries";
 
@@ -23,6 +23,11 @@ export async function Footer({ lang, dict }: { lang: Locale; dict: Dictionary })
           <li>
             <Link href={announcePath(lang)} className="font-semibold underline underline-offset-4 hover:opacity-80">
               {dict.announce.link}
+            </Link>
+          </li>
+          <li>
+            <Link href={donatePath(lang)} className="font-semibold underline underline-offset-4 hover:opacity-80">
+              {dict.donate.link}
             </Link>
           </li>
           <li>
