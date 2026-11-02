@@ -7,11 +7,22 @@ A news and publishing website in Breton (skolveurieg orthography) and French.
 - Sections: Nevezentiou, Breiz, Deskadurez, Frans, Bed, Lennegez, Kevredigez, Sport, Istor, Sevenadur, Embannit ganeomp.
 - Embannit ganeomp (French: Annonces) is for free community announcements: choosing it
   in the editor ticks **Pennad digoust** automatically (it can still be unticked).
+- Each section has its pen name (Avel Ru, Mein Glaz, Kelenner, Hent ha Ster, Stered an Noz,
+  Telenn ar Mor, Bara ha Holen, Marh-Houarn, Barz Koz, Tan an Oaled). When you choose a
+  section for an article with no author yet, the editor fills in its pen name
+  (`src/sanity/sectionAuthors.ts`); you can still change it, e.g. to Dir Ha Tan.
 - Readers learn how to send an announcement at `/kas-eur-gemennadenn` (French: `/fr/envoyer-une-annonce`),
-  linked from the footer. The email address is a placeholder in `src/lib/contact.ts`.
-- Legal pages (linked in the footer): `/notennou-lezennel` and `/prevezded` in Breton,
-  `/fr/mentions-legales` and `/fr/confidentialite` in French. Their text is in
-  `src/content/legal.ts`; anything in [BRACKETS] is a placeholder.
+  linked from the footer. Address: kemennadennou@keleierbreiz.fr (`src/lib/contact.ts`).
+- Legal pages (linked in the footer), final texts in Breton and French: `/notennou-lezennel`,
+  `/prevezded`, `/divizou-gwerza` and `/fr/mentions-legales`, `/fr/confidentialite`, `/fr/cgv`.
+  Their text is in `src/content/legal.ts`.
+- Donations: `/skoazia` (French: `/fr/soutenir`), linked from the footer and from a line under
+  every article. The button opens a PayPal payment link where the donor chooses the amount
+  (`src/lib/donate.ts`; `NEXT_PUBLIC_PAYPAL_DONATE_URL` in Vercel can override it).
+- Sharing: every article has share links (Facebook, X, Bluesky, WhatsApp, LinkedIn, email,
+  copy link) with no outside script. Shared links show the article's picture, or
+  `public/og-default.jpg` for the homepage, sections and articles without a picture.
+- The footer also lists all the sections.
 - Inside Breiz, articles can be sorted by department (Aodou-an-Arvor, Penn-ar-Bed,
   Il-ha-Gwilen, Mor-Bihan, Liger-Atlantel): `/breiz/departamant/penn-ar-bed`.
 - The site lives at **https://www.keleierbreiz.fr** (keleierbreiz.fr redirects to www).
@@ -20,13 +31,21 @@ A news and publishing website in Breton (skolveurieg orthography) and French.
 - Search engines: `/sitemap.xml` lists every public page and article; `/robots.txt`
   keeps the editor and account pages out of search results.
 
-## Progress
+## Status
 
-1. ✅ **Skeleton:** pages, sections, two languages, logo, "no zh" guard, sample articles.
-2. ✅ **Sanity:** write real articles in an online editor at `/studio`.
-3. ✅ **Accounts and comments** (Supabase): sign in by email link, comment, report, moderate.
-4. 🟡 **Subscriptions** at €5/month or €50/year (Stripe, test mode): built, see "Subscriptions with Stripe" below.
-5. ⬜ **Final polish:** legal pages (structure ready, text to come), social-media previews, publishing guide.
+The site is live. Everything below is in place:
+
+1. ✅ **Pages, sections and two languages** (Breton first, French under `/fr`), "no zh" guard.
+2. ✅ **Sanity editor** at `/studio`, with **Embann** / **Tenna** (paid text never public).
+3. ✅ **Accounts and comments** (Supabase), sign-in emails in Breton and French (Resend).
+4. ✅ **Subscriptions** at €5/month or €50/year (Stripe, **live**).
+5. ✅ **Legal pages**, share links and social previews, donation page.
+
+Still to do: move Vercel from Hobby to Pro (paid subscriptions are commercial use),
+a weekly newsletter, and checking that the first subscription renews on 26 November 2026.
+
+The Groq AI buttons were removed from the editor on 29 October 2026; there is no
+automatic AI publishing. Articles are written, checked and published by the editor.
 
 ## Where things are
 
@@ -37,6 +56,10 @@ A news and publishing website in Breton (skolveurieg orthography) and French.
 | Section names and addresses | `src/lib/sections.ts` |
 | Departments of the Breiz section | `src/lib/departments.ts` |
 | Sample articles (shown until Sanity is connected) | `src/content/sample-articles.json` |
+| Pen name for each section | `src/sanity/sectionAuthors.ts` |
+| PayPal donation link | `src/lib/donate.ts` |
+| Default sharing picture | `public/og-default.jpg` |
+| Legal texts | `src/content/legal.ts` |
 | Article form in the editor | `src/sanity/schemaTypes/article.ts` |
 | Logo | `src/components/Logo.tsx`, `src/app/icon.svg` |
 | Colours and fonts | `src/app/globals.css` |
@@ -74,7 +97,9 @@ npm run check:breton
 3. Leave all the settings as they are and click **Deploy**.
 4. After about a minute you get an address like `breiz-xxxx.vercel.app`.
 
-From then on, every change pushed to GitHub updates the site automatically.
+From then on, every change merged into `main` on GitHub updates the live site
+automatically (no need to press Redeploy). Only a change to an environment variable
+needs a manual **Redeploy**.
 
 ## Connecting Sanity (the article editor)
 
@@ -224,7 +249,7 @@ their link, on every plan. Don't put anything secret in a picture.
 
 The code is in `src/sanity/live.ts` and `src/sanity/liveArticleActions.tsx`.
 
-## Subscriptions with Stripe (test mode)
+## Subscriptions with Stripe (live)
 
 Readers sign in, choose €5/month or €50/year on **Koumananti** (`/koumanant`,
 `/fr/abonnement`), and pay on Stripe's secure page (in French: Stripe has no
@@ -276,5 +301,10 @@ the three secrets:
 **5. Customer Portal in Stripe** (test mode): Settings → Billing → Customer
 portal → allow updating payment methods and cancelling → Save.
 
-**6. Redeploy** in Vercel, then test with the card `4242 4242 4242 4242`,
-any future date, any 3-digit code.
+**6. Redeploy** in Vercel. Stripe is now in **live** mode: the keys and price IDs in
+Vercel are the live ones (`sk_live_…`), and the webhook and Customer Portal are set up
+in live mode too. To test without paying, use a Vercel Preview with Stripe's test
+keys and the card `4242 4242 4242 4242`, any future date, any 3-digit code.
+
+Payments use **Stripe Managed Payments**: Link (Stripe) is the seller of record and
+collects the VAT on subscriptions.
