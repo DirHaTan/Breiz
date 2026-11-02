@@ -86,7 +86,8 @@
   },
   "footer": {
     "about": "Keleier Breiz hag ar Bed, un journal en breton.",
-    "rights": "Tous droits réservés."
+    "rights": "Tous droits réservés.",
+    "sections": "Rubriques"
   },
   "account": {
     "title": "Mon compte",

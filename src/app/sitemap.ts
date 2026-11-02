@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { announcePath, legalPath, localePath, locales, subscribePath } from "@/i18n/config";
+import { announcePath, donatePath, legalPath, localePath, locales, subscribePath } from "@/i18n/config";
 import { sections } from "@/lib/sections";
 import { departmentPath, departments, DEPARTMENT_SECTION } from "@/lib/departments";
 import { articlePath, getLatestArticles } from "@/lib/articles";
@@ -20,7 +20,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         entries.push({ url: url(departmentPath(lang, d)) });
       }
     }
-    for (const path of [subscribePath(lang), announcePath(lang), legalPath("notices", lang), legalPath("privacy", lang), legalPath("terms", lang)]) {
+    for (const path of [subscribePath(lang), donatePath(lang), announcePath(lang), legalPath("notices", lang), legalPath("privacy", lang), legalPath("terms", lang)]) {
       entries.push({ url: url(path), changeFrequency: "monthly", priority: 0.3 });
     }
     for (const a of articles) entries.push({ url: url(articlePath(a)), lastModified: a.date, priority: 0.8 });
