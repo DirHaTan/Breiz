@@ -23,7 +23,8 @@
       "en": "Read this article in English"
     },
     "sampleNotice": "This is a sample article. It will be replaced by real articles.",
-    "photoCredit": "Photo: "
+    "photoCredit": "Photo: ",
+    "listen": "Listen to the article"
   },
   "share": {
     "heading": "Share this article",

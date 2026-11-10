@@ -23,7 +23,8 @@
       "en": "Lire cet article en anglais"
     },
     "sampleNotice": "Ceci est un article d'exemple. Il sera remplacé par de vrais articles.",
-    "photoCredit": "Photo : "
+    "photoCredit": "Photo : ",
+    "listen": "Écouter l'article"
   },
   "share": {
     "heading": "Partager cet article",

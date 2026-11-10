@@ -17,6 +17,8 @@ const labels = {
   title: { br: "Titl", fr: "Titre", en: "Title" },
   slug: { br: "Chomleh (URL)", fr: "Adresse (URL)", en: "Address (URL)" },
   excerpt: { br: "Berr-gomz", fr: "Chapô", en: "Summary" },
+  audio: { br: "Son (MP3)", fr: "Audio (MP3)", en: "Audio (MP3)" },
+  audioCredit: { br: "Mouez", fr: "Voix", en: "Voice" },
 } as const;
 
 const body = (lang: Lang) =>
@@ -74,6 +76,21 @@ const text = (lang: Lang) => {
         validation: (r) => (required ? r.required().custom(skolveurieg) : r),
       }),
       body(lang),
+      // Optional recording of the article, played above the text.
+      defineField({
+        name: "audio",
+        title: labels.audio[lang],
+        description: "Optional MP3 of this text read aloud. Shown to the same readers as the full text.",
+        type: "file",
+        options: { accept: "audio/*" },
+      }),
+      defineField({
+        name: "audioCredit",
+        title: labels.audioCredit[lang],
+        description: "Who reads it, e.g. “Lennet gand Dir Ha Tan” or “Mouez IA / Voix IA / AI voice”.",
+        type: "string",
+        validation: (r) => r.max(120),
+      }),
     ],
   });
 };
