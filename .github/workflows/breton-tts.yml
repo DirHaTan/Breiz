@@ -1,0 +1,48 @@
+# Makes the Breton audio of an article with the breton-tts voice by
+# Gweltaz Duval-Guennoc (https://huggingface.co/gweltou/breton-tts).
+# Started by hand (or by Claude) with the text as base64 JSON. The text is
+# never printed in the logs. The MP3 is kept as an artifact for one day,
+# then attached to the article in Sanity.
+name: Breton audio
+
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: "Base64 JSON {parts: string[], speaker: 0|1} (empty = test sentence)"
+        required: false
+        default: ""
+
+jobs:
+  speak:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: |
+          pip install --quiet sherpa-onnx soundfile numpy
+          mkdir -p model
+          curl -sSL -o model/model.onnx https://huggingface.co/gweltou/breton-tts/resolve/main/model.onnx
+          curl -sSL -o model/tokens.txt https://huggingface.co/gweltou/breton-tts/resolve/main/tokens.txt
+          ls -la model
+          echo "Symbols in tokens.txt:"; cut -d' ' -f1 model/tokens.txt | tr '\n' ' '; echo
+      - name: Read the text
+        env:
+          PAYLOAD: ${{ inputs.payload }}
+        run: |
+          if [ -n "$PAYLOAD" ]; then
+            echo "$PAYLOAD" | base64 -d > input.json
+          else
+            echo '{"parts":["Demat d'"'"'an holl! Hemañ eo eur skouer evid selaou ar vouez.","Keleier Breiz hag ar Bed, euz 1805 betek 1919."],"speaker":0}' > input.json
+          fi
+      - name: Speak
+        run: python scripts/tts/speak.py input.json out.mp3
+      - uses: actions/upload-artifact@v4
+        with:
+          name: breton-audio
+          path: out.mp3
+          retention-days: 1
