@@ -24,7 +24,7 @@ jobs:
           python-version: "3.12"
       - name: Install
         run: |
-          pip install --quiet sherpa-onnx soundfile numpy
+          pip install --quiet sherpa-onnx numpy lameenc
           mkdir -p model
           curl -sSL -o model/model.onnx https://huggingface.co/gweltou/breton-tts/resolve/main/model.onnx
           curl -sSL -o model/tokens.txt https://huggingface.co/gweltou/breton-tts/resolve/main/tokens.txt
