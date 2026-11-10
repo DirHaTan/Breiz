@@ -15,10 +15,11 @@ import { canReadPaidArticles } from "@/lib/access";
 import { isSupabaseConfigured } from "@/supabase/env";
 import { FormattedDate } from "@/components/FormattedDate";
 import { imageSrc } from "@/lib/images";
-import { freePreview } from "@/lib/preview";
+import { freePreview, narrationParts } from "@/lib/preview";
 import { ArticleBody } from "@/components/ArticleBody";
 import { PhotoCredit } from "@/components/PhotoCredit";
 import { ArticleAudio } from "@/components/ArticleAudio";
+import { ReadAloud } from "@/components/ReadAloud";
 import { getSection } from "@/lib/sections";
 import { ShareLinks } from "@/components/ShareLinks";
 import { DEFAULT_SHARE_IMAGE, SITE_URL } from "@/lib/site";
@@ -115,8 +116,13 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/[sectio
     </>
   );
   const image = article.image && imageSrc(article.image, 1344);
-  // The recording, if any: shown with the full text only.
-  const audio = <ArticleAudio src={article.audio} credit={article.audioCredit} label={dict.article.listen} />;
+  // Shown with the full text only: the uploaded recording if there is one,
+  // otherwise (in French and English) the device reads the text aloud.
+  const audio = article.audio ? (
+    <ArticleAudio src={article.audio} credit={article.audioCredit} label={dict.article.listen} />
+  ) : lang === "fr" || lang === "en" ? (
+    <ReadAloud parts={narrationParts(article.title, article.excerpt, article.body)} lang={lang} labels={dict.readAloud} />
+  ) : null;
   const share = <ShareLinks url={`${SITE_URL}${articlePath(article)}`} title={article.title} labels={dict.share} />;
 
   return (

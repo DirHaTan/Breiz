@@ -183,5 +183,15 @@
     "tax": "Keleier Breiz hag ar Bed n'est pas une association : les dons ne donnent pas droit à une réduction d'impôt.",
     "thanks": "Un grand merci !",
     "articleLine": "Cet article vous a plu ? Soutenez un journal en breton."
+  },
+  "readAloud": {
+    "title": "Écouter l'article",
+    "note": "Lecture automatique par la voix de votre appareil",
+    "minutes": "Environ {n} min",
+    "play": "Écouter",
+    "pause": "Pause",
+    "resume": "Reprendre",
+    "restart": "Recommencer",
+    "speed": "Vitesse"
   }
 }
