@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { announcePath, localePath, otherLocale, type Locale } from "@/i18n/config";
+import { announcePath, localePath, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { ANNOUNCEMENTS_SECTION, getSection } from "@/lib/sections";
 import { ANNOUNCEMENTS_EMAIL } from "@/lib/contact";
@@ -16,7 +16,7 @@ export function AnnouncePage({ lang }: { lang: Locale }) {
         lang={lang}
         dict={dict}
         activeSection={section.id}
-        alternateHref={announcePath(otherLocale(lang))}
+        alternate={announcePath}
       />
       <main className="mx-auto max-w-2xl px-4 py-12">
         <Link

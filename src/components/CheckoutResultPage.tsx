@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import Link from "next/link";
-import { accountPath, checkoutCancelPath, checkoutSuccessPath, localePath, otherLocale, subscribePath, type Locale } from "@/i18n/config";
+import { accountPath, checkoutCancelPath, checkoutSuccessPath, localePath, subscribePath, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getCurrentUser } from "@/lib/auth";
 import { stripe } from "@/lib/stripe";
@@ -13,14 +13,13 @@ type SearchParams = Promise<{ session_id?: string | string[] }>;
 export function CheckoutResultPage({ lang, result, searchParams }: { lang: Locale; result: "success" | "cancel"; searchParams?: SearchParams }) {
   const dict = getDictionary(lang);
   const t = dict.billing;
-  const other = otherLocale(lang);
   const success = result === "success";
   return (
     <>
       <Header
         lang={lang}
         dict={dict}
-        alternateHref={success ? checkoutSuccessPath(other) : checkoutCancelPath(other)}
+        alternate={success ? checkoutSuccessPath : checkoutCancelPath}
       />
       <main className="mx-auto max-w-xl px-4 py-16 text-center">
         <h1 className="font-serif text-4xl font-black">{success ? t.successTitle : t.cancelTitle}</h1>

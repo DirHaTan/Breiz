@@ -3,7 +3,8 @@ import { refreshSession } from "@/supabase/session";
 
 // Breton is the default language, so its pages have no prefix ("/nevezentiou").
 // Internally every page lives under a language folder, so we quietly
-// rewrite "/nevezentiou" to "/br/nevezentiou". French pages already start with "/fr".
+// rewrite "/nevezentiou" to "/br/nevezentiou". French and English pages
+// already start with "/fr" and "/en".
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
@@ -14,7 +15,7 @@ export async function proxy(request: NextRequest) {
     return NextResponse.redirect(url, 308);
   }
 
-  if (pathname === "/fr" || pathname.startsWith("/fr/")) {
+  if (["/fr", "/en"].some((prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`))) {
     return refreshSession(request, () => NextResponse.next({ request }));
   }
 

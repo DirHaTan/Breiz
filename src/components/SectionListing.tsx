@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { announcePath, localePath, otherLocale, type Locale } from "@/i18n/config";
+import { announcePath, localePath, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { ANNOUNCEMENTS_SECTION, type Section } from "@/lib/sections";
 import { DEPARTMENT_SECTION, departmentPath, departments, type Department } from "@/lib/departments";
@@ -12,7 +12,6 @@ type Props = { lang: Locale; section: Section; department?: Department };
 // A section page (or, inside Breiz, a department page): its name, then its articles.
 export async function SectionListing({ lang, section, department }: Props) {
   const dict = getDictionary(lang);
-  const other = otherLocale(lang);
   const all = await getArticlesBySection(lang, section.id);
   const articles = department ? all.filter((a) => a.department === department.id) : all;
 
@@ -26,7 +25,7 @@ export async function SectionListing({ lang, section, department }: Props) {
         lang={lang}
         dict={dict}
         activeSection={section.id}
-        alternateHref={department ? departmentPath(other, department) : localePath(other, `/${section[other].slug}`)}
+        alternate={(l) => (department ? departmentPath(l, department) : localePath(l, `/${section[l].slug}`))}
       />
       <main className="mx-auto max-w-[90rem] px-4 py-8 lg:px-6 xl:px-8">
         <h1 className="font-serif text-4xl font-black">

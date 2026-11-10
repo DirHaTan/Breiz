@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import Link from "next/link";
-import { accountPath, localePath, otherLocale, subscribePath, type Locale } from "@/i18n/config";
+import { accountPath, languageNames, localePath, otherLocales, subscribePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { sections } from "@/lib/sections";
 import { Logo } from "@/components/Logo";
@@ -10,19 +10,31 @@ import { isSupabaseConfigured } from "@/supabase/env";
 type Props = {
   lang: Locale;
   dict: Dictionary;
-  // Where the language button leads: the same page in the other language.
-  alternateHref?: string;
+  // Where each language link leads: the same page in that language. When it
+  // gives nothing for a language (e.g. an article not translated into it),
+  // the link goes to that language's home page.
+  alternate?: (lang: Locale) => string | undefined;
   activeSection?: string;
 };
 
-export function Header({ lang, dict, alternateHref, activeSection }: Props) {
-  const other = otherLocale(lang);
+export function Header({ lang, dict, alternate, activeSection }: Props) {
   return (
     <header className="border-b-4 border-double border-ink">
       <div className="mx-auto flex max-w-[90rem] items-center justify-between gap-4 px-4 lg:px-6 xl:px-8 pt-4 text-sm">
-        <Link href={alternateHref ?? localePath(other)} hrefLang={other} className="underline-offset-4 hover:underline">
-          {dict.nav.languageSwitch}
-        </Link>
+        <ul aria-label={dict.nav.languages} className="flex gap-3">
+          {otherLocales(lang).map((other) => (
+            <li key={other}>
+              <Link
+                href={alternate?.(other) ?? localePath(other)}
+                hrefLang={other}
+                lang={other}
+                className="underline-offset-4 hover:underline"
+              >
+                {languageNames[other]}
+              </Link>
+            </li>
+          ))}
+        </ul>
         <div className="flex items-center gap-4">
           {isSupabaseConfigured && (
             <Suspense fallback={<AccountLink lang={lang} label={dict.nav.signIn} />}>

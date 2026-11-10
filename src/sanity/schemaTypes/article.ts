@@ -10,10 +10,19 @@ function skolveurieg(text: string | undefined): true | string {
   return words.length ? forbiddenMessage(words) : true;
 }
 
-const body = (lang: "br" | "fr") =>
+type Lang = "br" | "fr" | "en";
+const labels = {
+  body: { br: "Testenn", fr: "Texte", en: "Text" },
+  group: { br: "Brezoneg", fr: "Français (optional)", en: "English (optional)" },
+  title: { br: "Titl", fr: "Titre", en: "Title" },
+  slug: { br: "Chomleh (URL)", fr: "Adresse (URL)", en: "Address (URL)" },
+  excerpt: { br: "Berr-gomz", fr: "Chapô", en: "Summary" },
+} as const;
+
+const body = (lang: Lang) =>
   defineField({
     name: "body",
-    title: lang === "br" ? "Testenn" : "Texte",
+    title: labels.body[lang],
     type: "array",
     of: [
       defineArrayMember({
@@ -34,23 +43,23 @@ const body = (lang: "br" | "fr") =>
     validation: (r) => (lang === "br" ? r.required().custom((v) => skolveurieg(portableTextToString(v))) : r),
   });
 
-const text = (lang: "br" | "fr") => {
+const text = (lang: Lang) => {
   const required = lang === "br";
   return defineField({
     name: lang,
-    title: lang === "br" ? "Brezoneg" : "Français (optional)",
+    title: labels.group[lang],
     type: "object",
     options: { collapsible: true, collapsed: !required },
     fields: [
       defineField({
         name: "title",
-        title: lang === "br" ? "Titl" : "Titre",
+        title: labels.title[lang],
         type: "string",
         validation: (r) => (required ? r.required().custom(skolveurieg) : r),
       }),
       defineField({
         name: "slug",
-        title: lang === "br" ? "Chomleh (URL)" : "Adresse (URL)",
+        title: labels.slug[lang],
         description: "Click “Generate” to create it from the title.",
         type: "slug",
         options: { source: `${lang}.title`, maxLength: 96 },
@@ -58,7 +67,7 @@ const text = (lang: "br" | "fr") => {
       }),
       defineField({
         name: "excerpt",
-        title: lang === "br" ? "Berr-gomz" : "Chapô",
+        title: labels.excerpt[lang],
         description: "One or two sentences shown under the title and on the home page.",
         type: "text",
         rows: 3,
@@ -134,6 +143,7 @@ export const article = defineType({
     }),
     text("br"),
     text("fr"),
+    text("en"),
   ],
   orderings: [{ title: "Newest first", name: "newest", by: [{ field: "publishedAt", direction: "desc" }] }],
   preview: {

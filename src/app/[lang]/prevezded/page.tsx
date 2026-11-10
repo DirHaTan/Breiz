@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { legalPath } from "@/i18n/config";
+import { legalPath, perLocale } from "@/i18n/config";
 import { legalPages } from "@/content/legal";
 import { LegalPage } from "@/components/LegalPage";
 
@@ -11,7 +11,7 @@ export function generateStaticParams() {
 
 export const metadata: Metadata = {
   title: legalPages.privacy.br.title,
-  alternates: { languages: { br: legalPath("privacy", "br"), fr: legalPath("privacy", "fr") } },
+  alternates: { languages: perLocale((l) => legalPath("privacy", l)) },
 };
 
 export default async function Page({ params }: PageProps<"/[lang]/prevezded">) {

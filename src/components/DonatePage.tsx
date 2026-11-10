@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { donatePath, otherLocale, subscribePath, type Locale } from "@/i18n/config";
+import { donatePath, subscribePath, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { DONATE_URL } from "@/lib/donate";
 import { Header } from "@/components/Header";
@@ -11,7 +11,7 @@ export function DonatePage({ lang }: { lang: Locale }) {
   const t = dict.donate;
   return (
     <>
-      <Header lang={lang} dict={dict} alternateHref={donatePath(otherLocale(lang))} />
+      <Header lang={lang} dict={dict} alternate={donatePath} />
       <main className="mx-auto max-w-2xl px-4 py-12">
         <h1 className="font-serif text-4xl font-black">{t.title}</h1>
         <p className="mt-4 font-serif text-lg">{t.intro}</p>

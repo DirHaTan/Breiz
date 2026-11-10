@@ -33,6 +33,7 @@ export type Article = {
   image?: ArticleImage | null;
   br?: ArticleText | null;
   fr?: ArticleText | null;
+  en?: ArticleText | null;
 };
 
 // One article seen in a single language.
@@ -63,6 +64,10 @@ const articlesQuery = defineQuery(`
     "fr": select(
       defined(fr.title) && defined(fr.slug.current) => fr { title, "slug": slug.current, excerpt, "body": coalesce(body, []) },
       null
+    ),
+    "en": select(
+      defined(en.title) && defined(en.slug.current) => en { title, "slug": slug.current, excerpt, "body": coalesce(body, []) },
+      null
     )
   }
 `);
@@ -79,7 +84,7 @@ function toBlocks(paragraphs: string[]): PortableTextBlock[] {
 }
 
 type SampleText = Omit<ArticleText, "body"> & { body: string[] };
-type SampleArticle = Omit<Article, "br" | "fr"> & { br?: SampleText; fr?: SampleText };
+type SampleArticle = Omit<Article, "br" | "fr" | "en"> & { br?: SampleText; fr?: SampleText; en?: SampleText };
 
 function samples(): Article[] {
   return (sampleArticles as SampleArticle[])
@@ -87,6 +92,7 @@ function samples(): Article[] {
       ...a,
       br: a.br && { ...a.br, body: toBlocks(a.br.body) },
       fr: a.fr && { ...a.fr, body: toBlocks(a.fr.body) },
+      en: a.en && { ...a.en, body: toBlocks(a.en.body) },
     }))
     .toSorted((a, b) => b.date.localeCompare(a.date));
 }
@@ -136,10 +142,10 @@ export async function getArticle(lang: Locale, section: SectionId, slug: string)
   return article && localize(article, lang);
 }
 
-// The same article in the other language, if it has been translated.
-export async function getTranslation(id: string, lang: Locale) {
+// The same article in the given languages, for each one it has been translated into.
+export async function getTranslations(id: string, langs: Locale[]) {
   const article = (await getAllArticles()).find((a) => a.id === id);
-  return article && localize(article, lang);
+  return article ? langs.flatMap((lang) => localize(article, lang) ?? []) : [];
 }
 
 export function articlePath(article: Pick<LocalizedArticle, "section" | "lang" | "slug">): string {

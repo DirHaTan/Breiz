@@ -2,20 +2,20 @@ import type { Locale } from "@/i18n/config";
 
 // The sections of the site, with their name and web address in each language.
 export const sections = [
-  { id: "nevezentiou", br: { name: "Nevezentiou", slug: "nevezentiou" }, fr: { name: "Actualités", slug: "actualites" } },
-  { id: "breiz", br: { name: "Breiz", slug: "breiz" }, fr: { name: "Bretagne", slug: "bretagne" } },
-  { id: "deskadurez", br: { name: "Deskadurez", slug: "deskadurez" }, fr: { name: "Éducation", slug: "education" } },
-  { id: "frans", br: { name: "Frans", slug: "frans" }, fr: { name: "France", slug: "france" } },
-  { id: "bed", br: { name: "Bed", slug: "bed" }, fr: { name: "Monde", slug: "monde" } },
-  { id: "lennegez", br: { name: "Lennegez", slug: "lennegez" }, fr: { name: "Littérature", slug: "litterature" } },
-  { id: "kevredigez", br: { name: "Kevredigez", slug: "kevredigez" }, fr: { name: "Société", slug: "societe" } },
-  { id: "sport", br: { name: "Sport", slug: "sport" }, fr: { name: "Sport", slug: "sport" } },
-  { id: "istor", br: { name: "Istor", slug: "istor" }, fr: { name: "Histoire", slug: "histoire" } },
-  { id: "sevenadur", br: { name: "Sevenadur", slug: "sevenadur" }, fr: { name: "Culture", slug: "culture" } },
+  { id: "nevezentiou", br: { name: "Nevezentiou", slug: "nevezentiou" }, fr: { name: "Actualités", slug: "actualites" }, en: { name: "News", slug: "news" } },
+  { id: "breiz", br: { name: "Breiz", slug: "breiz" }, fr: { name: "Bretagne", slug: "bretagne" }, en: { name: "Brittany", slug: "brittany" } },
+  { id: "deskadurez", br: { name: "Deskadurez", slug: "deskadurez" }, fr: { name: "Éducation", slug: "education" }, en: { name: "Education", slug: "education" } },
+  { id: "frans", br: { name: "Frans", slug: "frans" }, fr: { name: "France", slug: "france" }, en: { name: "France", slug: "france" } },
+  { id: "bed", br: { name: "Bed", slug: "bed" }, fr: { name: "Monde", slug: "monde" }, en: { name: "World", slug: "world" } },
+  { id: "lennegez", br: { name: "Lennegez", slug: "lennegez" }, fr: { name: "Littérature", slug: "litterature" }, en: { name: "Literature", slug: "literature" } },
+  { id: "kevredigez", br: { name: "Kevredigez", slug: "kevredigez" }, fr: { name: "Société", slug: "societe" }, en: { name: "Society", slug: "society" } },
+  { id: "sport", br: { name: "Sport", slug: "sport" }, fr: { name: "Sport", slug: "sport" }, en: { name: "Sport", slug: "sport" } },
+  { id: "istor", br: { name: "Istor", slug: "istor" }, fr: { name: "Histoire", slug: "histoire" }, en: { name: "History", slug: "history" } },
+  { id: "sevenadur", br: { name: "Sevenadur", slug: "sevenadur" }, fr: { name: "Culture", slug: "culture" }, en: { name: "Culture", slug: "culture" } },
   {
     id: "embannit-ganeomp",
     br: { name: "Embannit ganeomp", slug: "embannit-ganeomp" },
-    fr: { name: "Annonces", slug: "annonces" },
+    fr: { name: "Annonces", slug: "annonces" }, en: { name: "Announcements", slug: "announcements" },
   },
 ] as const;
 

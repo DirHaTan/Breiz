@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { subscribePath } from "@/i18n/config";
+import { subscribePath, perLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { SubscribePage } from "@/components/SubscribePage";
 
@@ -11,7 +11,7 @@ export function generateStaticParams() {
 
 export const metadata: Metadata = {
   title: getDictionary("br").subscribe.title,
-  alternates: { languages: { br: subscribePath("br"), fr: subscribePath("fr") } },
+  alternates: { languages: perLocale((l) => subscribePath(l)) },
 };
 
 export default async function Page({ params, searchParams }: PageProps<"/[lang]/koumanant">) {

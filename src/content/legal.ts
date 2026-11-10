@@ -1,7 +1,8 @@
 import type { Locale } from "@/i18n/config";
 
-// The legal pages: "Notennou lezennel" / "Mentions légales", "Prevezded" /
-// "Confidentialité" and "Divizou gwerza" / "CGV". Each line is a paragraph;
+// The legal pages: "Notennou lezennel" / "Mentions légales" / "Legal notice",
+// "Prevezded" / "Confidentialité" / "Privacy" and "Divizou gwerza" / "CGV" / "Terms of sale".
+// The French text is the reference; the English one is a translation. Each line is a paragraph;
 // a line starting with "- " is a list item. Email addresses, https:// links
 // and [text](https://…) links become clickable (see LegalPage).
 
@@ -12,7 +13,7 @@ export type LegalKind = "notices" | "privacy" | "terms";
 const SITE = "[www.keleierbreiz.fr](https://www.keleierbreiz.fr)";
 const CONTACT = "darempred@keleierbreiz.fr";
 
-export const legalPages: Record<LegalKind, Record<Locale, LegalPageText>> = {
+const brFr: Record<LegalKind, Record<"br" | "fr", LegalPageText>> = {
   notices: {
     br: {
       slug: "notennou-lezennel",
@@ -257,4 +258,143 @@ export const legalPages: Record<LegalKind, Record<Locale, LegalPageText>> = {
       ],
     },
   },
+};
+
+// English translations of the French pages.
+const en: Record<LegalKind, LegalPageText> = {
+  notices: {
+    slug: "legal-notice",
+    title: "Legal notice",
+    sections: [
+      {
+        heading: "Publisher",
+        lines: [`The website ${SITE} is published by Hocine Nedjar, a private individual.`, `Contact: ${CONTACT}`],
+      },
+      { heading: "Publication director", lines: ["Hocine Nedjar"] },
+      {
+        heading: "Host",
+        lines: ["Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, United States — https://vercel.com"],
+      },
+      {
+        heading: "Intellectual property",
+        lines: [
+          "The texts published on this website belong to their authors. Any reproduction, even partial, is forbidden without written permission. Photographs are published with their authors' permission or under a free licence; their credit is shown under each picture.",
+        ],
+      },
+      { heading: "Reporting content", lines: [`To report content, write to ${CONTACT}.`] },
+      { heading: "Language", lines: ["This page is a translation. In case of difference, the French version prevails."] },
+    ],
+  },
+  terms: {
+    slug: "terms",
+    title: "Terms of sale",
+    sections: [
+      {
+        heading: "Purpose",
+        lines: [
+          `These terms govern the digital subscription to Keleier Breiz hag ar Bed, which gives access to every article published on ${SITE}.`,
+        ],
+      },
+      {
+        heading: "Seller",
+        lines: [
+          `Payment is handled by Stripe; the sale is made through Link (Stripe), which collects the applicable VAT. The content is provided by the website's publisher, Hocine Nedjar (see the legal notice). Contact: ${CONTACT}`,
+        ],
+      },
+      {
+        heading: "Prices",
+        lines: [
+          "- Monthly plan: €5 a month, VAT included.",
+          "- Yearly plan: €50 a year, VAT included.",
+          "Prices include the VAT that applies to online press.",
+        ],
+      },
+      {
+        heading: "Payment",
+        lines: [
+          "By bank card or by the other means offered on Stripe's secure payment page. Payment is taken at the start of each period.",
+        ],
+      },
+      {
+        heading: "Length and renewal",
+        lines: ["The subscription renews automatically at the end of each period (month or year) until it is cancelled."],
+      },
+      {
+        heading: "Cancellation",
+        lines: [
+          "You can cancel at any time from “My account” → “Manage my subscription”. Cancellation takes effect at the end of the period already paid for; you keep access until then.",
+        ],
+      },
+      {
+        heading: "Right of withdrawal and refunds",
+        lines: [
+          `You have 14 days after your first payment to ask for a refund of your subscription, without giving a reason, by writing to ${CONTACT}.`,
+        ],
+      },
+      { heading: "Customer service", lines: [CONTACT] },
+      {
+        heading: "Disputes and applicable law",
+        lines: [
+          `These terms are governed by French law. In case of a dispute, please write to ${CONTACT} first: an amicable solution will be sought before any action.`,
+          "This page is a translation. In case of difference, the French version prevails.",
+        ],
+      },
+    ],
+  },
+  privacy: {
+    slug: "privacy",
+    title: "Privacy policy",
+    sections: [
+      { heading: "Data controller", lines: [`Hocine Nedjar — ${CONTACT}`] },
+      {
+        heading: "Data collected",
+        lines: [
+          "- Your email address, so you can sign in (a sign-in link is sent by email, with no password).",
+          "- The name you choose to display, and your comments.",
+          "- The state of your subscription (plan, renewal date).",
+          "We never receive your bank details: payment is handled directly by Stripe.",
+        ],
+      },
+      {
+        heading: "Why",
+        lines: [
+          "To manage your account, your subscription and your comments. Legal basis: performance of the contract (subscription) and your consent (comments).",
+        ],
+      },
+      {
+        heading: "Service providers",
+        lines: [
+          "- Supabase (database and sign-in)",
+          "- Stripe and Link (payment)",
+          "- PayPal (donations: if you make a donation, PayPal handles the payment and sends us your name and email address)",
+          "- Resend (sending sign-in emails, servers in Ireland)",
+          "- Vercel (website hosting and anonymous visit statistics, without cookies)",
+          "Some providers are located outside the European Union; these transfers are covered by standard contractual clauses.",
+        ],
+      },
+      {
+        heading: "How long we keep your data",
+        lines: ["For as long as your account exists. Billing data is kept by Stripe according to its legal obligations."],
+      },
+      {
+        heading: "Cookies",
+        lines: [
+          "The website only uses one technical cookie, needed to keep you signed in. No advertising or audience-measurement cookies.",
+        ],
+      },
+      {
+        heading: "Your rights",
+        lines: [
+          `You can access, correct or delete your data, or object to its use, by writing to ${CONTACT}. You can also contact the CNIL, the French data protection authority ([www.cnil.fr](https://www.cnil.fr)).`,
+          "This page is a translation. In case of difference, the French version prevails.",
+        ],
+      },
+    ],
+  },
+};
+
+export const legalPages: Record<LegalKind, Record<Locale, LegalPageText>> = {
+  notices: { ...brFr.notices, en: en.notices },
+  terms: { ...brFr.terms, en: en.terms },
+  privacy: { ...brFr.privacy, en: en.privacy },
 };
