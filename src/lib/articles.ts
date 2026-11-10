@@ -17,6 +17,9 @@ type ArticleText = {
   title: string;
   excerpt: string;
   body: PortableTextBlock[];
+  // Optional recording of the text (an MP3 address on Sanity's CDN) and who reads it.
+  audio?: string | null;
+  audioCredit?: string | null;
 };
 
 export type ArticleImage = SanityImageSource & { alt?: string; credit?: string; creditUrl?: string };
@@ -60,13 +63,13 @@ const articlesQuery = defineQuery(`
     "department": select(section == "breiz" => department, null),
     "free": coalesce(free, false),
     "image": mainImage,
-    "br": br { title, "slug": slug.current, excerpt, "body": coalesce(body, []) },
+    "br": br { title, "slug": slug.current, excerpt, "body": coalesce(body, []), "audio": audio.asset->url, audioCredit },
     "fr": select(
-      defined(fr.title) && defined(fr.slug.current) => fr { title, "slug": slug.current, excerpt, "body": coalesce(body, []) },
+      defined(fr.title) && defined(fr.slug.current) => fr { title, "slug": slug.current, excerpt, "body": coalesce(body, []), "audio": audio.asset->url, audioCredit },
       null
     ),
     "en": select(
-      defined(en.title) && defined(en.slug.current) => en { title, "slug": slug.current, excerpt, "body": coalesce(body, []) },
+      defined(en.title) && defined(en.slug.current) => en { title, "slug": slug.current, excerpt, "body": coalesce(body, []), "audio": audio.asset->url, audioCredit },
       null
     )
   }

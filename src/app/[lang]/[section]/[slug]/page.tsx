@@ -18,6 +18,7 @@ import { imageSrc } from "@/lib/images";
 import { freePreview } from "@/lib/preview";
 import { ArticleBody } from "@/components/ArticleBody";
 import { PhotoCredit } from "@/components/PhotoCredit";
+import { ArticleAudio } from "@/components/ArticleAudio";
 import { getSection } from "@/lib/sections";
 import { ShareLinks } from "@/components/ShareLinks";
 import { DEFAULT_SHARE_IMAGE, SITE_URL } from "@/lib/site";
@@ -114,6 +115,8 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/[sectio
     </>
   );
   const image = article.image && imageSrc(article.image, 1344);
+  // The recording, if any: shown with the full text only.
+  const audio = <ArticleAudio src={article.audio} credit={article.audioCredit} label={dict.article.listen} />;
   const share = <ShareLinks url={`${SITE_URL}${articlePath(article)}`} title={article.title} labels={dict.share} />;
 
   return (
@@ -155,12 +158,15 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/[sectio
           </figure>
         )}
         {article.free ? (
-          <div className="mt-6">
-            <ArticleBody body={article.body} />
-          </div>
+          <>
+            {audio}
+            <div className="mt-6">
+              <ArticleBody body={article.body} />
+            </div>
+          </>
         ) : isSupabaseConfigured ? (
           <Suspense fallback={loading}>
-            <PaidArticleText body={article.body} teaser={teaser} />
+            <PaidArticleText body={article.body} teaser={teaser} audio={audio} />
           </Suspense>
         ) : (
           teaser
@@ -182,11 +188,14 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/[sectio
 }
 
 // The full text for subscribers and editors; everyone else keeps the teaser.
-async function PaidArticleText({ body, teaser }: { body: PortableTextBlock[]; teaser: React.ReactNode }) {
+async function PaidArticleText({ body, teaser, audio }: { body: PortableTextBlock[]; teaser: React.ReactNode; audio: React.ReactNode }) {
   if (!(await canReadPaidArticles())) return teaser;
   return (
-    <div className="mt-6">
-      <ArticleBody body={body} />
-    </div>
+    <>
+      {audio}
+      <div className="mt-6">
+        <ArticleBody body={body} />
+      </div>
+    </>
   );
 }
