@@ -183,5 +183,15 @@
     "tax": "Keleier Breiz hag ar Bed is not a registered charity: donations are not tax-deductible.",
     "thanks": "Thank you very much!",
     "articleLine": "Did you enjoy this article? Support a newspaper in Breton."
+  },
+  "readAloud": {
+    "title": "Listen to this article",
+    "note": "Automatically generated narration, using your device's voice",
+    "minutes": "Approximately {n} min",
+    "play": "Play",
+    "pause": "Pause",
+    "resume": "Resume",
+    "restart": "Restart",
+    "speed": "Speed"
   }
 }

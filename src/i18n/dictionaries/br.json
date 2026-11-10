@@ -183,5 +183,15 @@
     "tax": "N'eo ket Keleier Breiz hag ar Bed eur gevredigez: ne c'heller ket tenna ar skoazellou diwar an tailhou.",
     "thanks": "Trugarez vras!",
     "articleLine": "Plijout a ra deoh ar pennad-mañ? Skoazit eur gelaouenn e brezoneg."
+  },
+  "readAloud": {
+    "title": "Selaou ar pennad",
+    "note": "Lennet gand mouez ho penveg",
+    "minutes": "War-dro {n} munutenn",
+    "play": "Selaou",
+    "pause": "Ehana",
+    "resume": "Kenderhel",
+    "restart": "Adkregi",
+    "speed": "Tiz"
   }
 }
