@@ -2,7 +2,7 @@ import type { EmailOtpType } from "@supabase/supabase-js";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import type { NextRequest } from "next/server";
-import { accountPath, safeNextPath } from "@/i18n/config";
+import { accountPath, defaultLocale, isLocale, safeNextPath } from "@/i18n/config";
 import { createClient } from "@/supabase/server";
 
 // Step 2 of signing in: the reader clicked the link in their email.
@@ -15,7 +15,8 @@ export async function GET(request: NextRequest) {
   const code = params.get("code");
 
   const cookieStore = await cookies();
-  const lang = cookieStore.get("breiz_lang")?.value === "fr" ? "fr" : "br";
+  const saved = cookieStore.get("breiz_lang")?.value ?? "";
+  const lang = isLocale(saved) ? saved : defaultLocale;
   const next = safeNextPath(cookieStore.get("breiz_next")?.value) ?? accountPath(lang);
   cookieStore.delete("breiz_next");
 

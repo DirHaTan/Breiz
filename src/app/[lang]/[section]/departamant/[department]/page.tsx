@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { perLocale } from "@/i18n/config";
 import { notFound } from "next/navigation";
 import { getSection, getSectionBySlug } from "@/lib/sections";
 import { DEPARTMENT_SECTION, departmentPath, departments, getDepartmentBySlug } from "@/lib/departments";
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/[section]/
     title: `${department[LANG].name} – ${section[LANG].name}`,
     alternates: {
       canonical: departmentPath(LANG, department),
-      languages: { br: departmentPath("br", department), fr: departmentPath("fr", department) },
+      languages: perLocale((l) => departmentPath(l, department)),
     },
   };
 }

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { isLocale, locales, moderationPath, otherLocale, type Locale } from "@/i18n/config";
+import { isLocale, locales, moderationPath, type Locale } from "@/i18n/config";
 import { getDictionary, type Dictionary } from "@/i18n/dictionaries";
 import { getCurrentUser, type CurrentUser } from "@/lib/auth";
 import { getModerationQueue, type Comment } from "@/lib/comments";
@@ -23,7 +23,7 @@ export default async function ModerationPage({ params }: PageProps<"/[lang]/mode
   const dict = getDictionary(lang);
   return (
     <>
-      <Header lang={lang} dict={dict} alternateHref={moderationPath(otherLocale(lang))} />
+      <Header lang={lang} dict={dict} alternate={moderationPath} />
       <main className="mx-auto max-w-2xl px-4 py-12">
         <h1 className="font-serif text-4xl font-black">{dict.moderation.title}</h1>
         <Suspense fallback={<p className="mt-6 text-muted">…</p>}>

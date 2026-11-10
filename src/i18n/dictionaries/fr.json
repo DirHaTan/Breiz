@@ -7,8 +7,8 @@
     "sections": "Rubriques",
     "subscribe": "S'abonner",
     "signIn": "Se connecter",
-    "languageSwitch": "Brezoneg",
-    "account": "Mon compte"
+    "account": "Mon compte",
+    "languages": "Langues"
   },
   "home": {
     "latest": "Les plus récents",
@@ -17,7 +17,11 @@
   "article": {
     "by": "Par",
     "readMore": "Lire la suite",
-    "translationAvailable": "Lire cet article en breton",
+    "translationAvailable": {
+      "br": "Lire cet article en breton",
+      "fr": "Lire cet article en français",
+      "en": "Lire cet article en anglais"
+    },
     "sampleNotice": "Ceci est un article d'exemple. Il sera remplacé par de vrais articles.",
     "photoCredit": "Photo : "
   },

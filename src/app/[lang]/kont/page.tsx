@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { accountPath } from "@/i18n/config";
+import { accountPath, perLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { AccountPage } from "@/components/AccountPage";
 
@@ -12,7 +12,7 @@ export function generateStaticParams() {
 export const metadata: Metadata = {
   title: getDictionary("br").account.title,
   robots: { index: false },
-  alternates: { languages: { br: accountPath("br"), fr: accountPath("fr") } },
+  alternates: { languages: perLocale((l) => accountPath(l)) },
 };
 
 export default async function Page({ params, searchParams }: PageProps<"/[lang]/kont">) {

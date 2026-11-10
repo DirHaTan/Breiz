@@ -1,7 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { accountPath } from "@/i18n/config";
+import { accountPath, stripeLocale } from "@/i18n/config";
 import { getCurrentUser } from "@/lib/auth";
 import { checkoutDestination, readPlan } from "@/lib/checkout";
 import { stripe } from "@/lib/stripe";
@@ -27,7 +27,7 @@ export async function openCustomerPortal(formData: FormData) {
   try {
     const session = await stripe.billingPortal.sessions.create({
       customer: subscription.stripe_customer_id,
-      locale: "fr",
+      locale: stripeLocale[lang],
       return_url: `${SITE_URL}${accountPath(lang)}`,
     });
     url = session.url;

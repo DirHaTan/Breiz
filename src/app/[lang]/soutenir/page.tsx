@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { donatePath } from "@/i18n/config";
+import { donatePath, perLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { DonatePage } from "@/components/DonatePage";
 
@@ -11,7 +11,7 @@ export function generateStaticParams() {
 
 export const metadata: Metadata = {
   title: getDictionary("fr").donate.title,
-  alternates: { languages: { br: donatePath("br"), fr: donatePath("fr") } },
+  alternates: { languages: perLocale((l) => donatePath(l)) },
 };
 
 export default async function Page({ params }: PageProps<"/[lang]/soutenir">) {

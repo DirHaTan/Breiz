@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { isLocale, localePath, locales } from "@/i18n/config";
+import { isLocale, localePath, locales, perLocale } from "@/i18n/config";
 import { getSectionBySlug, sections } from "@/lib/sections";
 import { SectionListing } from "@/components/SectionListing";
 
@@ -17,10 +17,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/[section]"
     title: section[lang].name,
     alternates: {
       canonical: localePath(lang, `/${section[lang].slug}`),
-      languages: {
-        br: localePath("br", `/${section.br.slug}`),
-        fr: localePath("fr", `/${section.fr.slug}`),
-      },
+      languages: perLocale((l) => localePath(l, `/${section[l].slug}`)),
     },
   };
 }

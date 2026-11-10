@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import Link from "next/link";
-import { accountPath, moderationPath, otherLocale, safeNextPath, type Locale } from "@/i18n/config";
+import { accountPath, moderationPath, safeNextPath, type Locale } from "@/i18n/config";
 import { getDictionary, type Dictionary } from "@/i18n/dictionaries";
 import { getCurrentUser } from "@/lib/auth";
 import { isSupabaseConfigured } from "@/supabase/env";
@@ -17,7 +17,7 @@ export function AccountPage({ lang, searchParams }: { lang: Locale; searchParams
   const dict = getDictionary(lang);
   return (
     <>
-      <Header lang={lang} dict={dict} alternateHref={accountPath(otherLocale(lang))} />
+      <Header lang={lang} dict={dict} alternate={accountPath} />
       <main className="mx-auto max-w-xl px-4 py-12">
         {isSupabaseConfigured ? (
           <Suspense fallback={<h1 className="font-serif text-4xl font-black">{dict.account.title}</h1>}>

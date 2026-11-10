@@ -1,0 +1,186 @@
+{
+  "site": {
+    "name": "Keleier Breiz hag ar Bed"
+  },
+  "nav": {
+    "home": "Home",
+    "sections": "Sections",
+    "subscribe": "Subscribe",
+    "signIn": "Sign in",
+    "account": "My account",
+    "languages": "Languages"
+  },
+  "home": {
+    "latest": "Latest",
+    "lead": "Top story"
+  },
+  "article": {
+    "by": "By",
+    "readMore": "Read more",
+    "translationAvailable": {
+      "br": "Read this article in Breton",
+      "fr": "Read this article in French",
+      "en": "Read this article in English"
+    },
+    "sampleNotice": "This is a sample article. It will be replaced by real articles.",
+    "photoCredit": "Photo: "
+  },
+  "share": {
+    "heading": "Share this article",
+    "copy": "Copy link",
+    "copied": "Link copied!",
+    "native": "Share",
+    "email": "Email"
+  },
+  "paywall": {
+    "title": "Read the full article",
+    "text": "Subscribe to read every article in Keleier Breiz hag ar Bed.",
+    "price": "€5 a month or €50 a year",
+    "button": "Subscribe",
+    "already": "Already a subscriber?"
+  },
+  "comments": {
+    "title": "Readers' comments",
+    "signInToComment": "Sign in to write a comment.",
+    "comingSoon": "Comments will open soon.",
+    "signInLink": "Sign in",
+    "none": "No comments yet.",
+    "placeholder": "Write your comment…",
+    "nameLabel": "Your name",
+    "post": "Post",
+    "delete": "Delete",
+    "confirmDelete": "Delete this comment?",
+    "report": "Report",
+    "reported": "Reported. Thank you.",
+    "hide": "Hide",
+    "unhide": "Show again",
+    "hiddenLabel": "Hidden",
+    "empty": "Write something.",
+    "tooLong": "Comment too long (2,000 characters maximum).",
+    "tooMany": "Too many comments in a short time. Please wait a little.",
+    "error": "Something went wrong. Please try again."
+  },
+  "subscribe": {
+    "title": "Subscribe",
+    "intro": "With a subscription, you can read every article in Keleier Breiz hag ar Bed.",
+    "monthly": {
+      "price": "€5",
+      "period": "a month",
+      "note": ""
+    },
+    "yearly": {
+      "price": "€50",
+      "period": "a year",
+      "note": "Two months free"
+    },
+    "features": [
+      "Every article, without limits",
+      "In Breton, with many articles in French and English",
+      "Comment under the articles",
+      "Cancel at any time"
+    ],
+    "button": "Subscribe",
+    "already": "You are already a subscriber.",
+    "termsIntro": "By subscribing, you accept the",
+    "termsLink": "terms of sale"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "back": "Back to the home page"
+  },
+  "footer": {
+    "about": "Keleier Breiz hag ar Bed, a newspaper in Breton.",
+    "rights": "All rights reserved.",
+    "sections": "Sections"
+  },
+  "account": {
+    "title": "My account",
+    "signInTitle": "Sign in",
+    "signInIntro": "Enter your email address. We will send you a sign-in link, with no password.",
+    "emailLabel": "Email address",
+    "sendLink": "Send the link",
+    "linkSent": "Link sent! Check your email (and your spam folder).",
+    "invalidEmail": "Invalid email address.",
+    "linkError": "This link is invalid or has expired. Please ask for a new one.",
+    "signedInAs": "Signed in as",
+    "displayName": "Your name (shown with your comments)",
+    "save": "Save",
+    "saved": "Saved.",
+    "nameInvalid": "Your name must be between 2 and 40 characters.",
+    "signOut": "Sign out",
+    "moderation": "Comment moderation",
+    "notConfigured": "Accounts are not open yet.",
+    "genericError": "Something went wrong. Please try again.",
+    "tooManyEmails": "Too many emails sent. Please wait a little before trying again."
+  },
+  "moderation": {
+    "title": "Comment moderation",
+    "reported": "Reported comments",
+    "hidden": "Hidden comments",
+    "nothing": "Nothing to moderate.",
+    "reports": "report(s)",
+    "forbidden": "For moderators only."
+  },
+  "section": {
+    "empty": "No articles yet.",
+    "departments": "Departments",
+    "allBreiz": "All of Brittany"
+  },
+  "announce": {
+    "title": "Send an announcement",
+    "intro": "We publish announcements of concerts, festou-noz, Breton culture workshops and other events free of charge.",
+    "whatTitle": "What to send us",
+    "items": [
+      "The title",
+      "The date (and time)",
+      "The place",
+      "A contact: name, phone number or email address",
+      "A short text",
+      "A picture (optional)"
+    ],
+    "sendTitle": "Send it by email to:",
+    "alsoArticles": "You can also use this address to send us articles for publication.",
+    "note": "Announcements are checked by the editorial team before publication.",
+    "link": "Send an announcement"
+  },
+  "billing": {
+    "successTitle": "Thank you!",
+    "successText": "Your subscription has been recorded.",
+    "successWait": "If you can't see the full articles yet, please wait a moment.",
+    "cancelTitle": "Payment cancelled",
+    "cancelText": "The payment was not made.",
+    "cancelRetry": "You can try again whenever you like.",
+    "subscription": "My subscription",
+    "none": "You are not a subscriber.",
+    "planLabel": "Plan",
+    "monthly": "Monthly (€5)",
+    "yearly": "Yearly (€50)",
+    "statusLabel": "Status",
+    "statusActive": "Active",
+    "statusPastDue": "Payment overdue",
+    "statusIncomplete": "Awaiting payment",
+    "statusCanceled": "Ended",
+    "renews": "Renews on",
+    "ends": "Ends on",
+    "manage": "Manage my subscription"
+  },
+  "donate": {
+    "title": "Support Keleier Breiz hag ar Bed",
+    "link": "Support us",
+    "intro": "Keleier Breiz hag ar Bed is an independent newspaper, written in Breton for everyone. Your support helps us keep publishing news, history and culture in Breton.",
+    "whatTitle": "What does your donation pay for?",
+    "items": [
+      "Writing and translating new articles, in Breton, French and English",
+      "Paying for hosting and tools",
+      "Growing the site and making it better known"
+    ],
+    "button": "Donate with PayPal",
+    "how": "You choose the amount. Payment takes place on PayPal's secure page: we never receive your bank details.",
+    "soon": "The donation button will open very soon. Thank you for your patience!",
+    "note": "A donation is not a subscription: it does not give access to subscriber-only articles. To read everything:",
+    "subscribeLink": "subscribe",
+    "tax": "Keleier Breiz hag ar Bed is not a registered charity: donations are not tax-deductible.",
+    "thanks": "Thank you very much!",
+    "articleLine": "Did you enjoy this article? Support a newspaper in Breton."
+  }
+}

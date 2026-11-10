@@ -1,9 +1,11 @@
 # Keleier Breiz hag ar Bed
 
-A news and publishing website in Breton (skolveurieg orthography) and French.
+A news and publishing website in Breton (skolveurieg orthography), with French and English versions.
 
 - Breton is the default language: `/`, `/nevezentiou`, `/breiz`, …
 - French lives under `/fr`: `/fr/actualites`, `/fr/bretagne`, …
+- English lives under `/en`: `/en/news`, `/en/brittany`, `/en/history`, … The English text of an
+  article is optional ("English (optional)" in the editor); articles without it don't appear in English.
 - Sections: Nevezentiou, Breiz, Deskadurez, Frans, Bed, Lennegez, Kevredigez, Sport, Istor, Sevenadur, Embannit ganeomp.
 - Embannit ganeomp (French: Annonces) is for free community announcements: choosing it
   in the editor ticks **Pennad digoust** automatically (it can still be unticked).
@@ -14,7 +16,8 @@ A news and publishing website in Breton (skolveurieg orthography) and French.
 - Readers learn how to send an announcement at `/kas-eur-gemennadenn` (French: `/fr/envoyer-une-annonce`),
   linked from the footer. Address: kemennadennou@keleierbreiz.fr (`src/lib/contact.ts`).
 - Legal pages (linked in the footer), final texts in Breton and French: `/notennou-lezennel`,
-  `/prevezded`, `/divizou-gwerza` and `/fr/mentions-legales`, `/fr/confidentialite`, `/fr/cgv`.
+  `/prevezded`, `/divizou-gwerza`, `/fr/mentions-legales`, `/fr/confidentialite`, `/fr/cgv`, and the
+  English translations `/en/legal-notice`, `/en/privacy`, `/en/terms`.
   Their text is in `src/content/legal.ts`.
 - Donations: `/skoazia` (French: `/fr/soutenir`), linked from the footer and from a line under
   every article. The button opens a PayPal payment link where the donor chooses the amount
@@ -53,6 +56,7 @@ automatic AI publishing. Articles are written, checked and published by the edit
 |---|---|
 | Interface text in Breton (menus, buttons…) | `src/i18n/dictionaries/br.json` |
 | Interface text in French | `src/i18n/dictionaries/fr.json` |
+| Interface text in English | `src/i18n/dictionaries/en.json` |
 | Section names and addresses | `src/lib/sections.ts` |
 | Departments of the Breiz section | `src/lib/departments.ts` |
 | Sample articles (shown until Sanity is connected) | `src/content/sample-articles.json` |

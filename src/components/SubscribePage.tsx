@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import Link from "next/link";
-import { accountPath, legalPath, otherLocale, subscribePath, type Locale } from "@/i18n/config";
+import { accountPath, legalPath, subscribePath, type Locale } from "@/i18n/config";
 import { getDictionary, type Dictionary } from "@/i18n/dictionaries";
 import { getCurrentUser } from "@/lib/auth";
 import { ACTIVE_STATUSES, getSubscriptionForUser } from "@/lib/subscriptions";
@@ -21,7 +21,7 @@ export function SubscribePage({ lang, searchParams }: { lang: Locale; searchPara
   ];
   return (
     <>
-      <Header lang={lang} dict={dict} alternateHref={subscribePath(otherLocale(lang))} />
+      <Header lang={lang} dict={dict} alternate={subscribePath} />
       <main className="mx-auto max-w-2xl px-4 py-12 text-center">
         <h1 className="font-serif text-4xl font-black">{t.title}</h1>
         <p className="mt-4 text-lg text-muted">{t.intro}</p>

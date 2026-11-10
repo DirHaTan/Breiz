@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { announcePath } from "@/i18n/config";
+import { announcePath, perLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { AnnouncePage } from "@/components/AnnouncePage";
 
@@ -11,7 +11,7 @@ export function generateStaticParams() {
 
 export const metadata: Metadata = {
   title: getDictionary("fr").announce.title,
-  alternates: { languages: { br: announcePath("br"), fr: announcePath("fr") } },
+  alternates: { languages: perLocale((l) => announcePath(l)) },
 };
 
 export default async function Page({ params }: PageProps<"/[lang]/envoyer-une-annonce">) {

@@ -1,5 +1,5 @@
 import "server-only";
-import { accountPath, checkoutCancelPath, checkoutSuccessPath, subscribePath, type Locale } from "@/i18n/config";
+import { accountPath, checkoutCancelPath, checkoutSuccessPath, stripeLocale, subscribePath, type Locale } from "@/i18n/config";
 import { getCurrentUser } from "@/lib/auth";
 import { priceIdFor, stripe, type Plan } from "@/lib/stripe";
 import { ACTIVE_STATUSES, getOrCreateCustomer, getSubscriptionForUser } from "@/lib/subscriptions";
@@ -26,7 +26,7 @@ export async function checkoutDestination(lang: Locale, plan: Plan): Promise<str
       customer,
       client_reference_id: user.id,
       line_items: [{ price, quantity: 1 }],
-      locale: "fr", // Stripe has no Breton.
+      locale: stripeLocale[lang], // Stripe has no Breton.
       subscription_data: { metadata: { supabase_user_id: user.id } },
       success_url: `${SITE_URL}${checkoutSuccessPath(lang)}?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${SITE_URL}${checkoutCancelPath(lang)}`,

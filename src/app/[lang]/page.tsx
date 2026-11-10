@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { isLocale, localePath, otherLocale } from "@/i18n/config";
+import { isLocale, localePath, perLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getLatestArticles } from "@/lib/articles";
 import { Header } from "@/components/Header";
@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]">): Promis
   return {
     alternates: {
       canonical: localePath(lang),
-      languages: { br: localePath("br"), fr: localePath("fr") },
+      languages: perLocale((l) => localePath(l)),
     },
   };
 }
@@ -27,7 +27,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
 
   return (
     <>
-      <Header lang={lang} dict={dict} alternateHref={localePath(otherLocale(lang))} />
+      <Header lang={lang} dict={dict} alternate={(l) => localePath(l)} />
       <main className="mx-auto max-w-[90rem] px-4 py-8 lg:px-6 xl:px-8">
         {/* Lead article (2/3) beside the latest list (1/3) on wide screens;
             stacked in one column on phones and tablets. */}

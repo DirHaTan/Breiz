@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { legalPath, otherLocale, type Locale } from "@/i18n/config";
+import { legalPath, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { legalPages, type LegalKind } from "@/content/legal";
 import { Header } from "@/components/Header";
@@ -11,7 +11,7 @@ export function LegalPage({ kind, lang }: { kind: LegalKind; lang: Locale }) {
   const page = legalPages[kind][lang];
   return (
     <>
-      <Header lang={lang} dict={dict} alternateHref={legalPath(kind, otherLocale(lang))} />
+      <Header lang={lang} dict={dict} alternate={(l) => legalPath(kind, l)} />
       <main className="mx-auto max-w-2xl px-4 py-12">
         <h1 className="font-serif text-4xl font-black">{page.title}</h1>
         {page.sections.map((section) => (
