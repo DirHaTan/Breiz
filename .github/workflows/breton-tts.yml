@@ -1,8 +1,8 @@
 # Makes the Breton audio of an article with the breton-tts voice by
 # Gweltaz Duval-Guennoc (https://huggingface.co/gweltou/breton-tts).
 # Started by hand (or by Claude) with the text as base64 JSON. The text is
-# never printed in the logs. The MP3 is kept as an artifact for one day,
-# then attached to the article in Sanity.
+# never printed in the logs. The MP3 is saved on the "breton-audio" branch,
+# from where Sanity fetches it and attaches it to the article.
 name: Breton audio
 
 on:
@@ -12,6 +12,13 @@ on:
         description: "Base64 JSON {parts: string[], speaker: 0|1} (empty = test sentence)"
         required: false
         default: ""
+      name:
+        description: "File name for the MP3, e.g. orin-an-amzao"
+        required: false
+        default: "test"
+
+permissions:
+  contents: write
 
 jobs:
   speak:
@@ -41,8 +48,22 @@ jobs:
           fi
       - name: Speak
         run: python scripts/tts/speak.py input.json out.mp3
-      - uses: actions/upload-artifact@v4
-        with:
-          name: breton-audio
-          path: out.mp3
-          retention-days: 1
+      - name: Save the MP3 on the breton-audio branch
+        env:
+          NAME: ${{ inputs.name }}
+        run: |
+          FILE="$(echo "$NAME" | tr -cd 'a-z0-9-')-$(date +%Y%m%d%H%M%S).mp3"
+          mv out.mp3 "/tmp/$FILE"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git fetch origin breton-audio 2>/dev/null; then
+            git checkout -B breton-audio origin/breton-audio
+          else
+            git checkout --orphan breton-audio
+            git rm -rqf .
+          fi
+          cp "/tmp/$FILE" "$FILE"
+          git add "$FILE"
+          git commit -qm "Breton audio: $FILE"
+          git push -q origin breton-audio
+          echo "SAVED https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/breton-audio/$FILE"
