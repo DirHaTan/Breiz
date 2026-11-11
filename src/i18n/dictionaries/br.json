@@ -90,7 +90,7 @@
     "back": "Distrei d'an degemer"
   },
   "footer": {
-    "about": "Keleier Breiz hag ar Bed, eur gelaouenn e brezoneg.",
+    "about": "Keleier Breiz hag ar Bed, eur gelaouenn en linenn e brezoneg.",
     "rights": "An holl wiriou miret.",
     "sections": "Rannou"
   },
@@ -168,7 +168,7 @@
   "donate": {
     "title": "Skoazia Keleier Breiz hag ar Bed",
     "link": "Skoazia",
-    "intro": "Keleier Breiz hag ar Bed a zo eur gelaouenn dieub, skrivet e brezoneg evid an holl. Gand ho skoazell e c'hellomp kenderhel da embann keleier, istor ha sevenadur e brezoneg.",
+    "intro": "Keleier Breiz hag ar Bed a zo eur gelaouenn dieub en linenn, skrivet e brezoneg evid an holl. Gand ho skoazell e c'hellomp kenderhel da embann keleier, istor ha sevenadur e brezoneg.",
     "whatTitle": "Da betra e talvez ho skoazell?",
     "items": [
       "Skriva ha troi pennadou nevez, e brezoneg hag e galleg",
@@ -182,7 +182,7 @@
     "subscribeLink": "koumananti",
     "tax": "N'eo ket Keleier Breiz hag ar Bed eur gevredigez: ne c'heller ket tenna ar skoazellou diwar an tailhou.",
     "thanks": "Trugarez vras!",
-    "articleLine": "Plijout a ra deoh ar pennad-mañ? Skoazit eur gelaouenn e brezoneg."
+    "articleLine": "Plijout a ra deoh ar pennad-mañ? Skoazit eur gelaouenn en linenn e brezoneg."
   },
   "readAloud": {
     "title": "Selaou ar pennad",
