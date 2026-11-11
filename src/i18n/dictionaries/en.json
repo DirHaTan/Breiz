@@ -90,7 +90,7 @@
     "back": "Back to the home page"
   },
   "footer": {
-    "about": "Keleier Breiz hag ar Bed, a newspaper in Breton.",
+    "about": "Keleier Breiz hag ar Bed, a news website in Breton.",
     "rights": "All rights reserved.",
     "sections": "Sections"
   },
@@ -168,7 +168,7 @@
   "donate": {
     "title": "Support Keleier Breiz hag ar Bed",
     "link": "Support us",
-    "intro": "Keleier Breiz hag ar Bed is an independent newspaper, written in Breton for everyone. Your support helps us keep publishing news, history and culture in Breton.",
+    "intro": "Keleier Breiz hag ar Bed is an independent news website, written in Breton for everyone. Your support helps us keep publishing news, history and culture in Breton.",
     "whatTitle": "What does your donation pay for?",
     "items": [
       "Writing and translating new articles, in Breton, French and English",
@@ -182,7 +182,7 @@
     "subscribeLink": "subscribe",
     "tax": "Keleier Breiz hag ar Bed is not a registered charity: donations are not tax-deductible.",
     "thanks": "Thank you very much!",
-    "articleLine": "Did you enjoy this article? Support a newspaper in Breton."
+    "articleLine": "Did you enjoy this article? Support a news website in Breton."
   },
   "readAloud": {
     "title": "Listen to this article",
