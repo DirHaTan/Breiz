@@ -90,7 +90,7 @@
     "back": "Retour à l'accueil"
   },
   "footer": {
-    "about": "Keleier Breiz hag ar Bed, un journal en breton.",
+    "about": "Keleier Breiz hag ar Bed, un site d'information en breton.",
     "rights": "Tous droits réservés.",
     "sections": "Rubriques"
   },
@@ -168,7 +168,7 @@
   "donate": {
     "title": "Soutenir Keleier Breiz hag ar Bed",
     "link": "Nous soutenir",
-    "intro": "Keleier Breiz hag ar Bed est un journal indépendant, écrit en breton pour tous. Votre soutien nous permet de continuer à publier l'actualité, l'histoire et la culture en breton.",
+    "intro": "Keleier Breiz hag ar Bed est un site d'information indépendant, écrit en breton pour tous. Votre soutien nous permet de continuer à publier l'actualité, l'histoire et la culture en breton.",
     "whatTitle": "À quoi sert votre don ?",
     "items": [
       "Écrire et traduire de nouveaux articles, en breton et en français",
@@ -182,7 +182,7 @@
     "subscribeLink": "s'abonner",
     "tax": "Keleier Breiz hag ar Bed n'est pas une association : les dons ne donnent pas droit à une réduction d'impôt.",
     "thanks": "Un grand merci !",
-    "articleLine": "Cet article vous a plu ? Soutenez un journal en breton."
+    "articleLine": "Cet article vous a plu ? Soutenez un site d'information en breton."
   },
   "readAloud": {
     "title": "Écouter l'article",
