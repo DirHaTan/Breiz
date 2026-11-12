@@ -192,8 +192,6 @@
     "pause": "Pause",
     "resume": "Reprendre",
     "restart": "Recommencer",
-    "speed": "Vitesse",
-    "voice": "Voix",
-    "noteBreton": "Lecture automatique par la voix de votre appareil"
+    "speed": "Vitesse"
   }
 }
