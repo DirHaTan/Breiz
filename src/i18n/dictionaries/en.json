@@ -192,8 +192,6 @@
     "pause": "Pause",
     "resume": "Resume",
     "restart": "Restart",
-    "speed": "Speed",
-    "voice": "Voice",
-    "noteBreton": "Automatically generated narration, using your device's voice"
+    "speed": "Speed"
   }
 }
