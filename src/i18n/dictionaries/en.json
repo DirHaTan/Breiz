@@ -193,5 +193,10 @@
     "resume": "Resume",
     "restart": "Restart",
     "speed": "Speed"
+  },
+  "related": {
+    "series": "The series",
+    "more": "Read next",
+    "reading": "you are reading this"
   }
 }

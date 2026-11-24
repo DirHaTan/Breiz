@@ -151,6 +151,35 @@ export async function getTranslations(id: string, langs: Locale[]) {
   return article ? langs.flatMap((lang) => localize(article, lang) ?? []) : [];
 }
 
+// A series is recognised from the title: "Emzao (2/5) – …" belongs to the
+// series "Emzao" of 5 parts. Returns undefined for titles without "(n/m)".
+export function seriesOf(title: string): { name: string; part: number; total: number } | undefined {
+  const match = /^(.+?)\s*\((\d+)\s*\/\s*(\d+)\)/.exec(title);
+  if (!match) return undefined;
+  const [, name, part, total] = match;
+  return { name: name.trim(), part: Number(part), total: Number(total) };
+}
+
+// What to suggest under an article: the other parts of its series (if it
+// belongs to one), and a few recent articles from the same section.
+export async function getRelatedArticles(article: LocalizedArticle, limit = 3) {
+  const all = await getLatestArticles(article.lang);
+  const own = seriesOf(article.title);
+  const series = own
+    ? all
+        .filter((a) => {
+          const s = seriesOf(a.title);
+          return s && s.name.toLowerCase() === own.name.toLowerCase() && s.total === own.total;
+        })
+        .toSorted((a, b) => seriesOf(a.title)!.part - seriesOf(b.title)!.part)
+    : [];
+  const inSeries = new Set(series.map((a) => a.id));
+  const more = all
+    .filter((a) => a.section === article.section && a.id !== article.id && !inSeries.has(a.id))
+    .slice(0, limit);
+  return { series: series.length > 1 ? { name: own!.name, articles: series } : null, more };
+}
+
 export function articlePath(article: Pick<LocalizedArticle, "section" | "lang" | "slug">): string {
   const section = getSection(article.section)!;
   return localePath(article.lang, `/${section[article.lang].slug}/${article.slug}`);
