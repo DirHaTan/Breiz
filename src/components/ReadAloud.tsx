@@ -15,6 +15,22 @@ type Labels = {
 
 const SPEEDS = [0.75, 1, 1.25, 1.5];
 
+type Lang = "fr" | "en" | "br";
+
+// No device has a Breton voice, so Breton articles are read by a Welsh voice,
+// the closest available (editor's decision, 24 Nov 2026).
+const voiceLang = (lang: Lang) => (lang === "br" ? "cy" : lang);
+
+// Adapts Breton spelling for a Welsh voice: Breton c'h is the same sound as
+// Welsh ch, and ñ only marks a nasal vowel, so it is read as a plain n.
+function forVoice(text: string, lang: Lang): string {
+  if (lang !== "br") return text;
+  return text
+    .replace(/([cC])['’]([hH])/g, "$1$2")
+    .replace(/ñ/g, "n")
+    .replace(/Ñ/g, "N");
+}
+
 // Picks the device's best voice for the language: "natural" / online voices first.
 function pickVoice(lang: string): SpeechSynthesisVoice | undefined {
   const voices = window.speechSynthesis.getVoices().filter((v) => v.lang.toLowerCase().startsWith(lang));
@@ -27,9 +43,10 @@ function pickVoice(lang: string): SpeechSynthesisVoice | undefined {
 }
 
 // "Listen to this article": the reader's own browser reads the text aloud.
-// Shown only when the device has a voice for the language (no browser has
-// a Breton voice, so Breton articles use an uploaded recording instead).
-export function ReadAloud({ parts, lang, labels }: { parts: string[]; lang: "fr" | "en"; labels: Labels }) {
+// Shown only when the device has a voice for the language (for Breton: a
+// Welsh voice, e.g. Microsoft Edge on Windows). An uploaded recording, when
+// there is one, is shown instead (see the article page).
+export function ReadAloud({ parts, lang, labels }: { parts: string[]; lang: Lang; labels: Labels }) {
   const [voice, setVoice] = useState<SpeechSynthesisVoice | undefined>();
   const [state, setState] = useState<"idle" | "playing" | "paused">("idle");
   const [rate, setRate] = useState(1);
@@ -38,7 +55,7 @@ export function ReadAloud({ parts, lang, labels }: { parts: string[]; lang: "fr"
 
   useEffect(() => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    const update = () => setVoice(pickVoice(lang));
+    const update = () => setVoice(pickVoice(voiceLang(lang)));
     update();
     window.speechSynthesis.addEventListener("voiceschanged", update);
     return () => {
@@ -60,9 +77,9 @@ export function ReadAloud({ parts, lang, labels }: { parts: string[]; lang: "fr"
         return;
       }
       index.current = i;
-      const u = new SpeechSynthesisUtterance(parts[i]);
+      const u = new SpeechSynthesisUtterance(forVoice(parts[i], lang));
       if (voice) u.voice = voice;
-      u.lang = voice?.lang ?? lang;
+      u.lang = voice?.lang ?? voiceLang(lang);
       u.rate = speed;
       u.onend = () => next(i + 1);
       u.onerror = () => {
