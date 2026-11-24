@@ -193,5 +193,10 @@
     "resume": "Kenderhel",
     "restart": "Adkregi",
     "speed": "Tiz"
+  },
+  "related": {
+    "series": "Ar rummad",
+    "more": "Da lenn ivez",
+    "reading": "emaoh o lenn"
   }
 }

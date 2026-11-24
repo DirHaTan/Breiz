@@ -5,7 +5,8 @@ import { notFound } from "next/navigation";
 import { isLocale, localePath, locales, ogLocale, otherLocales, donatePath } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getSectionBySlug } from "@/lib/sections";
-import { articlePath, getAllArticles, getArticle, getTranslations } from "@/lib/articles";
+import { articlePath, getAllArticles, getArticle, getRelatedArticles, getTranslations } from "@/lib/articles";
+import { RelatedArticles } from "@/components/RelatedArticles";
 import { Header } from "@/components/Header";
 import { Paywall } from "@/components/Paywall";
 import { Comments } from "@/components/Comments";
@@ -88,6 +89,7 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/[sectio
   if (!data) notFound();
   const { lang, section, article, translations } = data;
   const dict = getDictionary(lang);
+  const related = await getRelatedArticles(article);
 
   // Articles are for subscribers. A "Pennad digoust" is shown in full to
   // everyone; otherwise the summary and paywall are shown, and the full text
@@ -187,6 +189,7 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/[sectio
             </Link>
           </p>
         )}
+        <RelatedArticles current={article} series={related.series} more={related.more} labels={dict.related} />
         <Comments lang={lang} dict={dict} articleId={article.id} articleHref={articlePath(article)} />
       </main>
     </>
