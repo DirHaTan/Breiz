@@ -198,5 +198,28 @@
     "series": "The series",
     "more": "Read next",
     "reading": "you are reading this"
+  },
+  "newsletter": {
+    "title": "Newsletter",
+    "text": "Every week, the latest articles from Keleier Breiz hag ar Bed in your inbox.",
+    "email": "Your email address",
+    "language": "Newsletter language",
+    "submit": "Sign up",
+    "sent": "We've sent you an email: click the link in it to confirm.",
+    "invalidEmail": "This email address isn't valid.",
+    "error": "Something went wrong. Please try again.",
+    "privacy": "Your address will only be used for the newsletter. You can unsubscribe at any time.",
+    "confirmSubject": "Confirm your newsletter subscription",
+    "confirmText": "Click the button below to receive the Keleier Breiz hag ar Bed newsletter every week.",
+    "confirmButton": "Confirm",
+    "confirmIgnore": "If you didn't ask for this, simply ignore this email.",
+    "confirmedTitle": "Thank you!",
+    "confirmedText": "You're subscribed to the newsletter. You'll receive it every week.",
+    "invalidLink": "This link isn't valid or has expired. Please sign up again on the site.",
+    "back": "Back to the site",
+    "digestSubject": "This week's news",
+    "digestIntro": "Here are this week's new articles:",
+    "digestRead": "Read the article",
+    "unsubscribe": "Unsubscribe from the newsletter"
   }
 }

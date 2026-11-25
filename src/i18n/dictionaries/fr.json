@@ -198,5 +198,28 @@
     "series": "La série",
     "more": "À lire aussi",
     "reading": "vous lisez cet article"
+  },
+  "newsletter": {
+    "title": "Lettre d'information",
+    "text": "Chaque semaine, les nouveaux articles de Keleier Breiz hag ar Bed dans votre boîte mail.",
+    "email": "Votre adresse e-mail",
+    "language": "Langue de la lettre",
+    "submit": "S'inscrire",
+    "sent": "Un e-mail vient de vous être envoyé : cliquez sur le lien qu'il contient pour confirmer.",
+    "invalidEmail": "Cette adresse e-mail n'est pas valide.",
+    "error": "Une erreur est survenue. Merci de réessayer.",
+    "privacy": "Votre adresse ne servira qu'à la lettre d'information. Vous pourrez vous désinscrire à tout moment.",
+    "confirmSubject": "Confirmez votre inscription à la lettre d'information",
+    "confirmText": "Cliquez sur le bouton ci-dessous pour recevoir chaque semaine la lettre d'information de Keleier Breiz hag ar Bed.",
+    "confirmButton": "Confirmer",
+    "confirmIgnore": "Si vous n'avez rien demandé, ignorez simplement cet e-mail.",
+    "confirmedTitle": "Merci !",
+    "confirmedText": "Vous êtes inscrit à la lettre d'information. Vous la recevrez chaque semaine.",
+    "invalidLink": "Ce lien n'est pas valide ou a expiré. Merci de vous réinscrire sur le site.",
+    "back": "Retour au site",
+    "digestSubject": "Les nouvelles de la semaine",
+    "digestIntro": "Voici les nouveaux articles de la semaine :",
+    "digestRead": "Lire l'article",
+    "unsubscribe": "Se désinscrire de la lettre d'information"
   }
 }

@@ -5,6 +5,8 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { getLatestArticles } from "@/lib/articles";
 import { Header } from "@/components/Header";
 import { ArticleCard } from "@/components/ArticleCard";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { isNewsletterConfigured } from "@/lib/newsletter";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]">): Promise<Metadata> {
   const { lang } = await params;
@@ -57,6 +59,11 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
             {rest.map((article) => (
               <ArticleCard key={article.id} article={article} />
             ))}
+          </div>
+        )}
+        {isNewsletterConfigured && (
+          <div className="mx-auto max-w-xl">
+            <NewsletterSignup lang={lang} labels={dict.newsletter} />
           </div>
         )}
       </main>
