@@ -177,24 +177,33 @@ const brFr: Record<LegalKind, Record<"br" | "fr", LegalPageText>> = {
             "- Ho chomleh postel, evid kevrea (eul liamm a vez kaset deoh dre bostel, hep ger-tremen).",
             "- An anv a zibabit da ziskouez, hag ho soñjou.",
             "- Stad ho koumanant (doare, deiz adneveza).",
+            "- Ma en em enrollit d'al lizer-keleier: ho chomleh postel hag ar yez dibabet.",
             "Biskoaz ne resevom titouriou ho kartenn-vank: Stripe a ra war-dro ar paea.",
           ],
         },
-        { heading: "Perag e vezont dastumet?", lines: ["Evid mera ho kont, ho koumanant hag ho soñjou."] },
+        {
+          heading: "Perag e vezont dastumet?",
+          lines: [
+            "Evid mera ho kont, ho koumanant hag ho soñjou, hag evid kas deoh al lizer-keleier ma hoh eus goulennet anezañ (gand ho kraez, a c'hellit tenna pa garit dre al liamm e pep lizer).",
+          ],
+        },
         {
           heading: "Piou a c'hell o gwelet?",
           lines: [
             "- Supabase (diaz-roadennou ha kevrea)",
             "- Stripe ha Link (paea)",
             "- PayPal (skoazellou: ma rit eur skoazell, PayPal a ra war-dro ar paea hag a gas deomp hoh anv hag ho chomleh postel)",
-            "- Resend (kas ar posteliou kevrea, servijerien en Iwerzon)",
+            "- Resend (kas ar posteliou kevrea hag al lizer-keleier, servijerien en Iwerzon)",
             "- Vercel (herberhia al lehienn ha stadegou dizanv, hep toupin)",
             "Lod anezo a zo er-maez euz an Unaniez Europa; gwarezet eo an treuzkasou gand divizou kevratel.",
           ],
         },
         {
           heading: "Pegeit e vezont miret?",
-          lines: ["E-pad ma vez ho kont. An titouriou paea a vez miret gand Stripe hervez al lezenn."],
+          lines: [
+            "E-pad ma vez ho kont. An titouriou paea a vez miret gand Stripe hervez al lezenn.",
+            "Ho chomleh postel evid al lizer-keleier: betek ma paouezit d'e resev.",
+          ],
         },
         {
           heading: "Toupinou",
@@ -219,13 +228,14 @@ const brFr: Record<LegalKind, Record<"br" | "fr", LegalPageText>> = {
             "- Votre adresse e-mail, pour vous connecter (lien de connexion envoyé par e-mail, sans mot de passe).",
             "- Le nom que vous choisissez d'afficher, et vos commentaires.",
             "- L'état de votre abonnement (formule, date de renouvellement).",
+            "- Si vous vous inscrivez à la lettre d'information : votre adresse e-mail et la langue choisie.",
             "Nous ne recevons jamais vos coordonnées bancaires : le paiement est traité directement par Stripe.",
           ],
         },
         {
           heading: "Pourquoi",
           lines: [
-            "Pour gérer votre compte, votre abonnement et vos commentaires. Base légale : l'exécution du contrat (abonnement) et votre consentement (commentaires).",
+            "Pour gérer votre compte, votre abonnement et vos commentaires, et pour vous envoyer la lettre d'information si vous l'avez demandée. Base légale : l'exécution du contrat (abonnement) et votre consentement (commentaires, lettre d'information, que vous pouvez retirer à tout moment grâce au lien présent dans chaque lettre).",
           ],
         },
         {
@@ -234,14 +244,17 @@ const brFr: Record<LegalKind, Record<"br" | "fr", LegalPageText>> = {
             "- Supabase (base de données et connexion)",
             "- Stripe et Link (paiement)",
             "- PayPal (dons : si vous faites un don, PayPal traite le paiement et nous transmet votre nom et votre adresse e-mail)",
-            "- Resend (envoi des e-mails de connexion, serveurs en Irlande)",
+            "- Resend (envoi des e-mails de connexion et de la lettre d'information, serveurs en Irlande)",
             "- Vercel (hébergement du site et statistiques de visite anonymes, sans cookie)",
             "Certains prestataires sont situés hors de l'Union européenne ; les transferts sont encadrés par des clauses contractuelles types.",
           ],
         },
         {
           heading: "Durée de conservation",
-          lines: ["Tant que votre compte existe. Les données de facturation sont conservées par Stripe selon ses obligations légales."],
+          lines: [
+            "Tant que votre compte existe. Les données de facturation sont conservées par Stripe selon ses obligations légales.",
+            "Votre adresse pour la lettre d'information : jusqu'à votre désinscription.",
+          ],
         },
         {
           heading: "Cookies",
@@ -352,13 +365,14 @@ const en: Record<LegalKind, LegalPageText> = {
           "- Your email address, so you can sign in (a sign-in link is sent by email, with no password).",
           "- The name you choose to display, and your comments.",
           "- The state of your subscription (plan, renewal date).",
+          "- If you sign up for the newsletter: your email address and the language you chose.",
           "We never receive your bank details: payment is handled directly by Stripe.",
         ],
       },
       {
         heading: "Why",
         lines: [
-          "To manage your account, your subscription and your comments. Legal basis: performance of the contract (subscription) and your consent (comments).",
+          "To manage your account, your subscription and your comments, and to send you the newsletter if you asked for it. Legal basis: performance of the contract (subscription) and your consent (comments, newsletter, which you can withdraw at any time with the link in every newsletter).",
         ],
       },
       {
@@ -367,14 +381,17 @@ const en: Record<LegalKind, LegalPageText> = {
           "- Supabase (database and sign-in)",
           "- Stripe and Link (payment)",
           "- PayPal (donations: if you make a donation, PayPal handles the payment and sends us your name and email address)",
-          "- Resend (sending sign-in emails, servers in Ireland)",
+          "- Resend (sending sign-in emails and the newsletter, servers in Ireland)",
           "- Vercel (website hosting and anonymous visit statistics, without cookies)",
           "Some providers are located outside the European Union; these transfers are covered by standard contractual clauses.",
         ],
       },
       {
         heading: "How long we keep your data",
-        lines: ["For as long as your account exists. Billing data is kept by Stripe according to its legal obligations."],
+        lines: [
+          "For as long as your account exists. Billing data is kept by Stripe according to its legal obligations.",
+          "Your newsletter address: until you unsubscribe.",
+        ],
       },
       {
         heading: "Cookies",

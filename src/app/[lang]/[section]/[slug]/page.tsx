@@ -7,6 +7,8 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { getSectionBySlug } from "@/lib/sections";
 import { articlePath, getAllArticles, getArticle, getRelatedArticles, getTranslations } from "@/lib/articles";
 import { RelatedArticles } from "@/components/RelatedArticles";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { isNewsletterConfigured } from "@/lib/newsletter";
 import { Header } from "@/components/Header";
 import { Paywall } from "@/components/Paywall";
 import { Comments } from "@/components/Comments";
@@ -190,6 +192,7 @@ export default async function ArticlePage({ params }: PageProps<"/[lang]/[sectio
           </p>
         )}
         <RelatedArticles current={article} series={related.series} more={related.more} labels={dict.related} />
+        {isNewsletterConfigured && <NewsletterSignup lang={lang} labels={dict.newsletter} />}
         <Comments lang={lang} dict={dict} articleId={article.id} articleHref={articlePath(article)} />
       </main>
     </>

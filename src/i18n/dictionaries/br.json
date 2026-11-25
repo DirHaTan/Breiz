@@ -198,5 +198,28 @@
     "series": "Ar rummad",
     "more": "Da lenn ivez",
     "reading": "emaoh o lenn"
+  },
+  "newsletter": {
+    "title": "Lizer-keleier",
+    "text": "Bep sizun, pennadou nevez Keleier Breiz hag ar Bed en ho poest-lizerou.",
+    "email": "Ho chomleh postel",
+    "language": "Yez al lizer",
+    "submit": "En em enrolla",
+    "sent": "Kaset eo bet deoh eur postel: klikit war al liamm a zo ennañ evid kadarnaat.",
+    "invalidEmail": "Ar chomleh postel-se n'eo ket mat.",
+    "error": "Eur fazi a zo bet. Klaskit en-dro, mar plij.",
+    "privacy": "Ho chomleh postel na vo implijet nemed evid al lizer-keleier. Gellout a reoh paouez pa garoh.",
+    "confirmSubject": "Kadarnait hoh enskrivadur d'al lizer-keleier",
+    "confirmText": "Klikit war ar bouton amañ dindan evid resev lizer-keleier sizuniek Keleier Breiz hag ar Bed.",
+    "confirmButton": "Kadarnaat",
+    "confirmIgnore": "Ma n'hoh eus ket goulennet an dra-se, n'eus netra d'ober.",
+    "confirmedTitle": "Trugarez!",
+    "confirmedText": "Enskrivet oh d'al lizer-keleier. Resev a reoh anezañ bep sizun.",
+    "invalidLink": "Al liamm-mañ n'eo ket mat pe re goz eo. En em enrollit en-dro war al lehienn, mar plij.",
+    "back": "Distrei d'al lehienn",
+    "digestSubject": "Keleier ar sizun",
+    "digestIntro": "Setu pennadou nevez ar sizun:",
+    "digestRead": "Lenn ar pennad",
+    "unsubscribe": "Paouez da resev al lizer-keleier"
   }
 }
